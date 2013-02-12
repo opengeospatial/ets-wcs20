@@ -49,7 +49,7 @@
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
     								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
-    								service="WCS" version="2.0">
+    								service="WCS" version="2.0.1">
     								<wcs:CoverageId>]]><xsl:value-of select="./*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
@@ -84,7 +84,7 @@
 									xmlns:gml="http://www.opengis.net/gml/3.2"
 									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 									xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd"
-									service="WCS" version="2.0">
+									service="WCS" version="2.0.1">
 									<wcs:CoverageId>]]><xsl:value-of select="./*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:GetCoverage>]]></ctl:body>
 								<ctlp:XMLValidatingParser>
 									<ctlp:schemas>
@@ -126,7 +126,7 @@
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>
-			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']">
+			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Post']">
 				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] test ',.)"/>
 				<xsl:choose>
 					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
@@ -351,7 +351,7 @@
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>
-			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']">
+			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Get']">
 				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] test ',.)"/>
 				<xsl:choose>
 					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
@@ -569,7 +569,7 @@
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>
-			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']">
+			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Post']">
 				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] test ',.)"/>
 				<xsl:choose>
 					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">

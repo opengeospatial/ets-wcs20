@@ -1524,9 +1524,9 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] test ' ,//wcs:CoverageId)"/>
-						<xsl:if test="count(//*[local-name()='boundedBy']//@srsName)=1 and count(//*[local-name()='domainSet']//@srsName)=1">
-							<xsl:if test="not(//*[local-name()='boundedBy']//@srsName=//*[local-name()='domainSet']//@srsName)">
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ' ,.//wcs:CoverageId)"/>
+						<xsl:if test="count(.//*[local-name()='boundedBy']//@srsName)=1 and count(.//*[local-name()='domainSet']//@srsName)=1">
+							<xsl:if test="not(.//*[local-name()='boundedBy']//@srsName=.//*[local-name()='domainSet']//@srsName)">
 								<ctl:message>[FAILURE] If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
@@ -1569,9 +1569,9 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] test ' ,//wcs:CoverageId)"/>
-						<xsl:if test="count(//*[local-name()='boundedBy']//@srsName)=1 and count(//*[local-name()='domainSet']//@srsName)=1">
-							<xsl:if test="not(//*[local-name()='boundedBy']//@srsName=//*[local-name()='domainSet']//@srsName)">
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ' ,.//wcs:CoverageId)"/>
+						<xsl:if test="count(.//*[local-name()='boundedBy']//@srsName)=1 and count(.//*[local-name()='domainSet']//@srsName)=1">
+							<xsl:if test="not(.//*[local-name()='boundedBy']//@srsName=.//*[local-name()='domainSet']//@srsName)">
 								<ctl:message>[FAILURE] If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
@@ -1616,9 +1616,9 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] test ' ,//wcs:CoverageId)"/>
-						<xsl:if test="count(//*[local-name()='boundedBy']//@srsName)=1 and count(//*[local-name()='domainSet']//@srsName)=1">
-							<xsl:if test="not(//*[local-name()='boundedBy']//@srsName=//*[local-name()='domainSet']//@srsName)">
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ' ,.//wcs:CoverageId)"/>
+						<xsl:if test="count(.//*[local-name()='boundedBy']//@srsName)=1 and count(.//*[local-name()='domainSet']//@srsName)=1">
+							<xsl:if test="not(.//*[local-name()='boundedBy']//@srsName=.//*[local-name()='domainSet']//@srsName)">
 								<ctl:message>[FAILURE] If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:message>
 								<ctl:fail/>
 							</xsl:if>

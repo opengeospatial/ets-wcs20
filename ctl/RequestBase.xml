@@ -1345,8 +1345,8 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="empty($Capabilities//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The result should contain an ows:ExceptionReport.</ctl:message>
+					<xsl:if test="empty($Capabilities//wcs:Capabilities)">
+						<ctl:message>[FAILURE] The result should contain a wcs:Capabilities.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
