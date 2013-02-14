@@ -9,3 +9,9 @@ Changes included in latest revision:
 === Changes included in R1 ===
 2012-02-08 (jyu):
 - Added http code checking according to OWS common
+=== Changes included in R2 ===
+2012-02-014 (jyu):
+- fixed req1-9 on the duplicated url
+- fixed req12 for post request of Capabilities
+- fixed req23 for xpath of concate()
+
