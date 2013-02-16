@@ -1050,7 +1050,7 @@
 									<ctl:param name="coverageid">
 										<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
 									</ctl:param>
-									<ctl:param name="mediatype">"multipart/mixed</ctl:param>
+									<ctl:param name="mediatype">multipart/mixed</ctl:param>
 									<ctl:method>get</ctl:method>
 									<parsers:HTTPParser>
 										<parsers:parse mime="application/gml+xml">
@@ -1802,14 +1802,33 @@
 		
 		<ctl:assertion>Req36:The contents of the response to a successful GetCoverage request shall beencoded as specified in GMLCOV [OGC 09-146r2] conformance classmultipart where the range set is encoded as specified by the format pa-rameter or, in its absence, the coverage’s Native Format. </ctl:assertion>
 		<ctl:code>
+			<xsl:variable name="DescribeCoverage">
+				<ctl:request>
+					<ctl:url>
+						<xsl:value-of select="$url"/>
+					</ctl:url>
+					<ctl:method>get</ctl:method>
+					<ctl:param name="service">WCS</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="request">DescribeCoverage</ctl:param>
+					<ctl:param name="coverageid">
+						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
+					</ctl:param>
+					<ctlp:XMLValidatingParser>
+						<ctlp:schemas>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
+						</ctlp:schemas>
+					</ctlp:XMLValidatingParser>
+				</ctl:request>
+			</xsl:variable>
+			<xsl:if test="empty($DescribeCoverage//wcs:CoverageDescriptions)">
+				<ctl:message>[FAILURE] send a valid DescribeCoverage request, and the result should contain a wcs:CoverageDescriptions.</ctl:message>
+				<ctl:fail/>
+			</xsl:if>		
 			<xsl:choose>
 				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
-						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
-							<ctl:fail/>
-						</xsl:when>
-						<xsl:otherwise>
+						<xsl:when test="contains($DescribeCoverage//*[local-name()='nativeFormat'],'application/xml+gml')">	
 							<xsl:variable name="GetCoverage">
 								<ctl:request>
 									<ctl:url>
@@ -1820,8 +1839,7 @@
 									<ctl:param name="request">GetCoverage</ctl:param>
 									<ctl:param name="coverageid">
 										<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
-									</ctl:param>
-									<ctl:param name="mediatype">multipart/mixed</ctl:param>
+									</ctl:param>									
 									<ctl:method>get</ctl:method>
 									<parsers:HTTPParser>
 										<parsers:parse mime="application/gml+xml"/>
@@ -1838,7 +1856,8 @@
 							<ctl:call-test name="wcs:getcoverage_not_exception">
 								<ctl:with-param name="GetCoverage" select="$GetCoverage"/>
 							</ctl:call-test>
-						</xsl:otherwise>
+						</xsl:when>	
+						<xsl:otherwise/>
 					</xsl:choose>
 				</xsl:when>
 				<xsl:otherwise>
@@ -1864,9 +1883,7 @@
 									<ctl:param name="coverageid">
 										<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
 									</ctl:param>
-									<ctl:param name="mediatype">
-										<xsl:value-of select="multipart/mixed"/>
-									</ctl:param>
+									<ctl:param name="mediatype">multipart/mixed</ctl:param>
 									<ctl:method>get</ctl:method>
 									<parsers:HTTPParser>
 										<parsers:parse mime="application/gml+xml">
