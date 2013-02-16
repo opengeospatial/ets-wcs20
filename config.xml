@@ -14,7 +14,7 @@
         <description>Checks WCS implementations for conformance to OGC 09-110r3, 09-110r4.</description>
       </suite>
       <revision>
-        <name>r1</name>
+        <name>r2</name>
         <sources>
           <source>wcs/2.0.1/ctl</source>
         </sources>

@@ -2,7 +2,7 @@
 	<ctl:test name="wcs2:req25">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req25:Send a valid GetCoverage request to the server under test and check that the response is not an exception.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -36,7 +36,7 @@
 	<ctl:test name="wcs2:req26">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req26:Send a valid GetCoverage request to server under test which conforms to the references in the requirement. Check that the response is not an exception.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -70,7 +70,7 @@
 	<ctl:test name="wcs2:req27">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req27: Send valid GetCoverage requests to server under test addressing existing and non-existing coverages, resp. Check if appropriate results or excep-tions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -104,7 +104,7 @@
 	<ctl:test name="wcs2:req28">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>Req28:If a GetCoverage request contains a format parameter then this parametershall contain a MIME type identifier occurring in somewcs:formatSupported element of the response to a successful GetCapabilities request to this server. </ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -138,7 +138,7 @@
 	<ctl:test name="wcs2:req29">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>Req29:If a GetCoverage request contains a mediaType parameter then this pa-rameter shall contain a MIME type identifier of fixed value “multi-part/related”. </ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -172,7 +172,7 @@
 	<ctl:test name="wcs2:req30">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req30:Every dimension value in a GetCoverage request shall be equal to one of the axisLabels dimension names specified in the gml:SRSInformationGroup of the coverage gml:Envelope, unless the server offers a WCS CRS extension which overrides this requirement.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -206,7 +206,7 @@
 	<ctl:test name="wcs2:req31">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req31:A GetCoverage request shall contain at most one subsetting operation for each of the dimensions of the coverage addressed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -240,7 +240,7 @@
 	<ctl:test name="wcs2:req32">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req32:Send otherwise valid GetCoverage requests with matching and with violating trimming positions to server under test. Check if appropriate results are returned if and only if the requirement is fulfilled, and an exception other-wise. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -274,7 +274,7 @@
 	<ctl:test name="wcs2:req33">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req33:Send otherwise valid GetCoverage requests with matching and with violating slicing positions to server under test. Check if appropriate results are returned if and only if the requirement is fulfilled, and an exception otherwise. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -308,7 +308,7 @@
 	<ctl:test name="wcs2:req34">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req34:For each coverage offered by the server on hand, send a valid GetCoverage request to server under test. Check that the result validates against gmlcov:AbstractCoverage. Test passes if all individual tests pass.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -342,7 +342,7 @@
 	<ctl:test name="wcs2:req35">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req35:For each coverage encoding format (i.e., format encoding extension) supported by the server under test: Send a valid GetCoverage request to retrieve a coverage in this format. Check that the result is a valid instance of the format indicated. Do so for both complete and subsetted coverages. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -376,7 +376,7 @@
 	<ctl:test name="wcs2:req36">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>Req36:The contents of the response to a successful GetCoverage request shall beencoded as specified in GMLCOV [OGC 09-146r2] conformance classmultipart where the range set is encoded as specified by the format pa-rameter or, in its absence, the coverage’s Native Format. </ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -410,7 +410,7 @@
 	<ctl:test name="wcs2:req37">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req37:The response to a successful GetCoverage request with coverage identifier id shall consist of the coverage component of the OfferedCoverage identified by id, unless the server supports a WCS extension which over-rides this requirement.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -444,7 +444,7 @@
 	<ctl:test name="wcs2:req38">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req38:Send valid GetCoverage requests to the server under test with a single trimming as the only subsetting operation. Check correctness of the coverage response returned. Do so up to the maximum number of dimensions supported by the server and for subsetting dimensions at any position in the list of dimensions. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -478,7 +478,7 @@
 	<ctl:test name="wcs2:req39">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req39:Send valid GetCoverage requests to the server under test with a single slicing as the only subsetting operation. Check correctness of the coverage response returned. Do so up to the maximum number of dimensions supported by the server and for subsetting dimensions at any position in the list of dimensions. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -512,7 +512,7 @@
 	<ctl:test name="wcs2:req40">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req40:Pick some combination of trimming and slicing operations on a given coverage. Construct a set of GetCoverage requests by building all permutations of these subsetting operations. Compare the results of all requests whether the result returned is identical. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -546,7 +546,7 @@
 	<ctl:test name="wcs2:req41">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req41: When a WCS server encounters an error while performing a GetCoverage operation it shall return an exception report message as specified.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -580,7 +580,7 @@
 	<ctl:test name="wcs2:req42">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req42:For every coverage identifier returned in a GetCapabilities response, Describe Coverage and GetCoverage requests on such an identifier shall always deliver information about the same OfferedCoverage object.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
@@ -622,11 +622,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req25">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req25:Send a valid GetKVP GetCoverage request to the server under test and check that the response is not an exception.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -707,11 +707,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req26">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />		
+				
 		<ctl:assertion>req26:Send a valid GetKVP GetCoverage request to server under test which conforms to the references in the requirement. Check that the response is not an exception.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="DescribeCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -820,11 +820,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req27">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req27: Send valid GetKVP GetCoverage requests to server under test addressing existing and non-existing coverages, resp. Check if appropriate results or excep-tions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ', 'wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -917,11 +917,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req28">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>Req28:If a GetCoverage request contains a format parameter then this parametershall contain a MIME type identifier occurring in somewcs:formatSupported element of the response to a successful GetCapabilities request to this server.  </ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -966,7 +966,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -1028,11 +1028,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req29">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>Req29:If a GetCoverage request contains a mediaType parameter then this pa-rameter shall contain a MIME type identifier of fixed value “multi-part/related”. </ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -1074,7 +1074,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -1133,7 +1133,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req30">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req30:Every dimension value in a GetKVP GetCoverage request shall be equal to one of the axisLabels dimension names specified in the gml:SRSInformationGroup of the coverage gml:Envelope, unless the server offers a WCS CRS extension which overrides this requirement.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
@@ -1160,7 +1160,7 @@
 				<ctl:fail/>
 			</xsl:if>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -1226,7 +1226,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage_exception">
 						<ctl:request>
 							<ctl:url>
@@ -1282,7 +1282,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req31">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req31:A GetKVP GetCoverage request shall contain at most one subsetting operation for each of the dimensions of the coverage addressed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
@@ -1305,7 +1305,7 @@
 				</ctl:request>
 			</xsl:variable>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -1342,7 +1342,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage_exception">
 						<ctl:request>
 							<ctl:url>
@@ -1395,7 +1395,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req32">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />		
+				
 		<ctl:assertion>req32:Send otherwise GetKVP valid GetCoverage requests with matching and with violat-ing trimming positions to server under test. Check if appropriate results are returned if and only if the requirement is fulfilled, and an exception other-wise. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
@@ -1418,7 +1418,7 @@
 				</ctl:request>
 			</xsl:variable>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="DescribeCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -1507,7 +1507,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage_exception">
 						<ctl:request>
 							<ctl:url>
@@ -1558,7 +1558,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req33">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req33:Send otherwise valid GetKVP GetCoverage requests with matching and with violating slicing positions to server under test. Check if appropriate results are returned if and only if the requirement is fulfilled, and an exception otherwise. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
@@ -1585,7 +1585,7 @@
 				<ctl:fail/>
 			</xsl:if>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -1651,7 +1651,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage_exception">
 						<ctl:request>
 							<ctl:url>
@@ -1702,11 +1702,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req34">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />		
+				
 		<ctl:assertion>req34:For each coverage offered by the server on hand, send a valid GetKVP GetCoverage request to server under test. Check that the result validates against gmlcov:AbstractCoverage. Test passes if all individual tests pass.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -1767,11 +1767,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req35">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req35:For each coverage encoding format (i.e., format encoding extension) supported by the server under test: Send a valid GetKVP GetCoverage request to retrieve a coverage in this format. Check that the result is a valid instance of the format indicated. Do so for both complete and subsetted coverages. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<ctl:message>[MESSAGE] TBD in test suites of format encoding extensions.</ctl:message>
 				</xsl:when>
 				<xsl:otherwise>
@@ -1799,11 +1799,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req36">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>Req36:The contents of the response to a successful GetCoverage request shall beencoded as specified in GMLCOV [OGC 09-146r2] conformance classmultipart where the range set is encoded as specified by the format pa-rameter or, in its absence, the coverage’s Native Format. </ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -1846,7 +1846,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:choose>
 						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exsist')"/>
@@ -1910,11 +1910,11 @@
 	<ctl:test name="wcs2:get-kvp-core-req37">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req37:The response to a successful GetKVP GetCoverage request with coverage identifier id shall consist of the coverage component of the OfferedCoverage identified by id, unless the server supports a WCS extension which over-rides this requirement.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<ctl:message>[MESSAGE] TBD in test suites of format encoding extensions</ctl:message>
 				</xsl:when>
 				<xsl:otherwise>
@@ -1942,7 +1942,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req38">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req38:Send valid GetKVP GetCoverage requests to the server under test with a single trimming as the only subsetting operation. Check correctness of the coverage response returned. Do so up to the maximum number of dimensions supported by the server and for subsetting dimensions at any position in the list of dimensions. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
@@ -1969,7 +1969,7 @@
 				<ctl:fail/>
 			</xsl:if>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -2035,7 +2035,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage1">
 						<ctl:request>
 							<ctl:url>
@@ -2090,7 +2090,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req39">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req39:Send valid GetKVP GetCoverage requests to the server under test with a single slicing as the only subsetting operation. Check correctness of the coverage response returned. Do so up to the maximum number of dimensions supported by the server and for subsetting dimensions at any position in the list of dimensions. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
@@ -2117,7 +2117,7 @@
 				<ctl:fail/>
 			</xsl:if>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -2183,7 +2183,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage1">
 						<ctl:request>
 							<ctl:url>
@@ -2238,7 +2238,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req40">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req40:Pick some combination of trimming and slicing operations on a given coverage. Construct a set of GetKVP GetCoverage requests by building all permutations of these subsetting operations. Compare the results of all requests whether the result returned is identical. Pass test if all checks succeed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
@@ -2265,7 +2265,7 @@
 				<ctl:fail/>
 			</xsl:if>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -2302,7 +2302,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="$SupportsGML = 'true'">
+				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 					<xsl:variable name="DescribeCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -2382,7 +2382,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req41">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req41: When a WCS server encounters an error while performing a GetKVP GetCoverage operation it shall return an exception report message as specified.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="GetCoverage">
@@ -2554,12 +2554,12 @@
 	<ctl:test name="wcs2:get-kvp-core-req42">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:param name="SupportsGML" />
+		
 		<ctl:assertion>req42:For every coverage identifier returned in a GetCapabilities response, Describe Coverage and GetCoverage requests on such an identifier shall always deliver information about the same OfferedCoverage object.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']">
 				<xsl:choose>
-					<xsl:when test="$SupportsGML = 'true'">
+					<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
 						<xsl:variable name="DescribeCoverage">
 							<ctl:request>
 								<ctl:url>
