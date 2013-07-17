@@ -14,7 +14,7 @@
         <description>Checks WCS Core implementations for conformance with OGC 09-110r3, 09-110r4.</description>
       </suite>
       <revision>
-        <name>r3</name>
+        <name>r4</name>
         <status>Beta</status>
         <sources>
           <source>wcs/2.0.1/ctl</source>
