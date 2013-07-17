@@ -11,10 +11,10 @@
         <prefix>wcs2</prefix>
         <local-name>suite</local-name>
         <title>WCS 2.0.1 Conformance Test Suite</title>
-        <description>Checks WCS implementations for conformance to OGC 09-110r3, 09-110r4.</description>
+        <description>Checks WCS Core implementations for conformance with OGC 09-110r3, 09-110r4.</description>
       </suite>
       <revision>
-        <name>r2</name>
+        <name>r3</name>
         <status>Beta</status>
         <sources>
           <source>wcs/2.0.1/ctl</source>

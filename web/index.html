@@ -4,7 +4,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>WCS 2.0 compliance test suite</title>
+<title>WCS 2.0.1 compliance test suite</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 </head>
 <body>
@@ -15,6 +15,7 @@
   <li id="OGC-09-110r4"><a href="http://www.opengeospatial.org/standards/wcs">
         OpenGIS&reg; Web Coverage Service(WCS) 2.0 Interface Standard - Core</a>
         (OGC 09-110r3)</li>
+  <li id="OGC-09-110r4 "><a href="https://portal.opengeospatial.org/files/?artifact_id=48428">OGC® WCS 2.0 Interface Standard- Core: Corrigendum </a>(09-110r4)</li>      
   <li id="OGC-09-147r2"><a href="http://www.opengeospatial.org/standards/wcs">
         OpenGIS&reg; Web Coverage Service 2.0 Interface Standard - KVP Protocol Binding Extension (1.0)</a>
         (OGC 09-147r1)</li>
@@ -35,15 +36,11 @@
       <li>DescribeCoverage (KVP, Post, SOAP)</li>
       <li>GetCoverage (KVP) on GML coverage are tested </li>
 </ul>
-<p>The extensions (currently, KVP, Post, SOAP are implemented) are only tested when the
-GetCapabilities response indicates that the extensions are supported.</p>
-<p> At least one protocal implementation should be avaiable.</p>
+<p>The extensions (KVP, Post, and SOAP) are only tested when the GetCapabilities document indicates that the extensions are supported.</p>
+<p>At least one protocol implementation should be available.</p>
 <p>The user is prompted for the end point URL of the server. If there is no server at that location, the testing stops.</p>
 
-<h2>TBD</h2>
-<ul>
-  <li>To be addressed in the coming extensions</li>
-</ul>
+
 
 <h2>Test data</h2>
   <p>Sample coverages can be found at <a href="http://schemas.opengis.net/wcs/2.0/examples">http://schemas.opengis.net/wcs/2.0/examples</a>.</p>

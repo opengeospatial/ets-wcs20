@@ -1,4 +1,4 @@
-WCS 2.0 Test Suite Release Notes
+WCS 2.0.1 Test Suite Release Notes
 
 Changes included in latest revision:
 
@@ -6,12 +6,19 @@ Changes included in latest revision:
 === Changes included in R0 ===
 2012-11-15 (jyu):
 - Add/update test suites according to OGC-09-110r4 and OGC-09-147r2
+
 === Changes included in R1 ===
 2012-02-08 (jyu):
 - Added http code checking according to OWS common
+
 === Changes included in R2 ===
 2012-02-014 (jyu):
 - fixed req1-9 on the duplicated url
 - fixed req12 for post request of Capabilities
 - fixed req23 for xpath of concate()
+
+=== Changes included in R3 ===
+2013-07-17 (lb)
+- Edited documentation (index.html)
+
 
