@@ -284,7 +284,7 @@
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -322,7 +322,7 @@
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -361,7 +361,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -402,7 +402,7 @@
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -435,7 +435,7 @@
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -473,7 +473,7 @@
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -504,7 +504,7 @@
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -543,7 +543,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -576,7 +576,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -616,7 +616,7 @@
     								service="WCS" version="2.0.1">]]><xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -649,7 +649,7 @@
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId><wcs:CoverageId>CoverageId_Bogus</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -682,7 +682,7 @@
     								<wcs:CoverageId>Coverage_Bogus</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -722,7 +722,7 @@
 					</xsl:for-each>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -754,7 +754,7 @@
 					<ctl:param name="CoverageId">Coverage_Bogus</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -783,7 +783,7 @@
 					<ctl:param name="CoverageId">Coverage_Bogus</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -824,7 +824,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -858,7 +858,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -889,7 +889,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -931,7 +931,7 @@
 										service="WCS" version="2.0.1"><wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -972,7 +972,7 @@
 						</ctl:param>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -1014,7 +1014,7 @@
 						<ctlp:SOAPParser return="content">
 							<ctlp:XMLValidatingParser>
 								<ctlp:schemas>
-									<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+									<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 								</ctlp:schemas>
 							</ctlp:XMLValidatingParser>
 						</ctlp:SOAPParser>
@@ -1055,7 +1055,7 @@
     								service="WCS" version="2.0.1">]]><xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1088,7 +1088,7 @@
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId><wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1128,7 +1128,7 @@
 					</xsl:for-each>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1162,7 +1162,7 @@
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1203,7 +1203,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -1239,7 +1239,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -1279,7 +1279,7 @@
      								service="WCS" version="2.0.1">]]><xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1315,7 +1315,7 @@
      								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId><wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1355,7 +1355,7 @@
 					</xsl:for-each>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1392,7 +1392,7 @@
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1433,7 +1433,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -1472,7 +1472,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -1512,7 +1512,7 @@
      								service="WCS" version="2.0.1">]]><xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1557,7 +1557,7 @@
 					</xsl:for-each>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1603,7 +1603,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
@@ -1648,7 +1648,7 @@
 									service="WCS" version="2.0.1"><wcs:CoverageId>]]>CoverageId_Bogus<![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1683,7 +1683,7 @@
 					<ctl:param name="CoverageId">CoverageId_Bogus</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 						</ctlp:schemas>
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
@@ -1719,7 +1719,7 @@
 					<ctlp:SOAPParser return="content">
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsDescribeCoverage.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctlp:SOAPParser>
