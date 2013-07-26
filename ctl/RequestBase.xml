@@ -2,22 +2,26 @@
 	<ctl:test name="wcs2:req10">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req10:All WCS request types shall be a subtype of RequestBase.</ctl:assertion>
 		<ctl:code>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 				<ctl:call-test name="wcs2:get-kvp-core-req10">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
 				<ctl:call-test name="wcs2:post-xml-core-req10">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
 				<ctl:call-test name="wcs2:soap-core-req10">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 		</ctl:code>
@@ -25,22 +29,26 @@
 	<ctl:test name="wcs2:req11">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req11:For all WCS request types, the requst service parameter shall have a fixed value of 'WCS'.</ctl:assertion>
 		<ctl:code>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 				<ctl:call-test name="wcs2:get-kvp-core-req11">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
 				<ctl:call-test name="wcs2:post-xml-core-req11">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
 				<ctl:call-test name="wcs2:soap-core-req11">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 		</ctl:code>
@@ -48,28 +56,33 @@
 	<ctl:test name="wcs2:req12">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req12:For all WCS request types, the request version parameter shall have a fixed value of '2.0'.</ctl:assertion>
 		<ctl:code>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 				<ctl:call-test name="wcs2:get-kvp-core-req12">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
 				<ctl:call-test name="wcs2:post-xml-core-req12">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
 				<ctl:call-test name="wcs2:soap-core-req12">
 					<ctl:with-param name="url" select="$url"/>
+					<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 				</ctl:call-test>
 			</xsl:if>
 		</ctl:code>
 	</ctl:test>
 	<ctl:test name="wcs2:post-xml-core-req10">
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req10:Test all WCS request types are a subtype of RequestBase by PostXML.</ctl:assertion>
 		<ctl:code>
@@ -142,7 +155,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -185,6 +198,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:get-kvp-core-req10">
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req10:Test all WCS request types are a subtype of RequestBase by GetKVP.</ctl:assertion>
 		<ctl:code>
@@ -248,7 +262,7 @@
   				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -288,8 +302,8 @@
 		</ctl:code>
 	</ctl:test>
 	<ctl:test name="wcs2:soap-core-req10">
-		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req10:Test all WCS request types are a subtype of RequestBase by SOAP.</ctl:assertion>
 		<ctl:code>
@@ -299,7 +313,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:GetCapabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:wcs="http://www.opengis.net/wcs/2.0" service="WCS" version="2.0.1">		
+						<wcs:GetCapabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:wcs="http://www.opengis.net/wcs/2.0" service="WCS" version="2.0.1">
 								</wcs:GetCapabilities>
 					</ctl:body>
 					<ctlp:SOAPParser return="content">
@@ -357,7 +371,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:soap-request version="1.2" charset="UTF-8">
 							<ctl:url>
@@ -400,6 +414,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:post-xml-core-req11">
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req11:Test all WCS request types, the requst service parameter has a fixed value of 'WCS' by PostXML.</ctl:assertion>
 		<ctl:code>
@@ -608,7 +623,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -717,6 +732,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:get-kvp-core-req11">
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req11:Test all WCS request types, the requst service parameter has a fixed value of 'WCS' by GetKVP.</ctl:assertion>
 		<ctl:code>
@@ -726,7 +742,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:method>get</ctl:method>
-					<ctl:param name="SERVICE">wCS</ctl:param>
+					<ctl:param name="SERVICE">wCS</ctl:param> <!-- TODO: That contradicts the text below req 3 of the KVP extension. -->
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -754,7 +770,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:method>get</ctl:method>
-					<ctl:param name="SERVICE">WCS1</ctl:param>
+					<ctl:param name="SERVICE">WCS1</ctl:param> <!-- TODO: Why testing another service? -->
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -830,7 +846,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The result should  be an ows:ExceptionReport.</ctl:message>
+						<ctl:message>[FAILURE] The result should be an ows:ExceptionReport.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -841,7 +857,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:method>get</ctl:method>
-					<ctl:param name="service">WFS</ctl:param>
+					<ctl:param name="service">WFS</ctl:param> <!-- TODO: Why testing another service? -->
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
@@ -898,7 +914,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -1000,8 +1016,8 @@
 		</ctl:code>
 	</ctl:test>
 	<ctl:test name="wcs2:soap-core-req11">
-		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req11:Test all WCS request types, the requst service parameter has a fixed value of 'WCS' by SOAP.</ctl:assertion>
 		<ctl:code>
@@ -1204,7 +1220,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:soap-request version="1.2" charset="UTF-8">
 							<ctl:url>
@@ -1313,6 +1329,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:post-xml-core-req12">
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req12:For all WCS request types, test the request version parameter has a fixed value of '2.0' by PostXML.</ctl:assertion>
 		<ctl:code>
@@ -1521,7 +1538,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -1630,6 +1647,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:get-kvp-core-req12">
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req12:For all WCS request types, test the request version parameter has a fixed value of '2.0' by GetKVP.</ctl:assertion>
 		<ctl:code>
@@ -1755,7 +1773,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
@@ -1857,8 +1875,8 @@
 		</ctl:code>
 	</ctl:test>
 	<ctl:test name="wcs2:soap-core-req12">
-		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
+		<ctl:param name="SupportsGML" />
 		
 		<ctl:assertion>req12:For all WCS request types, test the request version parameter has a fixed value of '2.0' by SOAP.</ctl:assertion>
 		<ctl:code>
@@ -2063,7 +2081,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '),'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+				<xsl:when test="$SupportsGML = 'true'">
 					<xsl:variable name="GetCoverage">
 						<ctl:soap-request version="1.2" charset="UTF-8">
 							<ctl:url>

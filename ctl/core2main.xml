@@ -20,25 +20,35 @@
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
 			</xsl:variable>
-		
+			<xsl:variable name="SupportsGML">false</xsl:variable>
+			<xsl:for-each select="$response//*[local-name()='ServiceIdentification']/*[local-name()='Profile']">
+				<xsl:if test=". = 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml'">
+					<xsl:variable name="SupportsGML">true</xsl:variable>
+				</xsl:if>
+			</xsl:for-each>
+			
 			<!--Invoke the core tests-->
 			<xsl:choose>
 				<xsl:when test="not(empty($response))">
 					<ctl:call-test name="wcs2:req1-9">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req10">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req11">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req12">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req13">
 						<ctl:with-param name="url" select="$url"/>
@@ -91,18 +101,22 @@
 					<ctl:call-test name="wcs2:req25">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req26">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req27">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req28">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req29">
 						<ctl:with-param name="url" select="$url"/>
