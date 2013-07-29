@@ -37,11 +37,11 @@
 		<ctl:assertion>req1-9:For all coverages offered by the server under test, test coverage structure, service parameters, and service metatada via PostXML GetCapabilities, DescribeCoverage and GetCoverage operations. Verify the responses contain the required information.</ctl:assertion>
 		<ctl:code>
 			<xsl:if test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
-				<ctl:message>[FAILURE] CoverageId is not available</ctl:message>
+				<ctl:message>[FAILURE] CoverageId is not available.</ctl:message>
 				<ctl:fail/>
 			</xsl:if>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE]test ',./*[local-name()='CoverageId'])"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ', ./*[local-name()='CoverageId'])"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:request>
 						<ctl:url>
@@ -99,21 +99,21 @@
 							</ctl:request>
 						</xsl:variable>
 						<xsl:if test="not(count($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'])=1 and count($GetCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'])=1 )">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req1 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req1 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:if test="not((count($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@srsName)=1) and (count($GetCoverage//*[local-name()='boundedBy']//@srsName)=1) and ($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@srsName=$GetCoverage//*[local-name()='boundedBy']//@srsName)) ">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req2 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req2 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:if test="not((count($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@axisLabels)=1) and (count($GetCoverage//*[local-name()='boundedBy']//@axisLabels)=1) and ($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@axisLabels=$GetCoverage//*[local-name()='boundedBy']//@axisLabels)) ">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req3 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req3 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:choose>
 							<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml-coverage')">
 								<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and count($GetCoverage//*[local-name()='boundedBy']/parent::*)=1 and ./*[local-name()='CoverageSubtype']=local-name($GetCoverage//*[local-name()='boundedBy']/parent::*))">
-									<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req4 test')"/>
+									<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req4 test.')"/>
 									<ctl:fail/>
 								</xsl:if>
 							</xsl:when>
@@ -122,7 +122,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 						<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and  count(index-of(('MultiPointCoverage','MultiCurveCoverage','MultiSurfaceCoverage','MultiSolidCoverage','GridCoverage','RectifiedGridCoverage','ReferenceableGridCoverage'),./*[local-name()='CoverageSubtype']))=1)">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req5 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req5 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 					</xsl:when>
@@ -132,9 +132,9 @@
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Post']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] test ',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name)"/>
 				<xsl:choose>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
 						<xsl:variable name="Capabilities">
 							<ctl:request>
 								<ctl:url>
@@ -171,7 +171,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
 						<xsl:variable name="DescribeCoverage">
 							<ctl:request>
 								<ctl:url>
@@ -206,7 +206,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
 						<xsl:choose>
 							<xsl:when test="$SupportsGML = 'true'">
 								<xsl:variable name="GetCoverage">
@@ -244,17 +244,17 @@
 								</xsl:choose>
 							</xsl:when>
 							<xsl:otherwise>
-								<ctl:message> the server does not support the gml coverage.</ctl:message>
+								<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message>
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
 					<xsl:otherwise>
-						<ctl:message> [MESSAGE] The server support a operation other than GetCapabilities, DescribeCoverage and GetCoverage.</ctl:message>
+						<ctl:message>[MESSAGE] The server supports an operation other than GetCapabilities, DescribeCoverage, and GetCoverage.</ctl:message>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:if test="empty($Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='formatSupported'])">
-				<ctl:message>[FAILURE] req9: should contain at least one formatSupported element </ctl:message>
+				<ctl:message>[FAILURE] req9: The capabilities should contain at least one formatSupported element </ctl:message>
 				<ctl:fail/>
 			</xsl:if>
 		</ctl:code>
@@ -271,7 +271,7 @@
 				<ctl:fail/>
 			</xsl:if>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ',./*[local-name()='CoverageId'])"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ', ./*[local-name()='CoverageId'])"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:request>
 						<ctl:url>
@@ -326,42 +326,42 @@
 							</ctl:request>
 						</xsl:variable>
 						<xsl:if test="not(count($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'])=1 and count($GetCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'])=1)">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE]', ./*[local-name()='CoverageId'],'fails in req1 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ', ./*[local-name()='CoverageId'], ' fails in req1 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:if test="not((count($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@srsName)=1) and (count($GetCoverage//*[local-name()='boundedBy']//@srsName)=1) and ($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@srsName=$GetCoverage//*[local-name()='boundedBy']//@srsName)) ">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE]', ./*[local-name()='CoverageId'],'fails in req2 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ', ./*[local-name()='CoverageId'],' fails in req2 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:if test="not((count($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@axisLabels)=1) and (count($GetCoverage//*[local-name()='boundedBy']//@axisLabels)=1) and ($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@axisLabels=$GetCoverage//*[local-name()='boundedBy']//@axisLabels)) ">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE]', ./*[local-name()='CoverageId'],'fails in req3 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ', ./*[local-name()='CoverageId'],' fails in req3 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:choose>
 							<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml-coverage')">
 								<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and count($GetCoverage//*[local-name()='boundedBy']/parent::*)=1 and ./*[local-name()='CoverageSubtype']=local-name($GetCoverage//*[local-name()='boundedBy']/parent::*))">
-									<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE]', ./*[local-name()='CoverageId'],'fails in req4 test')"/>
+									<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ', ./*[local-name()='CoverageId'],' fails in req4 test.')"/>
 									<ctl:fail/>
 								</xsl:if>
 							</xsl:when>
 							<xsl:otherwise>
-								<ctl:message> [MESSAGE] The server does not allow to extract the coverage type.</ctl:message>
+								<ctl:message>[MESSAGE] The server does not allow to extract the coverage type.</ctl:message>
 							</xsl:otherwise>
 						</xsl:choose>
 						<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and  count(index-of(('MultiPointCoverage','MultiCurveCoverage','MultiSurfaceCoverage','MultiSolidCoverage','GridCoverage','RectifiedGridCoverage','ReferenceableGridCoverage'),./*[local-name()='CoverageSubtype']))=1)">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE]', ./*[local-name()='CoverageId'],'fails in req5 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ', ./*[local-name()='CoverageId'],' fails in req5 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 					</xsl:when>
 					<xsl:otherwise>
-						<ctl:message> [MESSAGE] The server does not support the gml coverage.</ctl:message>
+						<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Get']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] test ',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name)"/>
 				<xsl:choose>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
 						<xsl:variable name="Capabilities">
 							<ctl:request>
 								<ctl:url>
@@ -391,7 +391,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
 						<xsl:variable name="DescribeCoverage">
 							<ctl:request>
 								<ctl:url>
@@ -424,7 +424,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
 						<xsl:choose>
 							<xsl:when test="$SupportsGML = 'true'">
 								<xsl:variable name="GetCoverage">
@@ -465,12 +465,12 @@
 						</xsl:choose>
 					</xsl:when>
 					<xsl:otherwise>
-						<ctl:message>[MESSAGE] The server support a operation other than GetCapabilities, DescribeCoverage and GetCoverage.</ctl:message>
+						<ctl:message>[MESSAGE] The server supports an operation other than GetCapabilities, DescribeCoverage, and GetCoverage.</ctl:message>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:if test="empty($Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='formatSupported'])">
-				<ctl:message>[FAILURE] req9: should contain at least one formatSupported element </ctl:message>
+				<ctl:message>[FAILURE] req9: The capabilities should contain at least one formatSupported element.</ctl:message>
 				<ctl:fail/>
 			</xsl:if>
 		</ctl:code>
@@ -487,7 +487,7 @@
 				<ctl:fail/>
 			</xsl:if>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE]test ',./*[local-name()='CoverageId'])"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ', ./*[local-name()='CoverageId'])"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:soap-request version="1.2" charset="UTF-8">
 						<ctl:url>
@@ -545,21 +545,21 @@
 							</ctl:soap-request>
 						</xsl:variable>
 						<xsl:if test="not(count($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'])=1 and count($GetCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'])=1)">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req1 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req1 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:if test="not((count($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@srsName)=1) and (count($GetCoverage//*[local-name()='boundedBy']//@srsName)=1) and ($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@srsName=$GetCoverage//*[local-name()='boundedBy']//@srsName)) ">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req2 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req2 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:if test="not((count($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@axisLabels)=1) and (count($GetCoverage//*[local-name()='boundedBy']//@axisLabels)=1) and ($DescribeCoverage/*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='boundedBy']//@axisLabels=$GetCoverage//*[local-name()='boundedBy']//@axisLabels)) ">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req3 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req3 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 						<xsl:choose>
 							<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml-coverage')">
 								<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and count($GetCoverage//*[local-name()='boundedBy']/parent::*)=1 and ./*[local-name()='CoverageSubtype']=local-name($GetCoverage//*[local-name()='boundedBy']/parent::*))">
-									<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req4 test')"/>
+									<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req4 test.')"/>
 									<ctl:fail/>
 								</xsl:if>
 							</xsl:when>
@@ -568,7 +568,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 						<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and  count(index-of(('MultiPointCoverage','MultiCurveCoverage','MultiSurfaceCoverage','MultiSolidCoverage','GridCoverage','RectifiedGridCoverage','ReferenceableGridCoverage'),./*[local-name()='CoverageSubtype']))=1)">
-							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ',./*[local-name()='CoverageId'],'fails in req5 test')"/>
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req5 test.')"/>
 							<ctl:fail/>
 						</xsl:if>
 					</xsl:when>
@@ -578,9 +578,9 @@
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Post']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] test ',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name)"/>
 				<xsl:choose>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
 						<xsl:variable name="Capabilities">
 							<ctl:soap-request version="1.2" charset="UTF-8">
 								<ctl:url>
@@ -615,7 +615,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
 						<xsl:variable name="DescribeCoverage">
 							<ctl:soap-request version="1.2" charset="UTF-8">
 								<ctl:url>
@@ -650,7 +650,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
 						<xsl:choose>
 							<xsl:when test="$SupportsGML = 'true'">
 								<xsl:variable name="GetCoverage">
@@ -688,17 +688,17 @@
 								</xsl:choose>
 							</xsl:when>
 							<xsl:otherwise>
-								<ctl:message> the server does not support the gml coverage.</ctl:message>
+								<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message>
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
 					<xsl:otherwise>
-						<ctl:message> [MESSAGE] The server support a operation other than GetCapabilities, DescribeCoverage and GetCoverage.</ctl:message>
+						<ctl:message>[MESSAGE] The server supports an operation other than GetCapabilities, DescribeCoverage, and GetCoverage.</ctl:message>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:if test="empty($Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='formatSupported'])">
-				<ctl:message>[FAILURE] req9: should contain at least one formatSupported element </ctl:message>
+				<ctl:message>[FAILURE] req9: The capabilities should contain at least one formatSupported element </ctl:message>
 				<ctl:fail/>
 			</xsl:if>
 		</ctl:code>
