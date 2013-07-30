@@ -1,5 +1,5 @@
 <ctl:package xmlns:ctl="http://www.occamlab.com/ctl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ctlp="http://www.occamlab.com/te/parsers" xmlns:wcs2="http://www.opengis.net/wcs/2.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<!--NOTE: As there is no canonical practice among and within communities dealing with coverages to use one particular protocol none of the protocols specified in WCS extensions is mandatory. In practice, this may lead to a lack of interoperability between client and server implementations. In future user communities might agree eventually to make on particular protocol binding mandatory.We use the GetCapabilities in HTTP Get KVP as a intially starting point-->
+	<!-- NOTE: As there is no canonical practice among and within communities dealing with coverages to use one particular protocol none of the protocols specified in WCS extensions is mandatory. In practice, this may lead to a lack of interoperability between client and server implementations. In future, user communities might agree eventually to make a particular protocol binding mandatory. We use the GetCapabilities in HTTP Get KVP as an initially starting point-->
 	<ctl:test name="wcs2:core-main">
 		<ctl:param name="url"/>
 		<ctl:assertion>Test the WCS 2.0 Core.</ctl:assertion>
@@ -20,12 +20,13 @@
 					</ctlp:XMLValidatingParser>
 				</ctl:request>
 			</xsl:variable>
-			<xsl:variable name="SupportsGML">false</xsl:variable>
-			<xsl:for-each select="$response//*[local-name()='ServiceIdentification']/*[local-name()='Profile']">
-				<xsl:if test=". = 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml'">
-					<xsl:variable name="SupportsGML">true</xsl:variable>
-				</xsl:if>
-			</xsl:for-each>
+			<xsl:variable name="SupportsGML">
+				<xsl:for-each select="$response//*[local-name()='ServiceIdentification']/*[local-name()='Profile']">
+					<xsl:if test=". = 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml'">
+						<xsl:value-of select="'true'"/>
+					</xsl:if>
+				</xsl:for-each>
+			</xsl:variable>
 			
 			<!--Invoke the core tests-->
 			<xsl:choose>
