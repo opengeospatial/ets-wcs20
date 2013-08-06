@@ -2,7 +2,7 @@
 	<ctl:test name="wcs2:req13">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req13:Send GetCapabilities requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
+		<ctl:assertion>req13: Send GetCapabilities requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 				<ctl:call-test name="wcs2:get-kvp-core-req13">
@@ -24,7 +24,7 @@
 	<ctl:test name="wcs2:req14">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req14:Send a valid GetCapabilities request to the server under test, check the result consists of an XML document of type Capabilities and the appropriate components, as defined in the places referenced.</ctl:assertion>
+		<ctl:assertion>req14: Send a valid GetCapabilities request to the server under test, check the result consists of an XML document of type Capabilities and the appropriate components, as defined in the places referenced.</ctl:assertion>
 		<ctl:code>
 			<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 				<ctl:call-test name="wcs2:get-kvp-core-req14">
@@ -46,7 +46,7 @@
 	<ctl:test name="wcs2:req15">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req15:Test the Contents section component.</ctl:assertion>
+		<ctl:assertion>req15: Test the Contents section component.</ctl:assertion>
 		<ctl:code>
 			<xsl:if test="empty($Capabilities//*[local-name()='Contents'])">
 				<ctl:message>[FAILURE] The result should contain a Contents section.</ctl:message>
@@ -57,7 +57,7 @@
 	<ctl:test name="wcs2:req16">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req16:In the response to a successful GetCapabilities request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
+		<ctl:assertion>req16: In the response to a successful GetCapabilities request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -89,7 +89,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:post-xml-core-req13">
 		<ctl:param name="url"/>
-		<ctl:assertion>req13:Send GetCapabilities requests with valid and invalid request structure by PostXML. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
+		<ctl:assertion>req13: Send GetCapabilities requests with valid and invalid request structure by PostXML. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="Capabilities">
 				<ctl:request>
@@ -104,7 +104,7 @@
 											xmlns:wcs="http://www.opengis.net/wcs/2.0"
 											service="WCS" version="2.0.1">
 									<ows:AcceptVersions>
-										<ows:Version>2.0</ows:Version>
+										<ows:Version>2.0.1</ows:Version>
 									</ows:AcceptVersions>
 								</wcs:GetCapabilities>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -120,43 +120,8 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="empty($Capabilities//wcs:Capabilities)">
+					<xsl:if test="empty($Capabilities//*[local-name()='Capabilities'])">
 						<ctl:message>[FAILURE] The result should contain a wcs:Capabilities.</ctl:message>
-						<ctl:fail/>
-					</xsl:if>
-				</xsl:otherwise>
-			</xsl:choose>
-			<xsl:variable name="Capabilities">
-				<ctl:request>
-					<ctl:url>
-						<xsl:value-of select="$url"/>
-					</ctl:url>
-					<ctl:method>post</ctl:method>
-					<ctl:header name="Content-type">text/xml</ctl:header>
-					<ctl:body><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-								<wcs:GetCapabilities  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-											xmlns:ows="http://www.opengis.net/ows/1.1"
-											xmlns:wcs="http://www.opengis.net/wcs/2.0"
-											service="WCS" version="2.0.1" service="WCS">
-									<ows:AcceptVersions>
-										<ows:Version>2.0</ows:Version>
-									</ows:AcceptVersions>
-								</wcs:GetCapabilities>]]></ctl:body>
-					<ctlp:XMLValidatingParser>
-						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
-						</ctlp:schemas>
-					</ctlp:XMLValidatingParser>
-				</ctl:request>
-			</xsl:variable>
-			<xsl:choose>
-				<xsl:when test="empty($Capabilities)">
-					<ctl:message>[FAILURE] Parsing or validation errors.</ctl:message>
-					<ctl:fail/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:if test="not(empty($Capabilities//wcs:Capabilities))">
-						<ctl:message>[FAILURE] The result should not contain a wcs:Capabilities when send a invalid request structure.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -165,7 +130,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:get-kvp-core-req13">
 		<ctl:param name="url"/>
-		<ctl:assertion>req13:Send GetCapabilities requests with valid and invalid request structure by GetKVP. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
+		<ctl:assertion>req13: Send GetCapabilities requests with valid and invalid request structure by GetKVP. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="Capabilities">
 				<ctl:request>
@@ -189,37 +154,8 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="empty($Capabilities//wcs:Capabilities)">
+					<xsl:if test="empty($Capabilities//*[local-name()='Capabilities'])">
 						<ctl:message>[FAILURE] The result should contain a wcs:Capabilities.</ctl:message>
-						<ctl:fail/>
-					</xsl:if>
-				</xsl:otherwise>
-			</xsl:choose>
-			<xsl:variable name="Capabilities">
-				<ctl:request>
-					<ctl:url>
-						<xsl:value-of select="$url"/>
-					</ctl:url>
-					<ctl:method>get</ctl:method>
-					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="VERSION">2.0.1</ctl:param>
-					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
-					<ctlp:XMLValidatingParser>
-						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
-						</ctlp:schemas>
-					</ctlp:XMLValidatingParser>
-				</ctl:request>
-			</xsl:variable>
-			<xsl:choose>
-				<xsl:when test="empty($Capabilities)">
-					<ctl:message>[FAILURE] Parsing or validation errors.</ctl:message>
-					<ctl:fail/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:if test="not(empty($Capabilities//wcs:Capabilities))">
-						<ctl:message>[FAILURE] The result should not contain a wcs:Capabilities when send a invalid request structure.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -229,7 +165,7 @@
 	<ctl:test name="wcs2:soap-core-req13">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req13:Send GetCapabilities requests with valid and invalid request structure by SOAP. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
+		<ctl:assertion>req13: Send GetCapabilities requests with valid and invalid request structure by SOAP. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="Capabilities">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -239,7 +175,7 @@
 					<ctl:body>
 						<wcs:GetCapabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:wcs="http://www.opengis.net/wcs/2.0" service="WCS" version="2.0.1">
 							<ows:AcceptVersions>
-								<ows:Version>2.0</ows:Version>
+								<ows:Version>2.0.1</ows:Version>
 							</ows:AcceptVersions>
 						</wcs:GetCapabilities>
 					</ctl:body>
@@ -258,7 +194,7 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="empty($Capabilities//wcs:Capabilities)">
+					<xsl:if test="empty($Capabilities//*[local-name()='Capabilities'])">
 						<ctl:message>[FAILURE] The result should contain a wcs:Capabilities.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
@@ -268,7 +204,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:post-xml-core-req14">
 		<ctl:param name="url"/>
-		<ctl:assertion>req14:Send a valid GetCapabilities request to the server under test by PostXML, check the result consists of an XML document of type Capabilities and the appropriate components, as defined in the places referenced.</ctl:assertion>
+		<ctl:assertion>req14: Send a valid GetCapabilities request to the server under test by PostXML, check the result consists of an XML document of type Capabilities and the appropriate components, as defined in the places referenced.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="Capabilities">
 				<ctl:request>
@@ -283,7 +219,7 @@
 											xmlns:wcs="http://www.opengis.net/wcs/2.0"
 											service="WCS" version="2.0.1">
 									<ows:AcceptVersions>
-										<ows:Version>2.0</ows:Version>
+										<ows:Version>2.0.1</ows:Version>
 									</ows:AcceptVersions>
 								</wcs:GetCapabilities>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -299,7 +235,7 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="empty($Capabilities//wcs:Capabilities)">
+					<xsl:if test="empty($Capabilities//*[local-name()='Capabilities'])">
 						<ctl:message>[FAILURE] The result should contain a wcs:Capabilities.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
@@ -309,7 +245,7 @@
 	</ctl:test>
 	<ctl:test name="wcs2:get-kvp-core-req14">
 		<ctl:param name="url"/>
-		<ctl:assertion>req14:Send a valid GetCapabilities request to the server under test by GetKVP, check the result consists of an XML document of type Capabilities and the appropriate components, as defined in the places referenced.</ctl:assertion>
+		<ctl:assertion>req14: Send a valid GetCapabilities request to the server under test by GetKVP, check the result consists of an XML document of type Capabilities and the appropriate components, as defined in the places referenced.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="Capabilities">
 				<ctl:request>
@@ -333,7 +269,7 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="empty($Capabilities//wcs:Capabilities)">
+					<xsl:if test="empty($Capabilities//*[local-name()='Capabilities'])">
 						<ctl:message>[FAILURE] The result should contain a wcs:Capabilities.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
@@ -344,7 +280,7 @@
 	<ctl:test name="wcs2:soap-core-req14">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req14:Send a valid GetCapabilities request to the server under test by SOAP, check the result consists of an XML document of type Capabilities and the appropriate components, as defined in the places referenced.</ctl:assertion>
+		<ctl:assertion>req14: Send a valid GetCapabilities request to the server under test by SOAP, check the result consists of an XML document of type Capabilities and the appropriate components, as defined in the places referenced.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="Capabilities">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -354,7 +290,7 @@
 					<ctl:body>
 						<wcs:GetCapabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:wcs="http://www.opengis.net/wcs/2.0" service="WCS" version="2.0.1">
 							<ows:AcceptVersions>
-								<ows:Version>2.0</ows:Version>
+								<ows:Version>2.0.1</ows:Version>
 							</ows:AcceptVersions>
 						</wcs:GetCapabilities>
 					</ctl:body>
@@ -373,7 +309,7 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="empty($Capabilities//wcs:Capabilities)">
+					<xsl:if test="empty($Capabilities//*[local-name()='Capabilities'])">
 						<ctl:message>[FAILURE] The result should contain a wcs:Capabilities.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
@@ -384,7 +320,7 @@
 	<ctl:test name="wcs2:post-xml-core-req16">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req16:In the response to a successful GetCapabilities PostXML request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
+		<ctl:assertion>req16: In the response to a successful GetCapabilities PostXML request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test',.)"/>
@@ -399,7 +335,7 @@
 								<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 									xmlns:wcs='http://www.opengis.net/wcs/2.0'
 									xmlns:gml='http://www.opengis.net/gml/3.2'
-									xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+									xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
 									service="WCS" version="2.0.1">
 									<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 						<ctlp:XMLValidatingParser>
@@ -427,7 +363,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req16">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req16:In the response to a successful GetCapabilities GetKVP request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
+		<ctl:assertion>req16: In the response to a successful GetCapabilities GetKVP request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test',.)"/>
@@ -468,7 +404,7 @@
 	<ctl:test name="wcs2:soap-core-req16">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req16:In the response to a successful GetCapabilities SOAP request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
+		<ctl:assertion>req16: In the response to a successful GetCapabilities SOAP request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test',.)"/>
@@ -478,7 +414,7 @@
 							<xsl:value-of select="$url"/>
 						</ctl:url>
 						<ctl:body>
-							<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+							<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 								<wcs:CoverageId>
 									<xsl:value-of select="."/>
 								</wcs:CoverageId>
