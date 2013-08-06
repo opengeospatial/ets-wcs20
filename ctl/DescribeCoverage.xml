@@ -2,7 +2,7 @@
 	<ctl:test name="wcs2:req17">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req17:Send a valid DescribeCoverage request and check that the result is not an exception.</ctl:assertion>
+		<ctl:assertion>req17: Send a valid DescribeCoverage request and check that the result is not an exception.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -35,7 +35,7 @@
 	<ctl:test name="wcs2:req18">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req18:Send DescribeCoverage requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
+		<ctl:assertion>req18: Send DescribeCoverage requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -68,7 +68,7 @@
 	<ctl:test name="wcs2:req19">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req19:Each coverage identifier in the list submitted in a DescribeCoverage request shall identify a wcs:OfferedCoverage object available on the server addressed.</ctl:assertion>
+		<ctl:assertion>req19: Each coverage identifier in the list submitted in a DescribeCoverage request shall identify a wcs:OfferedCoverage object available on the server addressed.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -101,7 +101,7 @@
 	<ctl:test name="wcs2:req20">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req20:For all coverages offered by the server under test, send a DescribeCoverage request to server under test, check the result con?sists of an XML document of type CoverageDescriptions as describ?ed in the references stated by the requirement. Test passes if all individual tests pass.</ctl:assertion>
+		<ctl:assertion>req20: For all coverages offered by the server under test, send a DescribeCoverage request to server under test, check the result con?sists of an XML document of type CoverageDescriptions as describ?ed in the references stated by the requirement. Test passes if all individual tests pass.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -134,7 +134,7 @@
 	<ctl:test name="wcs2:req21">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req21:The response to a successful DescribeCoverage request with n>0 coverage identifiers shall be a list containing n items.</ctl:assertion>
+		<ctl:assertion>req21: The response to a successful DescribeCoverage request with n>0 coverage identifiers shall be a list containing n items.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -167,7 +167,7 @@
 	<ctl:test name="wcs2:req22">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req22:Obtain the list of coverage identifiers by sending a valid GetCapabilities request to the server under test. Send DescribeCoverage requests with a (non-empty) subset of the list and with the complete identifier list. Check responses whether they fulfill the requirement for each coverage description returned.</ctl:assertion>
+		<ctl:assertion>req22: Obtain the list of coverage identifiers by sending a valid GetCapabilities request to the server under test. Send DescribeCoverage requests with a (non-empty) subset of the list and with the complete identifier list. Check responses whether they fulfill the requirement for each coverage description returned.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -200,7 +200,7 @@
 	<ctl:test name="wcs2:req23">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req23:If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:assertion>
+		<ctl:assertion>req23: If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -233,7 +233,7 @@
 	<ctl:test name="wcs2:req24">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req24:When a WCS server encounters an error while performing a DescribeCoverage operation it shall return an exception report message chosen as specified.</ctl:assertion>
+		<ctl:assertion>req24: When a WCS server encounters an error while performing a DescribeCoverage operation it shall return an exception report message chosen as specified.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
@@ -266,7 +266,7 @@
 	<ctl:test name="wcs2:post-xml-core-req17">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req17:Send a valid PostXML DescribeCoverage request and check that the result is not an exception.</ctl:assertion>
+		<ctl:assertion>req17: Send a valid PostXML DescribeCoverage request and check that the result is not an exception.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -279,7 +279,7 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
     								service="WCS" version="2.0.1">
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -296,7 +296,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -306,7 +306,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req17">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req17:Send a valid GetKVP DescribeCoverage request and check that the result is not an exception.</ctl:assertion>
+		<ctl:assertion>req17: Send a valid GetKVP DescribeCoverage request and check that the result is not an exception.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -334,9 +334,9 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception.</ctl:message>
 						<ctl:fail/>
-					</xsl:if> ...
+					</xsl:if>
   				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -344,7 +344,7 @@
 	<ctl:test name="wcs2:soap-core-req17">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req17:Send a valid SOAP DescribeCoverage request and check that the result is not an exception.</ctl:assertion>
+		<ctl:assertion>req17: Send a valid SOAP DescribeCoverage request and check that the result is not an exception.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -352,7 +352,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<wcs:CoverageId>
 								<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
 							</wcs:CoverageId>
@@ -374,7 +374,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -384,7 +384,7 @@
 	<ctl:test name="wcs2:post-xml-core-req18">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req18:Send PostXML DescribeCoverage requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
+		<ctl:assertion>req18: Send PostXML DescribeCoverage requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -397,7 +397,7 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
     								service="WCS" version="2.0.1">
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -414,7 +414,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request structure is valid.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request structure is valid.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -430,9 +430,9 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
-    								services="WCS" version="2.0.1">
-    								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
+    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
+    								service="WCS" version="2.0.1">
+    								<wcs:Coverage>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:Coverage></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -447,7 +447,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request structure is invalid.</ctl:message>
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request structure is invalid.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -457,7 +457,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req18">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req18:Send GetKVP DescribeCoverage requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
+		<ctl:assertion>req18: Send GetKVP DescribeCoverage requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -485,7 +485,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request structure is valid.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request structure is valid.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -496,10 +496,10 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:method>get</ctl:method>
-					<ctl:param name="services">WCS</ctl:param>
+					<ctl:param name="service">WCS</ctl:param>
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
-					<ctl:param name="CoverageId">
+					<ctl:param name="Coverage">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -516,9 +516,9 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request structure is invalid.</ctl:message>
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request structure is invalid.</ctl:message>
 						<ctl:fail/>
-					</xsl:if> ...
+					</xsl:if>
   				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -526,7 +526,7 @@
 	<ctl:test name="wcs2:soap-core-req18">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req18:Send SOAP DescribeCoverage requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
+		<ctl:assertion>req18: Send SOAP DescribeCoverage requests with valid and invalid request structure. Pass test if appropriate valid results or exceptions, resp., are delivered.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -534,7 +534,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<wcs:CoverageId>
 								<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
 							</wcs:CoverageId>
@@ -556,7 +556,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request structure is valid.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request structure is valid.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -567,10 +567,10 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
-							<wcs:CoverageId>
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
+							<wcs:Coverage>
 								<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
-							</wcs:CoverageId>
+							</wcs:Coverage>
 						</wcs:DescribeCoverage>
 					</ctl:body>
 					<ctlp:SOAPParser return="content">
@@ -588,8 +588,8 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request structure is valid.</ctl:message>
+					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request structure is invalid.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -599,7 +599,7 @@
 	<ctl:test name="wcs2:post-xml-core-req19">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req19:Each coverage identifier in the list submitted in a DescribeCoverage Post XML request shall identify a wcs:OfferedCoverage object available on the server addressed.</ctl:assertion>
+		<ctl:assertion>req19: Each coverage identifier in the list submitted in a DescribeCoverage Post XML request shall identify a wcs:OfferedCoverage object available on the server addressed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -612,7 +612,7 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
     								service="WCS" version="2.0.1">]]><xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -628,7 +628,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -644,7 +644,7 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
     								service="WCS" version="2.0.1">
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId><wcs:CoverageId>CoverageId_Bogus</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -661,7 +661,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -677,9 +677,9 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
-    								services="WCS" version="2.0.1">
-    								<wcs:CoverageId>Coverage_Bogus</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
+    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
+    								service="WCS" version="2.0.1">
+    								<wcs:CoverageId>CoverageId_Bogus</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -694,7 +694,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -704,7 +704,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req19">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req19:Each coverage identifier in the list submitted in a GetKVP DescribeCoverage request shall identify a wcs:OfferedCoverage object available on the server addressed.</ctl:assertion>
+		<ctl:assertion>req19: Each coverage identifier in the list submitted in a GetKVP DescribeCoverage request shall identify a wcs:OfferedCoverage object available on the server addressed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -715,11 +715,12 @@
 					<ctl:param name="service">WCS</ctl:param>
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
-					<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-						<ctl:param name="CoverageId">
+					<ctl:param name="CoverageId">
+						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 							<xsl:value-of select="."/>
-						</ctl:param>
-					</xsl:for-each>
+							<xsl:if test="not(position() = last())">,</xsl:if>
+						</xsl:for-each>
+					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -734,7 +735,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -745,13 +746,12 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:method>get</ctl:method>
-					<ctl:param name="services">WCS</ctl:param>
+					<ctl:param name="service">WCS</ctl:param>
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
-						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
+						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>,CoverageId_Bogus
 					</ctl:param>
-					<ctl:param name="CoverageId">Coverage_Bogus</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -766,7 +766,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -777,10 +777,10 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:method>get</ctl:method>
-					<ctl:param name="services">WCS</ctl:param>
+					<ctl:param name="service">WCS</ctl:param>
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
-					<ctl:param name="CoverageId">Coverage_Bogus</ctl:param>
+					<ctl:param name="CoverageId">CoverageId_Bogus</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -795,7 +795,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -805,7 +805,7 @@
 	<ctl:test name="wcs2:soap-core-req19">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req19:Each coverage identifier in the list submitted in a SOAP DescribeCoverage request shall identify a wcs:OfferedCoverage object available on the server addressed.</ctl:assertion>
+		<ctl:assertion>req19: Each coverage identifier in the list submitted in a SOAP DescribeCoverage request shall identify a wcs:OfferedCoverage object available on the server addressed.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -813,7 +813,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 								<wcs:CoverageId>
 									<xsl:value-of select="."/>
@@ -837,7 +837,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-						<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
+						<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -848,7 +848,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<wcs:CoverageId>
 								<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
 							</wcs:CoverageId>
@@ -871,7 +871,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -882,8 +882,8 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" services="WCS" version="2.0.1">
-							<wcs:CoverageId>Coverage_Bogus</wcs:CoverageId>
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
+							<wcs:CoverageId>CoverageId_Bogus</wcs:CoverageId>
 						</wcs:DescribeCoverage>
 					</ctl:body>
 					<ctlp:SOAPParser return="content">
@@ -902,7 +902,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="empty($DescribeCoverage//*[local-name()='Exception'])">
-						<ctl:message>[FAILURE] The  result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
+						<ctl:message>[FAILURE] The result should contain an ows:Exception when the request identifies an invalid wcs:OfferedCoverage object.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -912,10 +912,10 @@
 	<ctl:test name="wcs2:post-xml-core-req20">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req20:For all coverages offered by the server under test, send a PostXML DescribeCoverage request to server under test, check the result consists of an XML document of type CoverageDescriptions as described in the references stated by the requirement. Test passes if all individual tests pass.</ctl:assertion>
+		<ctl:assertion>req20: For all coverages offered by the server under test, send a PostXML DescribeCoverage request to server under test, check the result consists of an XML document of type CoverageDescriptions as described in the references stated by the requirement. Test passes if all individual tests pass.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] test ',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:request>
 						<ctl:url>
@@ -927,7 +927,7 @@
 									<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 										xmlns:wcs='http://www.opengis.net/wcs/2.0'
 										xmlns:gml='http://www.opengis.net/gml/3.2'
-										xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+										xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
 										service="WCS" version="2.0.1"><wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
@@ -943,7 +943,7 @@
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-							<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
+							<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
 							<ctl:fail/>
 						</xsl:if>
 					</xsl:otherwise>
@@ -954,10 +954,10 @@
 	<ctl:test name="wcs2:get-kvp-core-req20">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req20:For all coverages offered by the server under test, send a GetKVP DescribeCoverage request to server under test, check the result consists of an XML document of type CoverageDescriptions as described in the references stated by the requirement. Test passes if all individual tests pass.</ctl:assertion>
+		<ctl:assertion>req20: For all coverages offered by the server under test, send a GetKVP DescribeCoverage request to server under test, check the result consists of an XML document of type CoverageDescriptions as described in the references stated by the requirement. Test passes if all individual tests pass.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] test ',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:request>
 						<ctl:url>
@@ -984,7 +984,7 @@
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-							<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
+							<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
 							<ctl:fail/>
 						</xsl:if>
 					</xsl:otherwise>
@@ -995,17 +995,17 @@
 	<ctl:test name="wcs2:soap-core-req20">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req20:For all coverages offered by the server under test, send a SOAP DescribeCoverage request to server under test, check the result consists of an XML document of type CoverageDescriptions as described in the references stated by the requirement. Test passes if all individual tests pass.</ctl:assertion>
+		<ctl:assertion>req20: For all coverages offered by the server under test, send a SOAP DescribeCoverage request to server under test, check the result consists of an XML document of type CoverageDescriptions as described in the references stated by the requirement. Test passes if all individual tests pass.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] test ',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:soap-request version="1.2" charset="UTF-8">
 						<ctl:url>
 							<xsl:value-of select="$url"/>
 						</ctl:url>
 						<ctl:body>
-							<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+							<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 								<wcs:CoverageId>
 									<xsl:value-of select="."/>
 								</wcs:CoverageId>
@@ -1027,7 +1027,7 @@
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:if test="not(empty($DescribeCoverage//*[local-name()='Exception']))">
-							<ctl:message>[FAILURE] The  result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
+							<ctl:message>[FAILURE] The result should not contain an ows:Exception when the request identifies valid wcs:OfferedCoverage objects.</ctl:message>
 							<ctl:fail/>
 						</xsl:if>
 					</xsl:otherwise>
@@ -1038,7 +1038,7 @@
 	<ctl:test name="wcs2:post-xml-core-req21">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req21:The response to a successful PostXML DescribeCoverage request with n>0 coverage identifiers shall be a list containing n items.</ctl:assertion>
+		<ctl:assertion>req21: The response to a successful PostXML DescribeCoverage request with n>0 coverage identifiers shall be a list containing n items.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -1051,7 +1051,7 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
     								service="WCS" version="2.0.1">]]><xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -1083,7 +1083,7 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
     								service="WCS" version="2.0.1">
     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId><wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -1110,7 +1110,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req21">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req21:The response to a successful GetKVP DescribeCoverage request with n>0 coverage identifiers shall be a list containing n items.</ctl:assertion>
+		<ctl:assertion>req21: The response to a successful GetKVP DescribeCoverage request with n>0 coverage identifiers shall be a list containing n items.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -1121,11 +1121,12 @@
 					<ctl:param name="service">WCS</ctl:param>
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
-					<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-						<ctl:param name="CoverageId">
+					<ctl:param name="CoverageId">
+						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 							<xsl:value-of select="."/>
-						</ctl:param>
-					</xsl:for-each>
+							<xsl:if test="not(position() = last())">,</xsl:if>
+						</xsl:for-each>
+					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -1155,9 +1156,7 @@
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
-						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
-					</ctl:param>
-					<ctl:param name="CoverageId">
+						<xsl:value-of select="concat($Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1],',')"/>
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/>
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -1184,7 +1183,7 @@
 	<ctl:test name="wcs2:soap-core-req21">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req21:The response to a successful SOAP DescribeCoverage request with n>0 coverage identifiers shall be a list containing n items.</ctl:assertion>
+		<ctl:assertion>req21: The response to a successful SOAP DescribeCoverage request with n>0 coverage identifiers shall be a list containing n items.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -1192,7 +1191,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 								<wcs:CoverageId>
 									<xsl:value-of select="."/>
@@ -1227,7 +1226,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<wcs:CoverageId>
 								<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
 							</wcs:CoverageId>
@@ -1262,7 +1261,7 @@
 	<ctl:test name="wcs2:post-xml-core-req22">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req22:Obtain the list of coverage identifiers by sending a valid GetCapabilities request to the server under test. Send PostXML DescribeCoverage requests with a (non-empty) subset of the list and with the complete identifier list. Check responses whether they fulfill the requirement for each coverage description returned.</ctl:assertion>
+		<ctl:assertion>req22: Obtain the list of coverage identifiers by sending a valid GetCapabilities request to the server under test. Send PostXML DescribeCoverage requests with a (non-empty) subset of the list and with the complete identifier list. Check responses whether they fulfill the requirement for each coverage description returned.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -1275,7 +1274,7 @@
  							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
      								xmlns:wcs='http://www.opengis.net/wcs/2.0'
      								xmlns:gml='http://www.opengis.net/gml/3.2'
-     								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+     								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
      								service="WCS" version="2.0.1">]]><xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -1291,7 +1290,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ',.)"/>
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 						<xsl:if test="not(count(index-of($DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='CoverageId'],.))=1)">
 							<ctl:message>[FAILURE] The CoverageId should identify the correct coverage.</ctl:message>
 							<ctl:fail/>
@@ -1310,7 +1309,7 @@
  							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
      								xmlns:wcs='http://www.opengis.net/wcs/2.0'
      								xmlns:gml='http://www.opengis.net/gml/3.2'
-     								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+     								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
      								service="WCS" version="2.0.1">
      								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId><wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -1337,7 +1336,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req22">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req22:Obtain the list of coverage identifiers by sending a valid GetCapabilities request to the server under test. Send GetKVP DescribeCoverage requests with a (non-empty) subset of the list and with the complete identifier list. Check responses whether they fulfill the requirement for each coverage description returned.</ctl:assertion>
+		<ctl:assertion>req22: Obtain the list of coverage identifiers by sending a valid GetCapabilities request to the server under test. Send GetKVP DescribeCoverage requests with a (non-empty) subset of the list and with the complete identifier list. Check responses whether they fulfill the requirement for each coverage description returned.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -1348,11 +1347,12 @@
 					<ctl:param name="service">WCS</ctl:param>
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
-					<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-						<ctl:param name="CoverageId">
+					<ctl:param name="CoverageId">
+						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 							<xsl:value-of select="."/>
-						</ctl:param>
-					</xsl:for-each>
+							<xsl:if test="not(position() = last())">,</xsl:if>
+						</xsl:for-each>
+					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -1367,7 +1367,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ',.)"/>
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 						<xsl:if test="not(count(index-of($DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='CoverageId'],.))=1)">
 							<ctl:message>[FAILURE] The CoverageId should identify the correct coverage.</ctl:message>
 							<ctl:fail/>
@@ -1385,9 +1385,7 @@
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
-						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
-					</ctl:param>
-					<ctl:param name="CoverageId">
+						<xsl:value-of select="concat($Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1],',')"/>
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/>
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -1414,7 +1412,7 @@
 	<ctl:test name="wcs2:soap-core-req22">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req22:Obtain the list of coverage identifiers by sending a valid GetCapabilities request to the server under test. Send SOAP DescribeCoverage requests with a (non-empty) subset of the list and with the complete identifier list. Check responses whether they fulfill the requirement for each coverage description returned.</ctl:assertion>
+		<ctl:assertion>req22: Obtain the list of coverage identifiers by sending a valid GetCapabilities request to the server under test. Send SOAP DescribeCoverage requests with a (non-empty) subset of the list and with the complete identifier list. Check responses whether they fulfill the requirement for each coverage description returned.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -1422,7 +1420,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 								<wcs:CoverageId>
 									<xsl:value-of select="."/>
@@ -1446,7 +1444,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ',.)"/>
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 						<xsl:if test="not(count(index-of($DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']/*[local-name()='CoverageId'],.))=1)">
 							<ctl:message>[FAILURE] The CoverageId should identify the correct coverage.</ctl:message>
 							<ctl:fail/>
@@ -1460,7 +1458,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<wcs:CoverageId>
 								<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
 							</wcs:CoverageId>
@@ -1495,7 +1493,7 @@
 	<ctl:test name="wcs2:post-xml-core-req23">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req23:If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:assertion>
+		<ctl:assertion>req23: If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -1508,7 +1506,7 @@
  							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
      								xmlns:wcs='http://www.opengis.net/wcs/2.0'
      								xmlns:gml='http://www.opengis.net/gml/3.2'
-     								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+     								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
      								service="WCS" version="2.0.1">]]><xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -1524,7 +1522,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ' ,.//wcs:CoverageId)"/>
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ' ,.//wcs:CoverageId)"/>
 						<xsl:if test="count(.//*[local-name()='boundedBy']//@srsName)=1 and count(.//*[local-name()='domainSet']//@srsName)=1">
 							<xsl:if test="not(.//*[local-name()='boundedBy']//@srsName=.//*[local-name()='domainSet']//@srsName)">
 								<ctl:message>[FAILURE] If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:message>
@@ -1539,7 +1537,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req23">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req23:If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:assertion>
+		<ctl:assertion>req23: If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -1550,11 +1548,12 @@
 					<ctl:param name="service">WCS</ctl:param>
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
-					<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-						<ctl:param name="CoverageId">
+					<ctl:param name="CoverageId">
+						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 							<xsl:value-of select="."/>
-						</ctl:param>
-					</xsl:for-each>
+							<xsl:if test="not(position() = last())">,</xsl:if>
+						</xsl:for-each>
+					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -1569,7 +1568,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ' ,.//wcs:CoverageId)"/>
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ' ,.//wcs:CoverageId)"/>
 						<xsl:if test="count(.//*[local-name()='boundedBy']//@srsName)=1 and count(.//*[local-name()='domainSet']//@srsName)=1">
 							<xsl:if test="not(.//*[local-name()='boundedBy']//@srsName=.//*[local-name()='domainSet']//@srsName)">
 								<ctl:message>[FAILURE] If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:message>
@@ -1584,7 +1583,7 @@
 	<ctl:test name="wcs2:soap-core-req23">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req23:If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:assertion>
+		<ctl:assertion>req23: If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -1592,7 +1591,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 								<wcs:CoverageId>
 									<xsl:value-of select="."/>
@@ -1616,7 +1615,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:for-each select="$DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']">
-						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test ' ,.//wcs:CoverageId)"/>
+						<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ' ,.//wcs:CoverageId)"/>
 						<xsl:if test="count(.//*[local-name()='boundedBy']//@srsName)=1 and count(.//*[local-name()='domainSet']//@srsName)=1">
 							<xsl:if test="not(.//*[local-name()='boundedBy']//@srsName=.//*[local-name()='domainSet']//@srsName)">
 								<ctl:message>[FAILURE] If a geometric or temporal object in the domainSet of a coverageDescription specifies an srsName attribute, the value of this attribute shall be identical to the srsName attribute of the boundedBy element of the containing coverageDescription.</ctl:message>
@@ -1631,7 +1630,7 @@
 	<ctl:test name="wcs2:post-xml-core-req24">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req24:When a WCS server encounters an error while performing a PostXML DescribeCoverage operation it shall return an exception report message chosen as specified.</ctl:assertion>
+		<ctl:assertion>req24: When a WCS server encounters an error while performing a PostXML DescribeCoverage operation it shall return an exception report message chosen as specified.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -1644,7 +1643,7 @@
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 									xmlns:wcs='http://www.opengis.net/wcs/2.0'
 									xmlns:gml='http://www.opengis.net/gml/3.2'
-									xsi:schemaLocation='http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd'
+									xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
 									service="WCS" version="2.0.1"><wcs:CoverageId>]]>CoverageId_Bogus<![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -1669,7 +1668,7 @@
 	<ctl:test name="wcs2:get-kvp-core-req24">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
-		<ctl:assertion>req24:When a WCS server encounters an error while performing a GetKVP DescribeCoverage operation it shall return an exception report message chosen as specified.</ctl:assertion>
+		<ctl:assertion>req24: When a WCS server encounters an error while performing a GetKVP DescribeCoverage operation it shall return an exception report message chosen as specified.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:request>
@@ -1704,7 +1703,7 @@
 	<ctl:test name="wcs2:soap-core-req24">
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="url"/>
-		<ctl:assertion>req24:When a WCS server encounters an error while performing a SOAP DescribeCoverage operation it shall return an exception report message chosen as specified.</ctl:assertion>
+		<ctl:assertion>req24: When a WCS server encounters an error while performing a SOAP DescribeCoverage operation it shall return an exception report message chosen as specified.</ctl:assertion>
 		<ctl:code>
 			<xsl:variable name="DescribeCoverage">
 				<ctl:soap-request version="1.2" charset="UTF-8">
@@ -1712,7 +1711,7 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:body>
-						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd" service="WCS" version="2.0.1">
+						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
 							<wcs:CoverageId>CoverageId_Bogus</wcs:CoverageId>
 						</wcs:DescribeCoverage>
 					</ctl:body>
