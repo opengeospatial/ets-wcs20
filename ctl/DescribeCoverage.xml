@@ -1645,11 +1645,13 @@
 									xmlns:gml='http://www.opengis.net/gml/3.2'
 									xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
 									service="WCS" version="2.0.1"><wcs:CoverageId>]]>CoverageId_Bogus<![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
-					<ctlp:XMLValidatingParser>
-						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
-						</ctlp:schemas>
-					</ctlp:XMLValidatingParser>
+					<ctlp:HTTPParser>
+						<ctlp:XMLValidatingParser>
+							<ctlp:schemas>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
+							</ctlp:schemas>
+						</ctlp:XMLValidatingParser>
+					</ctlp:HTTPParser>
 				</ctl:request>
 			</xsl:variable>
 			<xsl:choose>
@@ -1658,6 +1660,9 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
+					<xsl:if test="not($DescribeCoverage//*[local-name()='status']/@*[local-name()='code']='404') ">
+						<ctl:fail/>
+					</xsl:if>				
 					<xsl:if test="not(not(empty($DescribeCoverage//*[local-name()='Exception'])) and $DescribeCoverage//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
 						<ctl:fail/>
 					</xsl:if>
@@ -1680,11 +1685,13 @@
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">CoverageId_Bogus</ctl:param>
-					<ctlp:XMLValidatingParser>
-						<ctlp:schemas>
-							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
-						</ctlp:schemas>
-					</ctlp:XMLValidatingParser>
+					<ctlp:HTTPParser>
+						<ctlp:XMLValidatingParser>
+							<ctlp:schemas>
+								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
+							</ctlp:schemas>
+						</ctlp:XMLValidatingParser>
+					</ctlp:HTTPParser>
 				</ctl:request>
 			</xsl:variable>
 			<xsl:choose>
@@ -1693,6 +1700,9 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
+					<xsl:if test="not($DescribeCoverage//*[local-name()='status']/@*[local-name()='code']='404') ">
+						<ctl:fail/>
+					</xsl:if>				
 					<xsl:if test="not(not(empty($DescribeCoverage//*[local-name()='Exception'])) and $DescribeCoverage//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
 						<ctl:fail/>
 					</xsl:if>
@@ -1715,13 +1725,15 @@
 							<wcs:CoverageId>CoverageId_Bogus</wcs:CoverageId>
 						</wcs:DescribeCoverage>
 					</ctl:body>
-					<ctlp:SOAPParser return="content">
-						<ctlp:XMLValidatingParser>
-							<ctlp:schemas>
-								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
-							</ctlp:schemas>
-						</ctlp:XMLValidatingParser>
-					</ctlp:SOAPParser>
+					<ctlp:HTTPParser>
+						<ctlp:SOAPParser return="content">
+							<ctlp:XMLValidatingParser>
+								<ctlp:schemas>
+									<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
+								</ctlp:schemas>
+							</ctlp:XMLValidatingParser>
+						</ctlp:SOAPParser>
+					</ctlp:HTTPParser>
 				</ctl:soap-request>
 			</xsl:variable>
 			<xsl:choose>
@@ -1730,6 +1742,9 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
+					<xsl:if test="not($DescribeCoverage//*[local-name()='status']/@*[local-name()='code']='404') ">
+						<ctl:fail/>
+					</xsl:if>				
 					<xsl:if test="not(not(empty($DescribeCoverage//*[local-name()='Exception'])) and $DescribeCoverage//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
 						<ctl:fail/>
 					</xsl:if>
