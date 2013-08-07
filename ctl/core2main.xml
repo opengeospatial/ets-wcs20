@@ -122,50 +122,62 @@
 					<ctl:call-test name="wcs2:req29">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req30">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req31">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req32">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req33">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req34">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req35">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req36">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req37">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req38">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req39">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req40">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req41">
 						<ctl:with-param name="url" select="$url"/>
@@ -174,6 +186,7 @@
 					<ctl:call-test name="wcs2:req42">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="Capabilities" select="$response"/>
+						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:req43">
 						<ctl:with-param name="url" select="$url"/>
