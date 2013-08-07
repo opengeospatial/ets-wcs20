@@ -323,7 +323,7 @@
 		<ctl:assertion>req16: In the response to a successful GetCapabilities PostXML request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:request>
 						<ctl:url>
@@ -366,7 +366,7 @@
 		<ctl:assertion>req16: In the response to a successful GetCapabilities GetKVP request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:request>
 						<ctl:url>
@@ -407,7 +407,7 @@
 		<ctl:assertion>req16: In the response to a successful GetCapabilities SOAP request containing a CoverageSummary section, each coverage identifier listed shall refer to a coverage offered by the server.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('test',.)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test coverage ',.)"/>
 				<xsl:variable name="DescribeCoverage">
 					<ctl:soap-request version="1.2" charset="UTF-8">
 						<ctl:url>
