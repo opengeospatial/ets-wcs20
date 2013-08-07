@@ -51,11 +51,11 @@
 						<ctl:header name="Content-type">text/xml</ctl:header>
 						<ctl:body><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 							<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    								xmlns:wcs='http://www.opengis.net/wcs/2.0'
-    								xmlns:gml='http://www.opengis.net/gml/3.2'
-    								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
-    								service="WCS" version="2.0.1">
-    								<wcs:CoverageId>]]><xsl:value-of select="./*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
+									xmlns:wcs='http://www.opengis.net/wcs/2.0'
+									xmlns:gml='http://www.opengis.net/gml/3.2'
+									xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
+									service="WCS" version="2.0.1">
+									<wcs:CoverageId>]]><xsl:value-of select="./*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
 								<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -135,9 +135,9 @@
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Post']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name)"/>
 				<xsl:choose>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='GetCapabilities'">
 						<xsl:variable name="Capabilities">
 							<ctl:request>
 								<ctl:url>
@@ -174,7 +174,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='DescribeCoverage'">
 						<xsl:variable name="DescribeCoverage">
 							<ctl:request>
 								<ctl:url>
@@ -184,11 +184,11 @@
 								<ctl:header name="Content-type">text/xml</ctl:header>
 								<ctl:body><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 								<wcs:DescribeCoverage  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    									xmlns:wcs='http://www.opengis.net/wcs/2.0'
-    									xmlns:gml='http://www.opengis.net/gml/3.2'
-    									xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
-    									service="WCS" version="2.0.1">
-    									<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
+										xmlns:wcs='http://www.opengis.net/wcs/2.0'
+										xmlns:gml='http://www.opengis.net/gml/3.2'
+										xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
+										service="WCS" version="2.0.1">
+										<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
 								<ctlp:XMLValidatingParser>
 									<ctlp:schemas>
 										<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -209,7 +209,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='GetCoverage'">
 						<xsl:choose>
 							<xsl:when test="$SupportsGML = 'true'">
 								<xsl:variable name="GetCoverage">
@@ -365,9 +365,9 @@
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Get']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name)"/>
 				<xsl:choose>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='GetCapabilities'">
 						<xsl:variable name="Capabilities">
 							<ctl:request>
 								<ctl:url>
@@ -397,7 +397,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='DescribeCoverage'">
 						<xsl:variable name="DescribeCoverage">
 							<ctl:request>
 								<ctl:url>
@@ -430,7 +430,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='GetCoverage'">
 						<xsl:choose>
 							<xsl:when test="$SupportsGML = 'true'">
 								<xsl:variable name="GetCoverage">
@@ -586,9 +586,9 @@
 				</xsl:choose>
 			</xsl:for-each>
 			<xsl:for-each select="$Capabilities//*[local-name()='OperationsMetadata']/*[local-name()='Operation']//*[local-name()='Post']">
-				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name)"/>
+				<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[MESSAGE] Test operation ', .//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name)"/>
 				<xsl:choose>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCapabilities'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='GetCapabilities'">
 						<xsl:variable name="Capabilities">
 							<ctl:soap-request version="1.2" charset="UTF-8">
 								<ctl:url>
@@ -623,7 +623,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='DescribeCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='DescribeCoverage'">
 						<xsl:variable name="DescribeCoverage">
 							<ctl:soap-request version="1.2" charset="UTF-8">
 								<ctl:url>
@@ -658,7 +658,7 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
-					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*//@name='GetCoverage'">
+					<xsl:when test=".//@xlink:href/parent::*/parent::*/parent::*/parent::*/@name='GetCoverage'">
 						<xsl:choose>
 							<xsl:when test="$SupportsGML = 'true'">
 								<xsl:variable name="GetCoverage">
