@@ -21,4 +21,17 @@ Changes included in latest revision:
 2013-07-17 (lb)
 - Edited documentation (index.html)
 
-
+=== Changes included in R4 ===
+2013-08-09 (jyu and smeissl)
+- Fixed issue #770
+- Fixed issue #743
+- Corrected check for operations
+- Corrected checking or GML support
+- Fixed issue #849
+- Fixed issue #755 - Adjusted schema location and version
+- Corrected KVP encoding
+- Fixed issue #850
+- Adjusted requirements  
+- Adjusted exception test to use wrong subsetting values.
+- Added http response code 404 testing
+- Fixed test on invalid subsetting according to req41 and etc.
