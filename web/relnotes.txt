@@ -35,3 +35,4 @@ Changes included in latest revision:
 - Adjusted exception test to use wrong subsetting values.
 - Added http response code 404 testing
 - Fixed test on invalid subsetting according to req41 and etc.
+- Updated documentation (lb)
