@@ -36,3 +36,8 @@ Changes included in latest revision:
 - Added http response code 404 testing
 - Fixed test on invalid subsetting according to req41 and etc.
 - Updated documentation (lb)
+
+=== Changes included in R4 ===
+2013-10-29 (smeissl)
+- Fixed issue #853 when supporting multiple formats
+- Fixed references to standard documents (#880)

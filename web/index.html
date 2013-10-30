@@ -9,58 +9,48 @@
 </head>
 <body>
 
-<h1>Compliance Test Suite for Web Coverage Service (WCS) 2.0.1</h1>
-<h2>Overview</h2>
-<p>This executable test suite is based on the following OGC specifications:</p>
-<ul>
-  <li id="OGC-09-110r4"><a href="http://www.opengeospatial.org/standards/wcs">
-        OpenGIS&reg; Web Coverage Service(WCS) 2.0 Interface Standard - Core</a>
-        (OGC 09-110r3)</li>
-  <li id="OGC-09-110r4 "><a href="https://portal.opengeospatial.org/files/?artifact_id=48428">OGC® WCS 2.0 Interface Standard- Core: Corrigendum </a>(09-110r4)</li> 
-  <li id="OGC-09-146r2 "><a href="https://portal.opengeospatial.org/files/?artifact_id=41438">OGC® GML Application Schema - Coverages </a>(09-146r2)</li>      
-  <li id="OGC-09-147r2"><a href="http://www.opengeospatial.org/standards/wcs">
-        OpenGIS&reg; Web Coverage Service 2.0 Interface Standard - KVP Protocol Binding Extension (1.0)</a>
-        (OGC 09-147r3)</li>
-  <li id="OGC-09-148r1"><a href="http://www.opengeospatial.org/standards/wcs">
-        OpenGIS&reg; Web Coverage Service 2.0 Interface Standard - XML/POST Protocol Binding Extension (1.0)</a>
-        (OGC 09-148r1)</li>
-  <li id="OGC-09-149r1"><a href="http://www.opengeospatial.org/standards/wcs">
-        OpenGIS&reg; Web Coverage Service 2.0 Interface Standard - XML/SOAP Protocol Binding Extension (1.0)</a>
-        (OGC 09-149r1)</li>
-  <li id="CTL-0.5"><a href="http://teamengine.svn.sourceforge.net/viewvc/*checkout*/teamengine/trunk/docs/ctl/ctl.html">
-        Compliance Test Language (CTL) 0.5</a></li>
-</ul>
+  <h1>Compliance Test Suite for Web Coverage Service (WCS) 2.0.1</h1>
+  <h2>Overview</h2>
+  <p>This executable test suite is based on the following OGC specifications:</p>
+  <ul>
+    <li id="OGC-06-121r9"><a href="https://portal.opengeospatial.org/files/?artifact_id=38867">OGC Web Services Common Standard</a> (OGC 06-121r9)</li>
+    <li id="OGC-09-110r3"><a href="https://portal.opengeospatial.org/files/?artifact_id=41437">OGC&reg; WCS 2.0 Interface Standard - Core</a> (OGC 09-110r3)</li>
+    <li id="OGC-09-110r4"><a href="https://portal.opengeospatial.org/files/?artifact_id=48428">OGC&reg; WCS 2.0 Interface Standard - Core: Corrigendum</a> (09-110r4)</li> 
+    <li id="OGC-09-146r2"><a href="https://portal.opengeospatial.org/files/?artifact_id=48553">OGC&reg; GML Application Schema - Coverages</a> (09-146r2)</li>      
+    <li id="OGC-09-147r3"><a href="https://portal.opengeospatial.org/files/?artifact_id=50140">OGC&reg; Web Coverage Service 2.0 Interface Standard - KVP Protocol Binding Extension - Corrigendum</a> (OGC 09-147r3)</li>
+    <li id="OGC-09-148r1"><a href="https://portal.opengeospatial.org/files/?artifact_id=41440">OGC&reg; Web Coverage Service 2.0 Interface Standard - XML/POST Protocol Binding Extension</a> (OGC 09-148r1)</li>
+    <li id="OGC-09-149r1"><a href="https://portal.opengeospatial.org/files/?artifact_id=41441">OGC&reg; Web Coverage Service 2.0 Interface Standard - XML/SOAP Protocol Binding Extension</a> (OGC 09-149r1)</li>
+    <li id="CTL-0.5">Compliance Test Language (CTL) 0.5</li>
+  </ul>
 
-<h2>What is tested</h2>
-<p>The WCS 2.0 core is tested.</p>
-<ul>
-      <li>GetCapabilities (KVP, Post, SOAP)</li>
-      <li>DescribeCoverage (KVP, Post, SOAP)</li>
-      <li>GetCoverage (KVP) on GML coverage are tested </li>
-</ul>
-<p>The extensions (KVP, Post, and SOAP) are only tested when the GetCapabilities document indicates that the extensions are supported.</p>
+  <h2>What is tested</h2>
+  <p>The WCS 2.0 core is tested.</p>
+  <ul>
+    <li>GetCapabilities (KVP, Post, SOAP)</li>
+    <li>DescribeCoverage (KVP, Post, SOAP)</li>
+    <li>GetCoverage (KVP) on GML coverages</li>
+  </ul>
+  <p>The extensions (KVP, Post, and SOAP) are only tested when the GetCapabilities document indicates that the extensions are supported.</p>
 
-<h2>Requirements</h2>
-<p>General requirements for the implementation:</p>
-      <ol>
+  <h2>Requirements</h2>
+  <p>General requirements for the implementation:</p>
+    <ol>
       <li>At least one protocol implementation should be available and advertised in the GetCapabilities</li>
       <li>The implementation provides at least two coverages.</li>
       <li>The first coverage offering should be RectifiedGridCoverage with at least 2 dimensions, while the second coverage could be any coverage.</li>
       <li>Do not use CoverageId_Bogus as a coverage ID, format_bogus as a format name, mediatype_bogus for the mediatype parameter, or dimension_bogus as an axis name.</li>
       <li>The offered coverage  must be implementd according to GMLCov specification (09-146r2).</li>
-         </ol>
-<h2>Test data</h2>
+    </ol>
+
+  <h2>Test data</h2>
   <p>Sample coverages can be found at <a href="http://schemas.opengis.net/wcs/2.0/examples">http://schemas.opengis.net/wcs/2.0/examples</a>.</p>
-<h2>Schemas</h2>
 
-<p>The schemas for ows can be found at <a href="http://schemas.opengis.net/ows/2.0">http://schemas.opengis.net/ows/2.0</a>.</p>
-<p>The schemas for wcs can be found at <a href="http://schemas.opengis.net/wcs/2.0">http://schemas.opengis.net/wcs</a>.</a>.
-</p>
+  <h2>Schemas</h2>
+  <p>The schemas for ows can be found at <a href="http://schemas.opengis.net/ows/2.0">http://schemas.opengis.net/ows/2.0</a>.</p>
+  <p>The schemas for wcs can be found at <a href="http://schemas.opengis.net/wcs/2.0">http://schemas.opengis.net/wcs/2.0</a>.</p>
 
-<h2>Release Notes</h2>
-<p>
-  Release notes are available from the <a href="relnotes.txt">relnotes.txt</a>.
-</p>
+  <h2>Release Notes</h2>
+  <p>Release notes are available from the <a href="relnotes.txt">relnotes.txt</a>.</p>
 
 </body>
 </html>
