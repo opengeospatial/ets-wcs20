@@ -1,57 +1,380 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>WCS 2.0.1 compliance test suite</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-</head>
-<body>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>WCS 2.0.1 (OGC-09-110r4) compliance test suite</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+      body {
+        color: black;
+        background: white;
+        font-family: Georgia, serif;
+      }
+      h1, h2, h3 {
+        font-family: Verdana, sans-serif;
+        color: #000099;
+        text-align: left;
+      }
+      h1 {
+        font-size: 1.4em;
+        margin-top: 2em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      h3 {
+        font-size: 1em;
+        margin-bottom: 0.5em;
+      }
+      table {
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+        border-collapse: collapse;
+      }
+      td, th {
+        padding: 0.25em;
+        border: 1px solid black;
+      }
+      caption, figcaption {
+        font-weight: bold;
+        text-align: left;
+        margin: 0.25em;
+      }
+      th {
+        font-weight: bold;
+        font-family: Verdana, sans-serif;
+        text-align: left;
+        vertical-align: top;
+        background: #eeeeee;
+        color: #000099;
+      }
+      dt {
+        margin-top: 0.5em;
+        font-weight: bold;
+      }</style>
+  </head>
+  <body>
+    <h1>WCS 2.0.1 (OGC-09-110r4) compliance test suite</h1>
+    <h2>Scope</h2>
+    <p>This executable test suite (ETS) verifies the conformance of WCS 2.0 <strong> core</strong>. The service
+      should be accessed through WCS GetCapabilities, DescribeCoverage and GetCoverage using the HTTP KVP, POST or SOAP. 
+      The GetCoverage response should be provided as a GML coveage instance document.</p>
 
-  <h1>Compliance Test Suite for Web Coverage Service (WCS) 2.0.1</h1>
-  <h2>Overview</h2>
-  <p>This executable test suite is based on the following OGC specifications:</p>
-  <ul>
-    <li id="OGC-06-121r9"><a href="https://portal.opengeospatial.org/files/?artifact_id=38867">OGC Web Services Common Standard</a> (OGC 06-121r9)</li>
-    <li id="OGC-09-110r3"><a href="https://portal.opengeospatial.org/files/?artifact_id=41437">OGC&reg; WCS 2.0 Interface Standard - Core</a> (OGC 09-110r3)</li>
-    <li id="OGC-09-110r4"><a href="https://portal.opengeospatial.org/files/?artifact_id=48428">OGC&reg; WCS 2.0 Interface Standard - Core: Corrigendum</a> (09-110r4)</li> 
-    <li id="OGC-09-146r2"><a href="https://portal.opengeospatial.org/files/?artifact_id=48553">OGC&reg; GML Application Schema - Coverages</a> (09-146r2)</li>      
-    <li id="OGC-09-147r3"><a href="https://portal.opengeospatial.org/files/?artifact_id=50140">OGC&reg; Web Coverage Service 2.0 Interface Standard - KVP Protocol Binding Extension - Corrigendum</a> (OGC 09-147r3)</li>
-    <li id="OGC-09-148r1"><a href="https://portal.opengeospatial.org/files/?artifact_id=41440">OGC&reg; Web Coverage Service 2.0 Interface Standard - XML/POST Protocol Binding Extension</a> (OGC 09-148r1)</li>
-    <li id="OGC-09-149r1"><a href="https://portal.opengeospatial.org/files/?artifact_id=41441">OGC&reg; Web Coverage Service 2.0 Interface Standard - XML/SOAP Protocol Binding Extension</a> (OGC 09-149r1)</li>
-    <li id="CTL-0.5">Compliance Test Language (CTL) 0.5</li>
-  </ul>
 
-  <h2>What is tested</h2>
-  <p>The WCS 2.0 core is tested.</p>
-  <ul>
-    <li>GetCapabilities (KVP, Post, SOAP)</li>
-    <li>DescribeCoverage (KVP, Post, SOAP)</li>
-    <li>GetCoverage (KVP) on GML coverages</li>
-  </ul>
-  <p>The extensions (KVP, Post, and SOAP) are only tested when the GetCapabilities document indicates that the extensions are supported.</p>
+    <h2>Test coverage</h2>
 
-  <h2>Requirements</h2>
-  <p>General requirements for the implementation:</p>
+    <p> In this test suite all mandatory conformance requirements are checked, and every 
+      instance document is thoroughly validated against all referenced application schemas. 
+      Table 1 below provides the name of the conformance classes, references to
+      the relevant clause in the abstract test suite (ATS) in Annex A, and information about its 
+      implementation status.
+    </p>
+    <table style="border-collapse: collapse;" border="1">
+      <caption>Table 1 - Conformance class coverage</caption>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>ATS reference</th>
+        <th>Available in test suite</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Coverage structure contains Envelope</td>
+        <td>A.1.1</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Coverage structure contains srsName</td>
+        <td>A.1.2</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Coverage structure contains axisLabels</td>
+        <td>A.1.3</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Coverage element name dictionary</td>
+        <td>A.1.4</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Coverage element name lookup</td>
+        <td>A.1.5</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>ServiceMetadata structure</td>
+        <td>A.1.6</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCapabilities: Profile lists valid external conformance classes</td>
+        <td>A.1.7</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCapabilities response contents: OperationsMetadata</td>
+        <td>A.1.8</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Formats supported</td>
+        <td>A.1.9</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Request base</td>
+        <td>A.1.10</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Service name</td>
+        <td>A.1.11</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Version number</td>
+        <td>A.1.12</td>
+        <td>Yes</td>
+      </tr>      
+      <tr>
+        <td>Correct GetCapabilities request structure</td>
+        <td>A.1.13</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Correct GetCapabilities response structure</td>
+        <td>A.1.14</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCapabilities response contents: service metadata</td>
+        <td>A.1.15</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCapabilities response contents: Coverage summary</td>
+        <td>A.1.16</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>DescribeCoverage supported</td>
+        <td>A.1.17</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Correct DescribeCoverage request structure</td>
+        <td>A.1.18</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Valid coverage identifiers in DescribeCoverage request</td>
+        <td>A.1.19</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Correct DescribeCoverage response structure</td>
+        <td>A.1.20</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>DescribeCoverage returns information on all coverages requested</td>
+        <td>A.1.21</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Correct DescribeCoverage response contents</td>
+        <td>A.1.22</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>DescribeCoverage srsName value</td>
+        <td>A.1.23</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>DescribeCoverage exceptions</td>
+        <td>A.1.24</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage supported</td>
+        <td>A.1.25</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage request structure</td>
+        <td>A.1.26</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage request addresses existing coverage</td>
+        <td>A.1.27</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage: acceptable format</td>
+        <td>A.1.28</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage: acceptable mediaType</td>
+        <td>A.1.29</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage request parameter dimension</td>
+        <td>A.1.30</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>No duplicate dimension subsetting in GetCoverage</td>
+        <td>A.1.31</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage trimming within coverage limits</td>
+        <td>A.1.32</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage slicing within coverage limits</td>
+        <td>A.1.33</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage response structure</td>
+        <td>A.1.34</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Correct coverage representation in GetCoverage result</td>
+        <td>A.1.35</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Correct multipart coverage encoding in GetCoverage result</td>
+        <td>A.1.36</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Correct coverage contents in GetCoverage result</td>
+        <td>A.1.37</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage trimming operation</td>
+        <td>A.1.38</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage slicing operation</td>
+        <td>A.1.39</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Dimension subsetting sequence invariance in GetCoverage</td>
+        <td>A.1.40</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>GetCoverage exceptions</td>
+        <td>A.1.41</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Information coherence across request types</td>
+        <td>A.1.42</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Protocol binding extensions</td>
+        <td>A.1.43</td>
+        <td>Yes</td>
+      </tr>                                                                 
+      <tr>
+        <td colspan="3" style="padding: 0.5em;"><strong>Note:</strong> 
+        Done by TEAMEngine when a kvp request is invoked(A.2)</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2>Test requirements</h2>
+    <p>The documents listed below stipulate requirements that must be satisfied by a conforming
+      application schema.</p>
+    <ul>
+      <li style="list-style:square;">[OWS Common]<a href="https://portal.opengeospatial.org/files/?artifact_id=38867">OGC Web Services Common Standard</a> (OGC 06-121r9)</li>
+      <li style="list-style:square;">[WCS Core]<a href="https://portal.opengeospatial.org/files/?artifact_id=41437">OGC&reg; WCS 2.0 Interface Standard - Core</a> (OGC 09-110r3)</li>
+      <li style="list-style:square;">[WCS Core Corrigendum]<a href="https://portal.opengeospatial.org/files/?artifact_id=48428">OGC&reg; WCS 2.0 Interface Standard - Core: Corrigendum</a> (09-110r4)</li> 
+      <li style="list-style:square;">[GMLCOV]<a href="https://portal.opengeospatial.org/files/?artifact_id=48553">OGC&reg; GML Application Schema - Coverages</a> (09-146r2)</li>      
+      <li style="list-style:square;">[WCS KVP]<a href="https://portal.opengeospatial.org/files/?artifact_id=50140">OGC&reg; Web Coverage Service 2.0 Interface Standard - KVP Protocol Binding Extension - Corrigendum</a> (OGC 09-147r3)</li>
+      <li style="list-style:square;">[WCS POST]<a href="https://portal.opengeospatial.org/files/?artifact_id=41440">OGC&reg; Web Coverage Service 2.0 Interface Standard - XML/POST Protocol Binding Extension</a> (OGC 09-148r1)</li>
+      <li style="list-style:square;">[WCS SOAP]<a href="https://portal.opengeospatial.org/files/?artifact_id=41441">OGC&reg; Web Coverage Service 2.0 Interface Standard - XML/SOAP Protocol Binding Extension</a> (OGC 09-149r1)</li>
+      <li style="list-style:square;">Compliance Test Language (CTL) 0.5</li>
+    </ul>
     <ol>
       <li>At least one protocol implementation should be available and advertised in the GetCapabilities</li>
-      <li>The implementation provides at least two coverages.</li>
+      <li>The implementation provides at least two coverages.</p>
       <li>The first coverage offering should be RectifiedGridCoverage with at least 2 dimensions, while the second coverage could be any coverage.</li>
-      <li>Do not use CoverageId_Bogus as a coverage ID, format_bogus as a format name, mediatype_bogus for the mediatype parameter, or dimension_bogus as an axis name.</li>
+      <li>Do not use CoverageId_Bogus as a coverage ID, do not use Axis_Bogus as a axis label.</li>
       <li>The offered coverage  must be implementd according to GMLCov specification (09-146r2).</li>
     </ol>
-
-  <h2>Test data</h2>
+          
+    <h2>How to run the tests</h2>
+    <p>The test suite may be run in any of the following environments:</p>
+    <ul>
+      <li style="list-style:square;">TEAM-Engine: Run the CTL script located in the
+          <code>/src/main/ctl/</code> directory.</li>
+    </ul>
+<h2>Test data</h2>
   <p>Sample coverages can be found at <a href="http://schemas.opengis.net/wcs/2.0/examples">http://schemas.opengis.net/wcs/2.0/examples</a>.</p>
 
-  <h2>Schemas</h2>
-  <p>The schemas for ows can be found at <a href="http://schemas.opengis.net/ows/2.0">http://schemas.opengis.net/ows/2.0</a>.</p>
-  <p>The schemas for wcs can be found at <a href="http://schemas.opengis.net/wcs/2.0">http://schemas.opengis.net/wcs/2.0</a>.</p>
+<h2>Schemas</h2>
+<p>The schemas for ows can be found at <a href="http://schemas.opengis.net/ows/2.0">http://schemas.opengis.net/ows/2.0</a>.</p>
+<p>The schemas for wcs can be found at <a href="http://schemas.opengis.net/wcs/2.0">http://schemas.opengis.net/wcs</a>.
+</p>
 
-  <h2>Release Notes</h2>
-  <p>Release notes are available from the <a href="relnotes.txt">relnotes.txt</a>.</p>
 
-</body>
-</html>
+    <h2>Release notes</h2>
 
+    <h3>r4 (2013-10-29)</h3>
+    <p>This is a maintenance release; it includes the following fixes:</p>
+    <ul>
+      <li style="list-style:square;">- Fixed issue #770,743,755,849,850,853 and 880</li>
+      <li style="list-style:square;">- Corrected checking or GML support,operations,KVP encoding</li>
+      <li style="list-style:square;">- Adjusted requirements</li>
+      <li style="list-style:square;">- Adjusted exception test to use wrong subsetting values.</li>
+      <li style="list-style:square;">- Added http response code 404 testing.</li>
+      <li style="list-style:square;">-  Fixed test on invalid subsetting according to req41 and etc.</li>
+    </ul>
+
+    <h3>r3 (2013-07-17)</h3>
+    <p>This is a maintenance release; it includes the following fixes:</p>
+    <ul>
+      <li style="list-style:square;">Edited documentation (index.html).</li>
+    </ul>
+
+    <h3>r2 (2012-02-14)</h3>
+    <p>This is a maintenance release; it includes the following fixes:</p>
+    <ul>
+      <li style="list-style:square;">fixed req1-9 on the duplicated url.</li>
+      <li style="list-style:square;">fixed req23 for xpath of concate().</li>
+      <li style="list-style:square;">fixed req12 for post request of Capabilities.</li>
+    </ul>
+
+    <h3>r1 (2012-02-08)</h3>
+    <p>This is a maintenance release; it includes the following fixes:</p>
+    <ul>
+      <li style="list-style:square;"> Added http code checking according to OWS common.</li>
+    </ul>
+
+    <h3>r0 (2011-12-15)</h3>
+    <p>This is a maintenance release; it includes the following fixes:</p>
+    <ul>
+      <li style="list-style:square;">Add test suites according to OGC 09-147r2, tests in kvp and gmlcov are provided.</li>
+    </ul>
+
+  
+
+</body></html>
