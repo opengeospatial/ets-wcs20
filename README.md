@@ -27,7 +27,7 @@ build the test suite run maven from the root directory:
 mvn install
 ```
      
-## To test an application:
+## Testing an Implementation
 
 For UNIX/OS Users
 
