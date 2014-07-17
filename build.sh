@@ -24,7 +24,7 @@ mvn install
 cd target 
 unzip ets-wcs20-2.0.1-r7.zip -d $TE_BASE/scripts/
 
-if build_teamengine; then
+if $build_teamengine; then
    #download and build TEAM Engine
    cd $folder_to_build
    git clone https://github.com/opengeospatial/teamengine.git
