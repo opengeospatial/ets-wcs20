@@ -5,7 +5,7 @@
   <standard>
     <name>Web Coverage Service (WCS)</name>
     <version>
-      <name>2.0</name>
+      <name>2.0.1</name>
       <suite>
         <namespace-uri>http://www.opengis.net/wcs/2.0</namespace-uri>
         <prefix>wcs2</prefix>
@@ -14,12 +14,11 @@
         <description>Checks WCS Core implementations for conformance with OGC 09-110r3 and 09-110r4.</description>
       </suite>
       <revision>
-        <name>r7</name>
+        <name>${project.version}</name>
         <sources>
-          <source>wcs/2.0.1/ctl</source>
+          <source>wcs/${spec-version}/ctl</source>
         </sources>
-        <resources>wcs/2.0.1/resources</resources>
-        <webdir>wcs/2.0.1/web</webdir>
+        <webdir>wcs/${spec-version}/site</webdir>
       </revision>
     </version>
   </standard>
