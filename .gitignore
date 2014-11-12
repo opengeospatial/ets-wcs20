@@ -1,2 +1,6 @@
 *.DS_Store
-target/*
+
+# Maven output
+target/
+pom.xml.releaseBackup
+release.properties

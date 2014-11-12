@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ets-wcs20</artifactId>
   <groupId>org.opengis.cite</groupId>
-  <version>r6-SNAPSHOT</version>
+  <version>6-SNAPSHOT</version>
 
   <name>OGC Web Coverage Service 2.0.1 - Executable Test Suite</name>
   <description>
@@ -23,7 +23,9 @@
     <url>http://www.opengeospatial.org</url>
   </organization>
   <scm>
-    <url>https://github.com/opengeospatial/ets-wcs20</url>    <connection>scm:git:https://github.com/opengeospatial/ets-wcs20.git</connection>    <developerConnection>scm:git:git@github.com:opengeospatial/ets-wcs20.git</developerConnection>
+    <url>https://github.com/opengeospatial/ets-wcs20</url>    
+    <connection>scm:git:https://github.com/opengeospatial/ets-wcs20.git</connection>    
+    <developerConnection>scm:git:git@github.com:opengeospatial/ets-wcs20.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
@@ -41,7 +43,7 @@
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>2.7</version>
-         <reportSets>
+        <reportSets>
           <reportSet>
             <reports>
               <report>license</report>
@@ -53,33 +55,35 @@
       </plugin>  
     </plugins>
   </reporting> 
-  
- <build>
-    <plugins>  
-    
-    <plugin>
+
+  <build>
+    <plugins>
+      <plugin>
         <artifactId>maven-jar-plugin</artifactId>
+        <version>2.5</version>
         <executions>
           <execution>
             <id>default-jar</id>
             <phase>never</phase>
           </execution>
         </executions>
-    </plugin>
-    <plugin>
+      </plugin>
+      <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18</version>
         <configuration>
           <skipTests>true</skipTests>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5</version>
         <configuration>
           <descriptors>
-            <descriptor>src/assembly/ctl.xml</descriptor>
+            <descriptor>${basedir}/src/assembly/ctl.xml</descriptor>
           </descriptors>
         </configuration>
-         <executions>
+        <executions>
           <execution>
             <phase>package</phase>
             <goals>
@@ -89,20 +93,24 @@
         </executions>
       </plugin>
       <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-           <version>2.5</version>
-         </plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <tagNameFormat>r@{project.version}</tagNameFormat>
+        </configuration>
+      </plugin>
       <plugin>     
-         <artifactId>maven-site-plugin</artifactId>
-         <configuration>
-            <relativizeDecorationLinks>false</relativizeDecorationLinks>      
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.4</version>
+        <configuration>
+          <relativizeDecorationLinks>false</relativizeDecorationLinks>      
         </configuration>
         <executions>
           <execution>
             <id>site-package</id>
             <phase>prepare-package</phase>
             <goals>
-              <goal>site</goal>
+              <goal>jar</goal>
             </goals>
           </execution>
         </executions>

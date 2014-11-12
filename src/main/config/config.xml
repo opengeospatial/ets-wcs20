@@ -18,6 +18,7 @@
         <sources>
           <source>wcs/${spec-version}/ctl</source>
         </sources>
+        <resources>wcs/${spec-version}/resources</resources>
         <webdir>wcs/${spec-version}/site</webdir>
       </revision>
     </version>
