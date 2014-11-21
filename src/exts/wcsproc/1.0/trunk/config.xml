@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Add this entry to TE_BASE/config.xml (//organization/standard) -->
+<organization>
+  <name>OGC</name>
+  <standard>
+    <name>Web Coverage Service (WCS) - Processing Extension</name>
+    <version>
+      <name>1.0</name>
+      <suite>
+        <namespace-uri>http://www.opengis.net/wcs/2.0</namespace-uri>
+        <prefix>wcs2</prefix>
+        <local-name>suite</local-name>
+        <title>WCS Processing Conformance Test Suite</title>
+        <description>Checks WCS Processing implementations for conformance to OGC 08-059r4.</description>
+      </suite>
+      <revision>
+        <name>r0</name>
+        <sources>
+          <source>wcsproc/1.0/ctl</source>
+        </sources>
+        <resources>wcsproc/1.0/resources</resources>
+        <webdir>wcsproc/1.0/web</webdir>
+      </revision>
+    </version>
+  </standard>
+</organization>

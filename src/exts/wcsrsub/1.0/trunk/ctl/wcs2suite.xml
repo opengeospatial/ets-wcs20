@@ -1,0 +1,20 @@
+<ctl:suite xmlns:ctl="http://www.occamlab.com/ctl" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:wcs2="http://www.opengis.net/wcs/2.0" name="wcs2:suite">
+	<ctl:title>wcs2 processing extension test suite</ctl:title>
+	<ctl:description>Validates wcs2 processing extension</ctl:description>
+	<ctl:link>docs/wcs/2.0/</ctl:link>
+	<ctl:starting-test>wcs2:main</ctl:starting-test>
+	<ctl:form>
+		<h1>Web Coverage Service 2.0 Range Subsetting Extension</h1>
+		<p>The Web Coverage Service tests script is designed to test WCS 2.0 Range Subsetting extension.</p>
+		<p>A complete list of tests in the test suite are available in OGC 12-040 document, but note that not
+all of the tests are applicable to all servers.</p>
+		<p>One of the offered coverages shall contain at least 3 range components.</p>
+		<h2>Service entry</h2>
+		<p>Enter a tes entry URL below (the service endpoint should be specified without any query parameters). A typical GetCapabilities request will take this form:</p>
+		<pre>http://earthserver.jacobs-university.de:8080/wcs_conf</pre>
+		<xhtml:p>Precondition:Enter the URL of the wcs2 that you want to validate:</xhtml:p>
+		<xhtml:input type="text" name="url" size="100"/>
+		<xhtml:p/>
+		<xhtml:input type="submit" value="OK"/>
+	</ctl:form>
+</ctl:suite>
