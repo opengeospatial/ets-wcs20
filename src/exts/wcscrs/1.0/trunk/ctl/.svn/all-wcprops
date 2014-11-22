@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/ogc-projects/!svn/ver/5988/cite/scripts/wcscrs/1.0/trunk/ctl
+END
+wcs2main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/ogc-projects/!svn/ver/5988/cite/scripts/wcscrs/1.0/trunk/ctl/wcs2main.xml
+END
+crs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/ogc-projects/!svn/ver/5988/cite/scripts/wcscrs/1.0/trunk/ctl/crs.xml
+END
+wcs2suite.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/ctl/wcs2suite.xml
+END

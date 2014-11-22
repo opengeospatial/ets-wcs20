@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/xlink
+END
+version.txt
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/xlink/version.txt
+END
+xlinks.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/xlink/xlinks.xsd
+END

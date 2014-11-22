@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gss
+END
+gss.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gss/gss.xsd
+END
+geometry.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gss/geometry.xsd
+END

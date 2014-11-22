@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gco
+END
+gcoBase.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gco/gcoBase.xsd
+END
+basicTypes.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gco/basicTypes.xsd
+END
+gco.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gco/gco.xsd
+END

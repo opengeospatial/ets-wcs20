@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd
+END
+metadataExtension.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/metadataExtension.xsd
+END
+metadataEntity.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/metadataEntity.xsd
+END
+distribution.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/distribution.xsd
+END
+spatialRepresentation.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/spatialRepresentation.xsd
+END
+maintenance.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/maintenance.xsd
+END
+dataQuality.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/dataQuality.xsd
+END
+applicationSchema.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/applicationSchema.xsd
+END
+freeText.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/freeText.xsd
+END
+identification.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/identification.xsd
+END
+portrayalCatalogue.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/portrayalCatalogue.xsd
+END
+referenceSystem.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/referenceSystem.xsd
+END
+metadataApplication.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/metadataApplication.xsd
+END
+gmd.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/gmd.xsd
+END
+extent.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/extent.xsd
+END
+constraints.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/constraints.xsd
+END
+content.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/content.xsd
+END
+citation.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/ogc-projects/!svn/ver/5141/cite/scripts/wcscrs/1.0/tags/r0/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmd/citation.xsd
+END

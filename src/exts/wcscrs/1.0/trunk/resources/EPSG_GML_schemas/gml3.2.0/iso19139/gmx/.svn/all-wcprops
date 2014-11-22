@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmx
+END
+catalogues.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmx/catalogues.xsd
+END
+gmx.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmx/gmx.xsd
+END
+uomItem.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmx/uomItem.xsd
+END
+gmxUsage.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmx/gmxUsage.xsd
+END
+codelistItem.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmx/codelistItem.xsd
+END
+extendedTypes.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmx/extendedTypes.xsd
+END
+crsItem.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/ogc-projects/!svn/ver/5139/cite/scripts/wcscrs/1.0/trunk/resources/EPSG_GML_schemas/gml3.2.0/iso19139/gmx/crsItem.xsd
+END
