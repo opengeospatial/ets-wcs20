@@ -152,21 +152,32 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:method>get</ctl:method>
-					<ctl:param name="query">for c in  <xsl:value-of select="$CoverageId"/> ) return  encode (c,"png") </ctl:param>
-				
+					<ctl:param name="service">WCS</ctl:param>
+					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="request">ProcessCoverages</ctl:param>
+		
+					<ctl:param name="query">for</ctl:param>
+
+							
+													<parsers:HTTPParser>
+						<parsers:parse>
 							<parsers:XMLValidatingParser>
 								<parsers:schemas>
 									<parsers:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</parsers:schema>
 								</parsers:schemas>
 							</parsers:XMLValidatingParser>
-						
+						</parsers:parse>
+					</parsers:HTTPParser>
+							
+
 				</ctl:request>
 			</xsl:variable>
-			<ctl:call-test name="wcs:ProcessCoverages_exception">
-				<ctl:with-param name="ProcessCoverages" select="$ProcessCoverages"/>
-			</ctl:call-test>
+			<xsl:if test="empty($ProcessCoverages//*[local-name()='Exception'])">
+				<ctl:message>[FAILURE] The result should contain an ows:Exception.</ctl:message>
+				<ctl:fail/>
+			</xsl:if>
 			<xsl:if test="not($ProcessCoverages//@*[local-name()='exceptionCode']='SyntaxError') ">
-				<ctl:message>[FAILURE] the result should contain a 'SyntaxError' Exception.</ctl:message>
+				<ctl:message>[FAILURE] the result should contain a  Exception.</ctl:message>
 				<ctl:fail/>
 			</xsl:if>
 		</ctl:code>
@@ -186,7 +197,11 @@
 						<xsl:value-of select="$url"/>
 					</ctl:url>
 					<ctl:method>get</ctl:method>
-					<ctl:param name="query">for c in ( (<xsl:value-of select="$CoverageId"/> ) return  encode (c,"png") </ctl:param>
+					<ctl:param name="SERVICE">WCS</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="REQUEST">ProcessCoverages</ctl:param>
+		
+					<ctl:param name="query">for c in ( <xsl:value-of select="$CoverageId"/> ) return  encode (c,"png") </ctl:param>
 					<parsers:HTTPParser>
 						<parsers:parse>
 							<parsers:XMLValidatingParser>
@@ -225,16 +240,7 @@
 			</xsl:if>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs:ProcessCoverages_exception">
-		<ctl:param name="ProcessCoverages_exception"/>
-		<ctl:assertion>check getcoverage result.</ctl:assertion>
-		<ctl:code>
-			<xsl:if test="empty($ProcessCoverages_exception//*[local-name()='Exception'])">
-				<ctl:message>[FAILURE] The result should contain an ows:Exception.</ctl:message>
-				<ctl:fail/>
-			</xsl:if>
-		</ctl:code>
-	</ctl:test>
+
 
 	<!--req11-14-->
 	<ctl:test name="wcs2:get-proc-req11-14">

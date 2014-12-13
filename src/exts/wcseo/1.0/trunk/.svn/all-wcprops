@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/ogc-projects/!svn/ver/5310/cite/scripts/wcseo/1.0/trunk
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/ogc-projects/!svn/ver/5277/cite/scripts/wcseo/1.0/trunk/config.xml
+END
+config-legacy.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/ogc-projects/!svn/ver/5277/cite/scripts/wcseo/1.0/trunk/config-legacy.xml
+END

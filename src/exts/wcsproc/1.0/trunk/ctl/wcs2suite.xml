@@ -10,7 +10,7 @@
 all of the tests are applicable to all servers.</p>
 		<h2>Service entry</h2>
 		<p>Enter a tes entry URL below (the service endpoint should be specified without any query parameters). A typical GetCapabilities request will take this form:</p>
-		<pre>http://earthserver.jacobs-university.de:8080/wcs_conf</pre>
+		<pre>http://kahlua.eecs.jacobs-university.de:8080/petascope_wcs2</pre>
 		<xhtml:p>Precondition:Enter the URL of the wcs2 that you want to validate:</xhtml:p>
 		<xhtml:input type="text" name="url" size="100"/>
 		<xhtml:p/>
