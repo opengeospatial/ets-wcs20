@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/ogc-projects/!svn/ver/5796/cite/scripts/wcspost/1.0/trunk/ctl
+END
+wcs2suite.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/ogc-projects/!svn/ver/5796/cite/scripts/wcspost/1.0/trunk/ctl/wcs2suite.xml
+END
+post-xml.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/ogc-projects/!svn/ver/5365/cite/scripts/wcspost/1.0/trunk/ctl/post-xml.xml
+END
+wcs2main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/ogc-projects/!svn/ver/5287/cite/scripts/wcspost/1.0/trunk/ctl/wcs2main.xml
+END

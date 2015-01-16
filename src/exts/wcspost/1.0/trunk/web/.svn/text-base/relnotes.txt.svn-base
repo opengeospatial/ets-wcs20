@@ -1,0 +1,14 @@
+OGC Web Coverage Service 2.0 - XML/POST Binding Extension 1.0 Release Notes
+
+Changes included in latest revision:
+
+=== Changes included in R1 ===
+2013-08-12
+- Updated documentation (lb)
+
+
+=== Changes included in R0 ===
+2013-02-08 (jyu):
+- Add test suites according to OGC 09-148r1, tests in post xml and gmlcov are provided
+
+

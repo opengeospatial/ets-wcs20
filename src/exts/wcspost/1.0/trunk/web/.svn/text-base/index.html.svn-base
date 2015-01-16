@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>WCS 2.0 POST XML extension compliance test suite</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+
+<h1>Compliance Test Suite for OGC Web Coverage Service 2.0 - XML/POST  Protocol Binding Extension</h1>
+<h2>Overview</h2>
+<p>This executable test suite is based on the following OGC specifications:</p>
+<ul>
+  <li id="OGC-09-148r1"><a href="http://portal.opengeospatial.org/files/?artifact_id=41440">
+        OGC Web Coverage Service 2.0 Interface Standard - XML/POST Protocol Binding Extension (1.0)</a>
+        (OGC 09-148r1) </li>
+  <li id="OGC-09-146r2 "><a href="https://portal.opengeospatial.org/files/?artifact_id=41438">OGC GML Application Schema - Coverages </a>(09-146r2)</li>      
+ 
+  <li id="CTL-0.9"><a href="http://teamengine.svn.sourceforge.net/viewvc/*checkout*/teamengine/trunk/docs/ctl/ctl.html">
+        Compliance Test Language (CTL) 0.9</a></li>
+</ul>
+
+<h2>What is tested</h2>
+<p>The following operations of the WCS 2.0 XML/POST extension are tested.</p>
+<ul>
+      <li>GetCapabilities (KVP)</li>
+      <li>DescribeCoverage (KVP)</li>
+      <li>GetCoverage (KVP) on GML coverage</li>
+</ul>
+
+
+<h2>Test data</h2>
+  <p>Sample coverages can be found at <a href="http://schemas.opengis.net/wcs/2.0/examples">http://schemas.opengis.net/wcs/2.0/examples</a>.</p>
+<h2>Schemas</h2>
+
+<p>The schemas for ows can be found at <a href="http://schemas.opengis.net/ows/2.0">http://schemas.opengis.net/ows/2.0</a>.</p>
+<p>The schemas for wcs can be found at <a href="http://schemas.opengis.net/wcs/2.0">http://schemas.opengis.net/wcs</a>.</a>.
+</p>
+
+<h2>Release Notes</h2>
+<p>
+  Release notes are available from the <a href="relnotes.txt">relnotes.txt</a>.
+</p>
+
+</body>
+</html>
+
