@@ -19,20 +19,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req25">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req25">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -52,20 +38,6 @@
 				<xsl:otherwise>
 					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 						<ctl:call-test name="wcs2:get-kvp-core-req26">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req26">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req26">
 							<ctl:with-param name="url" select="$url"/>
 							<ctl:with-param name="Capabilities" select="$Capabilities"/>
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
@@ -95,20 +67,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req27">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req27">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -128,20 +86,6 @@
 				<xsl:otherwise>
 					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 						<ctl:call-test name="wcs2:get-kvp-core-req28">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req28">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req28">
 							<ctl:with-param name="url" select="$url"/>
 							<ctl:with-param name="Capabilities" select="$Capabilities"/>
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
@@ -171,20 +115,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req29">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req29">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -204,20 +134,6 @@
 				<xsl:otherwise>
 					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 						<ctl:call-test name="wcs2:get-kvp-core-req30">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req30">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req30">
 							<ctl:with-param name="url" select="$url"/>
 							<ctl:with-param name="Capabilities" select="$Capabilities"/>
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
@@ -247,20 +163,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req31">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req31">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -280,20 +182,6 @@
 				<xsl:otherwise>
 					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 						<ctl:call-test name="wcs2:get-kvp-core-req32">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req32">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req32">
 							<ctl:with-param name="url" select="$url"/>
 							<ctl:with-param name="Capabilities" select="$Capabilities"/>
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
@@ -323,20 +211,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req33">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req33">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -356,20 +230,6 @@
 				<xsl:otherwise>
 					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 						<ctl:call-test name="wcs2:get-kvp-core-req34">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req34">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req34">
 							<ctl:with-param name="url" select="$url"/>
 							<ctl:with-param name="Capabilities" select="$Capabilities"/>
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
@@ -399,20 +259,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req35">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req35">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -432,20 +278,6 @@
 				<xsl:otherwise>
 					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 						<ctl:call-test name="wcs2:get-kvp-core-req36">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req36">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req36">
 							<ctl:with-param name="url" select="$url"/>
 							<ctl:with-param name="Capabilities" select="$Capabilities"/>
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
@@ -475,20 +307,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req37">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req37">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -508,20 +326,6 @@
 				<xsl:otherwise>
 					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 						<ctl:call-test name="wcs2:get-kvp-core-req38">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req38">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req38">
 							<ctl:with-param name="url" select="$url"/>
 							<ctl:with-param name="Capabilities" select="$Capabilities"/>
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
@@ -551,20 +355,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req39">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req39">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -589,20 +379,6 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req40">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req40">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
@@ -621,18 +397,6 @@
 				<xsl:otherwise>
 					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_get-kvp/1.0')">
 						<ctl:call-test name="wcs2:get-kvp-core-req41">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req41">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req41">
 							<ctl:with-param name="url" select="$url"/>
 							<ctl:with-param name="Capabilities" select="$Capabilities"/>
 						</ctl:call-test>
@@ -661,33 +425,12 @@
 							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 						</ctl:call-test>
 					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_post-xml/1.0')">
-						<ctl:call-test name="wcs2:post-xml-core-req42">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
-					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_protocol-binding_soap/1.0')">
-						<ctl:call-test name="wcs2:soap-core-req42">
-							<ctl:with-param name="url" select="$url"/>
-							<ctl:with-param name="Capabilities" select="$Capabilities"/>
-							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						</ctl:call-test>
-					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
 
-	<ctl:test name="wcs2:post-xml-core-req25">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req25: Send a valid PostXML GetCoverage request to the server under test and check that the response is not an exception.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req25">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -758,22 +501,8 @@
 			</xsl:if>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req25">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req25: Send a valid SOAP GetCoverage request to the server under test and check that the response is not an exception.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req26">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req26: Send a valid PostXML GetCoverage request to server under test which conforms to the references in the requirement. Check that the response is not an exception.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
+
 	<ctl:test name="wcs2:get-kvp-core-req26">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -872,22 +601,8 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req26">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req26: Send a valid SOAP GetCoverage request to server under test which conforms to the references in the requirement. Check that the response is not an exception.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req27">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req27: Send valid PostXML GetCoverage requests to server under test addressing existing and non-existing coverages, resp. Check if appropriate results or exceptions, resp., are delivered.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
+
 	<ctl:test name="wcs2:get-kvp-core-req27">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -970,22 +685,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req27">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req27: Send valid SOAP GetCoverage requests to server under test addressing existing and non-existing coverages, resp. Check if appropriate results or excep-tions, resp., are delivered.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req28">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>Req28: If a GetCoverage request contains a format parameter then this parameter shall contain a MIME type identifier occurring in some wcs:formatSupported element of the response to a successful GetCapabilities request to this server.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req28">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1074,22 +774,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req28">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>Req28: If a GetCoverage request contains a format parameter then this parameter shall contain a MIME type identifier occurring in some wcs:formatSupported element of the response to a successful GetCapabilities request to this server.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req29">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>Req29: If a GetCoverage request contains a mediaType parameter then this parameter shall contain a MIME type identifier of fixed value "multipart/related".</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req29">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1173,22 +858,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req29">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>Req29: If a GetCoverage request contains a mediaType parameter then this parameter shall contain a MIME type identifier of fixed value "multipart/related".</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req30">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req30: Every dimension value in a PostXML GetCoverage request shall be equal to one of the axisLabels dimension names specified in the gml:SRSInformationGroup of the coverage gml:Envelope, unless the server offers a WCS CRS extension which overrides this requirement.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req30">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1314,22 +984,7 @@
 			</ctl:call-test>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req30">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req30: Every dimension value in a SOAP GetCoverage request shall be equal to one of the axisLabels dimension names specified in the gml:SRSInformationGroup of the coverage gml:Envelope, unless the server offers a WCS CRS extension which overrides this requirement.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req31">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req31: A PostXML GetCoverage request shall contain at most one subsetting operation for each of the dimensions of the coverage addressed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req31">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1421,22 +1076,7 @@
 			</ctl:call-test>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req31">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req31: A SOAP GetCoverage request shall contain at most one subsetting operation for each of the dimensions of the coverage addressed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req32">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req32: Send otherwise valid PostXML GetCoverage requests with matching and with violating trimming positions to server under test. Check if appropriate results are returned if and only if the requirement is fulfilled, and an exception otherwise. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req32">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1578,22 +1218,7 @@
 			</ctl:call-test>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req32">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req32: Send otherwise SOAP valid GetCoverage requests with matching and with violating trimming positions to server under test. Check if appropriate results are returned if and only if the requirement is fulfilled, and an exception otherwise. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req33">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req33: Send otherwise valid PostXML GetCoverage requests with matching and with violating slicing positions to server under test. Check if appropriate results are returned if and only if the requirement is fulfilled, and an exception otherwise. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req33">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1716,22 +1341,7 @@
 			</ctl:call-test>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req33">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req33: Send otherwise valid SOAP GetCoverage requests with matching and with violating slicing positions to server under test. Check if appropriate results are returned if and only if the requirement is fulfilled, and an exception otherwise. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req34">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req34: For each coverage offered by the server on hand, send a valid PostXML GetCoverage request to server under test. Check that the result validates against gmlcov:AbstractCoverage. Test passes if all individual tests pass.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req34">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1782,22 +1392,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req34">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req34: For each coverage offered by the server on hand, send a valid SOAP GetCoverage request to server under test. Check that the result validates against gmlcov:AbstractCoverage. Test passes if all individual tests pass.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req35">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req35: For each coverage encoding format (i.e., format encoding extension) supported by the server under test: Send a valid PostXML GetCoverage request to retrieve a coverage in this format. Check that the result is a valid instance of the format indicated. Do so for both complete and subsetted coverages. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req35">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1807,7 +1402,40 @@
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="$SupportsGML = 'true'">
-					<ctl:message>[MESSAGE] TBD in test suites of format encoding extensions.</ctl:message>
+					<xsl:choose>
+						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exist')"/>
+							<ctl:fail/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:variable name="GetCoverage">
+								<ctl:request>
+									<ctl:url>
+										<xsl:value-of select="$url"/>
+									</ctl:url>
+									<ctl:param name="service">WCS</ctl:param>
+									<ctl:param name="VERSION">2.0.1</ctl:param>
+									<ctl:param name="request">GetCoverage</ctl:param>
+									<ctl:param name="coverageid">
+										<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
+									</ctl:param>
+									<ctl:method>get</ctl:method>
+									<parsers:HTTPParser>
+										<parsers:parse mime="application/gml+xml">
+											<parsers:XMLValidatingParser>
+												<parsers:schemas>
+													<parsers:schema type="resource">wcs/2.0/wcsAll.xsd</parsers:schema>
+												</parsers:schemas>
+											</parsers:XMLValidatingParser>
+										</parsers:parse>
+									</parsers:HTTPParser>
+								</ctl:request>
+							</xsl:variable>
+							<ctl:call-test name="wcs:getcoverage_not_exception">
+								<ctl:with-param name="GetCoverage" select="$GetCoverage"/>
+							</ctl:call-test>
+						</xsl:otherwise>
+					</xsl:choose>
 				</xsl:when>
 				<xsl:otherwise>
 					<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message>
@@ -1815,22 +1443,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req35">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req35: For each coverage encoding format (i.e., format encoding extension) supported by the server under test: Send a valid SOAP GetCoverage request to retrieve a coverage in this format. Check that the result is a valid instance of the format indicated. Do so for both complete and subsetted coverages. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req36">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>Req36: The contents of the response to a successful GetCoverage request shall be encoded as specified in GMLCOV [OGC 09-146r2] conformance class multipart where the range set is encoded as specified by the format parameter or, in its absence, the coverage’s Native Format.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req36">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1937,22 +1550,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req36">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>Req36: The contents of the response to a successful GetCoverage request shall be encoded as specified in GMLCOV [OGC 09-146r2] conformance class multipart where the range set is encoded as specified by the format parameter or, in its absence, the coverage’s Native Format.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req37">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req37: The response to a successful PostXML GetCoverage request with coverage identifier id shall consist of the coverage component of the OfferedCoverage identified by id, unless the server supports a WCS extension which overrides this requirement.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req37">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -1962,7 +1560,44 @@
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="$SupportsGML = 'true'">
-					<ctl:message>[MESSAGE] TBD in test suites of format encoding extensions</ctl:message>
+					<xsl:choose>
+						<xsl:when test="empty($Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId'])">
+							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] ','wcs:CoverageSummary/wcs:CoverageId','does not exist')"/>
+							<ctl:fail/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:variable name="GetCoverage">
+								<ctl:request>
+									<ctl:url>
+										<xsl:value-of select="$url"/>
+									</ctl:url>
+									<ctl:param name="service">WCS</ctl:param>
+									<ctl:param name="VERSION">2.0.1</ctl:param>
+									<ctl:param name="request">GetCoverage</ctl:param>
+									<ctl:param name="coverageid">
+										<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
+									</ctl:param>
+									<ctl:method>get</ctl:method>
+									<parsers:HTTPParser>
+										<parsers:parse mime="application/gml+xml">
+											<parsers:XMLValidatingParser>
+												<parsers:schemas>
+													<parsers:schema type="resource">wcs/2.0/wcsAll.xsd</parsers:schema>
+												</parsers:schemas>
+											</parsers:XMLValidatingParser>
+										</parsers:parse>
+									</parsers:HTTPParser>
+								</ctl:request>
+							</xsl:variable>
+							<ctl:call-test name="wcs:getcoverage_not_exception">
+								<ctl:with-param name="GetCoverage" select="$GetCoverage"/>
+							</ctl:call-test>
+							<xsl:if test="compare($DescribeCoverage//*[local-name()='CoverageId'],$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1])=0">
+								<ctl:message>[FAILURE] the identified CoverageId is not the same as the requested one.</ctl:message>
+								<ctl:fail/>
+							</xsl:if>
+						</xsl:otherwise>
+					</xsl:choose>			
 				</xsl:when>
 				<xsl:otherwise>
 					<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message>
@@ -1970,22 +1605,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req37">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req37: The response to a successful SOAP GetCoverage request with coverage identifier id shall consist of the coverage component of the OfferedCoverage identified by id, unless the server supports a WCS extension which overrides this requirement.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req38">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req38: Send valid PostXML GetCoverage requests to the server under test with a single trimming as the only subsetting operation. Check correctness of the coverage response returned. Do so up to the maximum number of dimensions supported by the server and for subsetting dimensions at any position in the list of dimensions. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req38">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -2112,22 +1732,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req38">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req38: Send valid SOAP GetCoverage requests to the server under test with a single trimming as the only subsetting operation. Check correctness of the coverage response returned. Do so up to the maximum number of dimensions supported by the server and for subsetting dimensions at any position in the list of dimensions. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req39">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req39: Send valid PostXML GetCoverage requests to the server under test with a single slicing as the only subsetting operation. Check correctness of the coverage response returned. Do so up to the maximum number of dimensions supported by the server and for subsetting dimensions at any position in the list of dimensions. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req39">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -2254,22 +1859,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req39">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req39: Send valid SOAP GetCoverage requests to the server under test with a single slicing as the only subsetting operation. Check correctness of the coverage response returned. Do so up to the maximum number of dimensions supported by the server and for subsetting dimensions at any position in the list of dimensions. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req40">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req40: Pick some combination of trimming and slicing operations on a given coverage. Construct a set of PostXML GetCoverage requests by building all permutations of these subsetting operations. Compare the results of all requests whether the result returned is identical. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req40">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -2392,22 +1982,7 @@
 			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req40">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req40: Pick some combination of trimming and slicing operations on a given coverage. Construct a set of SOAP GetCoverage requests by building all permutations of these subsetting operations. Compare the results of all requests whether the result returned is identical. Pass test if all checks succeed.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req41">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req41: When a WCS server encounters an error while performing a PostXML GetCoverage operation it shall return an exception report message as specified.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req41">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -2597,22 +2172,7 @@
 			</xsl:if>			
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req41">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req41: When a WCS server encounters an error while performing a SOAP GetCoverage operation it shall return an exception report message as specified.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
-	<ctl:test name="wcs2:post-xml-core-req42">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req42: For every coverage identifier returned in a GetCapabilities response, Describe Coverage and GetCoverage requests on such an identifier shall always deliver information about the same OfferedCoverage object.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 	<ctl:test name="wcs2:get-kvp-core-req42">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
@@ -2681,12 +2241,5 @@
 			</xsl:for-each>
 		</ctl:code>
 	</ctl:test>
-	<ctl:test name="wcs2:soap-core-req42">
-		<ctl:param name="Capabilities"/>
-		<ctl:param name="url"/>
-		<ctl:assertion>req42: For every coverage identifier returned in a GetCapabilities response, Describe Coverage and GetCoverage requests on such an identifier shall always deliver information about the same OfferedCoverage object.</ctl:assertion>
-		<ctl:code>
-			<ctl:message>[MESSAGE] TBD.</ctl:message>
-		</ctl:code>
-	</ctl:test>
+
 </ctl:package>
