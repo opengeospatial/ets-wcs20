@@ -16,7 +16,7 @@
     <!-- ============================================================== -->
     <!-- includes and imports                                           -->
     <!-- ============================================================== -->
-    <import namespace="http://www.opengis.net/ows/2.0" schemaLocation="http://schemas.opengis.net/ows/2.0/owsAll.xsd"/>
+    <import namespace="http://www.opengis.net/ows/2.0" schemaLocation="../../ows/2.0/owsAll.xsd"/>
     <include schemaLocation="wcsCommon.xsd"/>
 
     <!-- ============================================================== -->
