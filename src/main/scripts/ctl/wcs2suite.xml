@@ -6,7 +6,7 @@
 	<ctl:form>
 		<h1>Compliance Test Suite for the OGC Web Coverage Service (WCS) 2.0 Core</h1>
 		<p>This validation service checks a server implementation for conformance to the Web Coverage Service (WCS) 2.0 specification.</p>
-		<p>Complete information about the test suite and requirements for the server implementation can be found <a href="../../../about/wcs/2.0.1/web/" target="_blank">here</a>.</p>
+		<p>Complete information about the test suite and requirements for the server implementation can be found <a href="." target="_blank">here</a>.</p>
 		<p><b>Enter a URL of a WCS 2.0 Service endpoint.</b> The URL should be specified without any query parameters.</p>
 		<p>For example: <pre>http://kahlua.eecs.jacobs-university.de:8080/wcs-conformance-testing</pre></p>
 		<p></p>
