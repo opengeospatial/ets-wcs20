@@ -1,9 +1,12 @@
 # WCS 2.0 Test Suite Release Notes
+## 1.7 (2015-03-05)
+
+- Update to new scheme versioning
 
 ## r6 (2014-11-DD)
 
 - Fix GitHub [issue #5](https://github.com/opengeospatial/ets-wcs20/issues/5)
-- Edited and adjusted documentation (index.html- )
+- Edited and adjusted documentation (index.html)
 - Migrate source code to [GitHub](https://github.com/opengeospatial/ets-wcs20)
 - Adopt Apache Maven as the build tool.
 
