@@ -45,3 +45,7 @@ Changes included in latest revision:
 === Changes included in R6 ===
 2013-11-07 (jyu and smeissl)
 - Edited and adjusted documentation (index.html)
+
+=== Changes included in R7 ===
+2015-18-19 (jyu)
+- Merge core, post, processing, scaling, interpolation, range subsetting, crs extensions and eowcs profile. Each can be a seperated conformance testing class
