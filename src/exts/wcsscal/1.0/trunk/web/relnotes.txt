@@ -1,8 +1,0 @@
-WCS 2.0 Range Subsetting extansion Test Suite Release Notes
-
-Changes included in latest revision:
-
-
-=== Changes included in R0 ===
-2013-10-11 (jyu):
-- Add test suites according to OGC 12-040

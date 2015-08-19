@@ -1,8 +1,0 @@
-WCS 2.0 processing extansion Test Suite Release Notes
-
-Changes included in latest revision:
-
-
-=== Changes included in R0 ===
-2013-06-24 (jyu):
-- Add test suites according to OGC 08-059r4
