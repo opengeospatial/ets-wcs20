@@ -1,4 +1,9 @@
 # WCS 2.0 Test Suite Release Notes
+
+## 1.8 (2015-08-19)
+
+- Merge core, post, processing, scaling, interpolation, range subsetting, crs extensions and eowcs profile
+
 ## 1.7 (2015-03-05)
 
 - Update to new scheme versioning
