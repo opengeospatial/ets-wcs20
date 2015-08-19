@@ -7,11 +7,31 @@
 		<h1>Compliance Test Suite for the OGC Web Coverage Service (WCS) 2.0 Core</h1>
 		<p>This validation service checks a server implementation for conformance to the Web Coverage Service (WCS) 2.0 specification.</p>
 		<p>Complete information about the test suite and requirements for the server implementation can be found <a href="." target="_blank">here</a>.</p>
-		<p><b>Enter a URL of a WCS 2.0 Service endpoint.</b> The URL should be specified without any query parameters.</p>
-		<p>For example: <pre>http://kahlua.eecs.jacobs-university.de:8080/wcs-conformance-testing</pre></p>
-		<p></p>
-		<xhtml:input type="text" name="url" size="200"/>
-		<xhtml:p/>
+		<p>
+			<b>Enter a URL of a WCS 2.0 Service endpoint.</b> The URL should be specified without any query parameters.</p>
+		<p>For example: <pre>http://kahlua.eecs.jacobs-university.de:8080/wcs-conformance-testing</pre>
+		</p>
+		<p>
+			<xhtml:input type="text" name="url" size="100"/>
+		</p>
+		<p>
+			<label>
+				<input name="core" type="checkbox" value="core"/>WCS Core</label>
+			<label>
+				<input name="ext_post" type="checkbox" value="post"/>WCS POST</label>
+			<label>
+				<input name="ext_proc" type="checkbox" value="processing"/>Processing</label>
+			<label>
+				<input name="ext_scal" type="checkbox" value="scaling"/>Scaling</label>
+			<label>
+				<input name="ext_int" type="checkbox" value="interpolation"/>Interpolation</label>
+			<label>
+				<input name="ext_rsub" type="checkbox" value="range subsetting"/>Range Subsetting</label>
+			<label>
+				<input name="ext_crs" type="checkbox" value="crs"/>CRS</label>
+			<label>
+				<input name="profile_eowcs" type="checkbox" value="eowcs"/>EOWCS</label>
+		</p>
 		<xhtml:input type="submit" value="OK"/>
 	</ctl:form>
 </ctl:suite>

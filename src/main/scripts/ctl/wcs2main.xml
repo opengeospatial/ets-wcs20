@@ -3,18 +3,106 @@
 	<!-- NOTE: As there is no canonical practice among and within communities dealing with coverages to use one particular protocol none of the protocols specified in WCS extensions is mandatory. In practice, this may lead to a lack of interoperability between client and server implementations. In future, user communities might agree eventually to make a particular protocol binding mandatory. We use the GetCapabilities in HTTP Get KVP as an initially starting point-->
 	<ctl:test name="wcs2:main">
 		<ctl:param name="url"/>
+		<ctl:param name="core"/>
+		<ctl:param name="ext_post"/>
+		<ctl:param name="ext_proc"/>
+		<ctl:param name="ext_scal"/>
+		<ctl:param name="ext_int"/>
+		<ctl:param name="ext_rsub"/>
+		<ctl:param name="ext_crs"/>
+		<ctl:param name="profile_eowcs"/>
 		<ctl:assertion>Prune query parameters if present.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="contains($url,'?')">
-					<ctl:call-test name="wcs2:main_test">
-						<ctl:with-param name="url" select="substring-before($url,'?')"/>
-					</ctl:call-test> 
+					<xsl:choose>
+						<xsl:when test="contains($core,'core')">
+							<ctl:call-test name="wcs2:main_test">
+								<ctl:with-param name="url" select="substring-before($url,'?')"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_post,'post')">
+							<ctl:call-test name="wcs2:post-xml-main">
+								<ctl:with-param name="url" select="substring-before($url,'?')"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_proc,'processing')">
+							<ctl:call-test name="wcs2:get-proc-main">
+								<ctl:with-param name="url" select="substring-before($url,'?')"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_scal,'scaling')">
+							<ctl:call-test name="wcs2:get-scal-main">
+								<ctl:with-param name="url" select="substring-before($url,'?')"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_int,'interpolation')">
+							<ctl:call-test name="wcs2:get-int-main">
+								<ctl:with-param name="url" select="substring-before($url,'?')"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_rsub,'range subsetting')">
+							<ctl:call-test name="wcs2:get-rsub-main">
+								<ctl:with-param name="url" select="substring-before($url,'?')"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_crs,'crs')">
+							<ctl:call-test name="wcs2:crs">
+								<ctl:with-param name="url" select="substring-before($url,'?')"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($profile_eowcs,'eowcs')">
+							<ctl:call-test name="wcseo:main">
+								<ctl:with-param name="url" select="substring-before($url,'?')"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:otherwise/>
+					</xsl:choose>
 				</xsl:when>
 				<xsl:otherwise>
-					<ctl:call-test name="wcs2:main_test">
-						<ctl:with-param name="url" select="$url"/>
-					</ctl:call-test> 
+					<xsl:choose>
+						<xsl:when test="contains($core,'core')">
+							<ctl:call-test name="wcs2:main_test">
+								<ctl:with-param name="url" select="$url"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_post,'post')">
+							<ctl:call-test name="wcs2:post-xml-main">
+								<ctl:with-param name="url" select="$url"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_proc,'processing')">
+							<ctl:call-test name="wcs2:get-proc-main">
+								<ctl:with-param name="url" select="$url"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_scal,'scaling')">
+							<ctl:call-test name="wcs2:get-scal-main">
+								<ctl:with-param name="url" select="$url"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_int,'interpolation')">
+							<ctl:call-test name="wcs2:get-int-main">
+								<ctl:with-param name="url" select="$url"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_rsub,'range subsetting')">
+							<ctl:call-test name="wcs2:get-rsub-main">
+								<ctl:with-param name="url" select="$url"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($ext_crs,'crs')">
+							<ctl:call-test name="wcs2:crs">
+								<ctl:with-param name="url" select="$url"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:when test="contains($profile_eowcs,'eowcs')">
+							<ctl:call-test name="wcseo:main">
+								<ctl:with-param name="url" select="$url"/>
+							</ctl:call-test>
+						</xsl:when>
+						<xsl:otherwise/>
+					</xsl:choose>
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
