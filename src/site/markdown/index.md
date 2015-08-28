@@ -130,19 +130,13 @@ The documents listed below stipulate requirements that must be satisfied by a co
 *   [WCS EOWCS] [OGC® Web Coverage Service Interface Standard - Earth Observation Application Profile](https://portal.opengeospatial.org/files/42722) (OGC 10-140r1)
 *   Compliance Test Language (CTL) 0.5
 
-General requirements for the implementation:
+## General requirements for the implementation:
 
 1.  At least one protocol implementation should be available and advertised in the GetCapabilities response.
 2.  The implementation provides at least two coverages.
 3.  The first coverage offering should be a RectifiedGridCoverage with at least 2 dimensions, while the second coverage can be any coverage.
 4.  Do not use CoverageId_Bogus as a coverage ID, format_bogus as a format name, mediatype_bogus for the mediatype parameter, or dimension_bogus as an axis name.
 5.  The offered coverage must be implemented according to the GMLCov specification (09-146r2).
-
-## How to run the tests
-
-The test suite may be run in any of the following environments:
-
-*   TEAM-Engine: Run the CTL script located in the `/src/main/ctl/` directory.
 
 ## Test data
 
