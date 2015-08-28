@@ -8,7 +8,7 @@ This Executable Test Suite (ETS) verifies the conformance of **WCS 2.0** service
 
 In this test suite all mandatory conformance requirements are checked, and every instance document is thoroughly validated against all referenced XML schemas. Table 1 below provides the names of the conformance classes, references to the relevant clause in the abstract test suite (ATS) in Annex A, and information about its implementation status.
 
-<table style="border-collapse: collapse;" border="1"><caption>Table 1 - Conformance class coverage</caption>
+<table style="border-collapse: collapse;" border="1"><caption>Conformance class coverage</caption>
 
 <thead>
 
@@ -106,11 +106,6 @@ In this test suite all mandatory conformance requirements are checked, and every
 
 </tr>
 
-<tr>
-
-<td colspan="3" style="padding: 0.5em;">**Note:** Done by TEAMEngine when a kvp request is invoked (A.2)</td>
-
-</tr>
 
 </tbody>
 
