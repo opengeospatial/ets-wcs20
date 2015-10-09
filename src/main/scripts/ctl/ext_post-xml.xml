@@ -11,11 +11,11 @@
 					<ctl:method>post</ctl:method>
 					<ctl:header name="Content-type">text/xml</ctl:header>
 					<ctl:body>								<wcs:GetCapabilities  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-											xmlns:ows="http://www.opengis.net/ows/1.1"
+											xmlns:ows="http://www.opengis.net/ows/2.0"
 											xmlns:wcs="http://www.opengis.net/wcs/2.0"
-											service="WCS" version="2.0.1">
+											service="WCS">
 									<ows:AcceptVersions>
-										<ows:Version>2.0</ows:Version>
+										<ows:Version>2.0.1</ows:Version>
 									</ows:AcceptVersions>
 								</wcs:GetCapabilities></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -112,11 +112,11 @@
 					<ctl:header name="Content-type">text/xml</ctl:header>
 					<ctl:body>
 								<wcs:GetCapabilities  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-											xmlns:ows="http://www.opengis.net/ows/1.1"
+											xmlns:ows="http://www.opengis.net/ows/2.0"
 											xmlns:wcs="http://www.opengis.net/wcs/2.0"
-											service="WCS" version="2.0.1">
+											service="WCS">
 									<ows:AcceptVersions>
-										<ows:Version>2.0</ows:Version>
+										<ows:Version>2.0.1</ows:Version>
 									</ows:AcceptVersions>
 								</wcs:GetCapabilities></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -147,11 +147,11 @@
 					<ctl:header name="Content-type">text/xml</ctl:header>
 					<ctl:body>
 								<wcs:GetCapabilities  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-											xmlns:ows="http://www.opengis.net/ows/1.1"
+											xmlns:ows="http://www.opengis.net/ows/2.0"
 											xmlns:wcs="http://www.opengis.net/wcs/2.0"
-											service="WCS_Bogus" version="2.0.1">
+											service="WCS_Bogus">
 									<ows:AcceptVersions>
-										<ows:Version>2.0</ows:Version>
+										<ows:Version>2.0.1</ows:Version>
 									</ows:AcceptVersions>
 								</wcs:GetCapabilities></ctl:body>
 					<ctlp:XMLValidatingParser>
@@ -348,11 +348,11 @@
 					<ctl:header name="Content-type">text/xml</ctl:header>
 					<ctl:body>
 						<wcs:GetCapabilities  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-							xmlns:ows="http://www.opengis.net/ows/1.1"
+							xmlns:ows="http://www.opengis.net/ows/2.0"
 							xmlns:wcs="http://www.opengis.net/wcs/2.0"
-							service="WCS_Bogus" version="2.0.1">
+							service="WCS_Bogus">
 							<ows:AcceptVersions>
-								<ows:Version>2.0</ows:Version>
+								<ows:Version>2.0.1</ows:Version>
 							</ows:AcceptVersions>
 						</wcs:GetCapabilities></ctl:body>
 					<ctlp:XMLValidatingParser>
