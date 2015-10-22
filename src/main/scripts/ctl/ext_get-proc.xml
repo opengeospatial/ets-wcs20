@@ -203,12 +203,9 @@
 		
 					<ctl:param name="query">for c in ( <xsl:value-of select="$CoverageId"/> ) return  encode (c,"png") </ctl:param>
 					<parsers:HTTPParser>
-						<parsers:parse>
-							<parsers:XMLValidatingParser>
-								<parsers:schemas>
-									<parsers:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</parsers:schema>
-								</parsers:schemas>
-							</parsers:XMLValidatingParser>
+						<parsers:parse>                    								<parsers:ImageParser>
+ 						        	<parsers:type/>
+                     					</parsers:ImageParser>
 						</parsers:parse>
 					</parsers:HTTPParser>
 				</ctl:request>
