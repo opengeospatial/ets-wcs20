@@ -91,7 +91,7 @@
 									xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd"
 									service="WCS" version="2.0.1">
 									<wcs:CoverageId>]]><xsl:value-of select="./*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId>
-									<wcs:format>application/gml+xml</wcs:format>
+									<wcs:format>application/gml%2Bxml</wcs:format>
 								</wcs:GetCoverage>]]>
 								</ctl:body>
 								<ctlp:XMLValidatingParser>
@@ -226,7 +226,7 @@
 											xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd"
 											service="WCS" version="2.0.1">
 											<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId>
-											<wcs:format>application/gml+xml</wcs:format>
+											<wcs:format>application/gml%2Bxml</wcs:format>
 										</wcs:GetCoverage>]]>
 										</ctl:body>
 										<ctlp:XMLValidatingParser>
@@ -540,7 +540,7 @@
 										<wcs:CoverageId>
 											<xsl:value-of select="./*[local-name()='CoverageId']"/>
 										</wcs:CoverageId>
-										<wcs:format>application/gml+xml</wcs:format>
+										<wcs:format>application/gml%2Bxml</wcs:format>
 									</wcs:GetCoverage>
 								</ctl:body>
 								<ctlp:SOAPParser return="content">
@@ -671,7 +671,7 @@
 												<wcs:CoverageId>
 													<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
 												</wcs:CoverageId>
-												<wcs:format>application/gml+xml</wcs:format>
+												<wcs:format>application/gml%2Bxml</wcs:format>
 											</wcs:GetCoverage>
 										</ctl:body>
 										<ctlp:SOAPParser return="content">
