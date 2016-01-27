@@ -2229,7 +2229,7 @@
 								</parsers:HTTPParser>
 							</ctl:request>
 						</xsl:variable>
-						<xsl:if test="deep-equal($DescribeCoverage//*[local-name()='boundedBy'], $GetCoverage//*[local-name()='boundedBy']) and deep-equal($DescribeCoverage//*[local-name()='domainSet'], $GetCoverage//*[local-name()='domainSet']) and deep-equal($DescribeCoverage//*[local-name()='rangeType'], $GetCoverage//*[local-name()='rangeType'])">
+						<xsl:if test="not(deep-equal($DescribeCoverage//*[local-name()='boundedBy'], $GetCoverage//*[local-name()='boundedBy']) or deep-equal($DescribeCoverage//*[local-name()='domainSet'], $GetCoverage//*[local-name()='domainSet']) or deep-equal($DescribeCoverage//*[local-name()='rangeType'], $GetCoverage//*[local-name()='rangeType']))">
 							<ctl:message> the coverage description should be equal</ctl:message>
 							<ctl:fail/>
 						</xsl:if>
