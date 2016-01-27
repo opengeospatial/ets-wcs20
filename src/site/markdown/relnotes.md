@@ -1,5 +1,16 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 2.0 (2016-1-28)
+
+- fixed issue 8 on + sign
+- fixed issue 9 on ows version
+- fixed issue 10 on coverage description deep equal  
+
+## 1.9 (2015-12-08)
+
+- fixed parser for png result via ImageParser
+- fixed GetCapabilities Post requests
+
 ## 1.8 (2015-08-19)
 
 - Merge core, post, processing, scaling, interpolation, range subsetting, crs extensions and eowcs profile
