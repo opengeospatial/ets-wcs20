@@ -1,6 +1,6 @@
 # WCS 2.0 Test Suite Release Notes
 
-## 2.0 (2016-1-28)
+## 1.10 (2016-1-28)
 
 - fixed issue 8 on + sign
 - fixed issue 9 on ows version
