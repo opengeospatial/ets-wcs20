@@ -1,14 +1,10 @@
 # WCS 2.0 Test Suite Release Notes
 
-## 1.10 (2016-01-28)
+## 1.9 (2016-01-28)
 
   - [#10](https://github.com/opengeospatial/ets-wcs20/issues/10) - Test wcs2:get-kvp-core-req42 in GetCoverage.xml always fail
   - [#9](https://github.com/opengeospatial/ets-wcs20/issues/9) - Wrong version of OWS in WCS GetCapabilities request
   - [#8](https://github.com/opengeospatial/ets-wcs20/issues/8) - URL encoding of '+' character in GetCoverage request
-
-
-## 1.9 (2015-12-08)
-
   - [#12](https://github.com/opengeospatial/ets-wcs20/issues/12) - Fixed version metadata in GetCapabilities Post requests
   - [#7](https://github.com/opengeospatial/ets-wcs20/issues/7) - PNG not being parsing with ImageParser - Test wcs2:get-proc-req8-10
 
