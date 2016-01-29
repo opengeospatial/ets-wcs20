@@ -1,30 +1,32 @@
 # WCS 2.0 Test Suite Release Notes
 
-## 1.10 (2016-1-28)
+## 1.10 (2016-01-28)
 
-- fixed issue 8 on + sign
-- fixed issue 9 on ows version
-- fixed issue 10 on coverage description deep equal  
+  - [#10](https://github.com/opengeospatial/ets-wcs20/issues/10) - Test wcs2:get-kvp-core-req42 in GetCoverage.xml always fail
+  - [#9](https://github.com/opengeospatial/ets-wcs20/issues/9) - Wrong version of OWS in WCS GetCapabilities request
+  - [#8](https://github.com/opengeospatial/ets-wcs20/issues/8) - URL encoding of '+' character in GetCoverage request
+
 
 ## 1.9 (2015-12-08)
 
-- fixed parser for png result via ImageParser
-- fixed GetCapabilities Post requests
+  - [#12](https://github.com/opengeospatial/ets-wcs20/issues/12) - Fixed version metadata in GetCapabilities Post requests
+  - [#7](https://github.com/opengeospatial/ets-wcs20/issues/7) - PNG not being parsing with ImageParser - Test wcs2:get-proc-req8-10
+
 
 ## 1.8 (2015-08-19)
 
-- Merge core, post, processing, scaling, interpolation, range subsetting, crs extensions and eowcs profile
+  - [#11](https://github.com/opengeospatial/ets-wcs20/issues/11) - Merge core, post, processing, scaling, interpolation, range subsetting, crs extensions and eowcs profile
 
 ## 1.7 (2015-03-05)
 
 - Update to new scheme versioning
 
-## r6 (2014-11-DD)
+## r6 (2014-11-30)
 
-- Fix GitHub [issue #5](https://github.com/opengeospatial/ets-wcs20/issues/5)
+- [#5](https://github.com/opengeospatial/ets-wcs20/issues/5) - Test failure - java.lang.reflect.InvocationTargetException
 - Edited and adjusted documentation (index.html)
 - Migrate source code to [GitHub](https://github.com/opengeospatial/ets-wcs20)
-- Adopt Apache Maven as the build tool.
+- Adopt Apache Maven as the build tool
 
 ## r5 (2013-10-29) 
 
