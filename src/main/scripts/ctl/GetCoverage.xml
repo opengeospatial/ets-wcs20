@@ -1592,7 +1592,7 @@
 							<ctl:call-test name="wcs:getcoverage_not_exception">
 								<ctl:with-param name="GetCoverage" select="$GetCoverage"/>
 							</ctl:call-test>
-							<xsl:if test="compare($DescribeCoverage//*[local-name()='CoverageId'],$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1])=0">
+							<xsl:if test="compare($GetCoverage//*[local-name()='CoverageId'],$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1])=0">
 								<ctl:message>[FAILURE] the identified CoverageId is not the same as the requested one.</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
