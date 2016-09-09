@@ -1,5 +1,10 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.10 (2016-09-09)
+
+  - [#15](https://github.com/opengeospatial/ets-wcs20/issues/15) -  Req37 kvp test on coverage id
+
+
 ## 1.9 (2016-01-28)
 
   - [#10](https://github.com/opengeospatial/ets-wcs20/issues/10) - Test wcs2:get-kvp-core-req42 in GetCoverage.xml always fail
