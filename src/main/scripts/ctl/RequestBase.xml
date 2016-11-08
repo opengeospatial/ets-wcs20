@@ -1100,7 +1100,14 @@
 								<ctl:message>[FAILURE] The version in the wcs:Capabilities result should be "2.0.1".</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
-							<xsl:if test="$Capabilities//*[local-name()='Capabilities']/*[local-name()='ServiceIdentification']/*[local-name()='ServiceTypeVersion'] != '2.0.1'">
+							<xsl:variable name="ServiceTypeVersion">
+								<xsl:for-each select="$Capabilities//*[local-name()='Capabilities']/*[local-name()='ServiceIdentification']/*[local-name()='ServiceTypeVersion']">
+									<xsl:if test=". = '2.0.1'">
+										<xsl:value-of select="." />
+									</xsl:if>
+								</xsl:for-each>
+							</xsl:variable>
+							<xsl:if test="$ServiceTypeVersion != '2.0.1'">
 								<ctl:message>[FAILURE] The version in the wcs:Capabilities result should be "2.0.1".</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
@@ -1221,7 +1228,14 @@
 								<ctl:message>[FAILURE] The version in the wcs:Capabilities result should be "2.0.1".</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
-							<xsl:if test="$Capabilities//*[local-name()='Capabilities']/*[local-name()='ServiceIdentification']/*[local-name()='ServiceTypeVersion'] != '2.0.1'">
+							<xsl:variable name="ServiceTypeVersion">
+								<xsl:for-each select="$Capabilities//*[local-name()='Capabilities']/*[local-name()='ServiceIdentification']/*[local-name()='ServiceTypeVersion']">
+									<xsl:if test=". = '2.0.1'">
+										<xsl:value-of select="." />
+									</xsl:if>
+								</xsl:for-each>
+							</xsl:variable> 
+							<xsl:if test="$ServiceTypeVersion != '2.0.1'">
 								<ctl:message>[FAILURE] The version in the wcs:Capabilities result should be "2.0.1".</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
@@ -1343,7 +1357,14 @@
 								<ctl:message>[FAILURE] The version in the wcs:Capabilities result should be "2.0.1".</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
-							<xsl:if test="$Capabilities//*[local-name()='Capabilities']/*[local-name()='ServiceIdentification']/*[local-name()='ServiceTypeVersion'] != '2.0.1'">
+							<xsl:variable name="ServiceTypeVersion">
+								<xsl:for-each select="$Capabilities//*[local-name()='Capabilities']/*[local-name()='ServiceIdentification']/*[local-name()='ServiceTypeVersion']">
+									<xsl:if test=". = '2.0.1'">
+										<xsl:value-of select="." />
+									</xsl:if>
+								</xsl:for-each>
+							</xsl:variable>
+							<xsl:if test="$ServiceTypeVersion != '2.0.1'">
 								<ctl:message>[FAILURE] The version in the wcs:Capabilities result should be "2.0.1".</ctl:message>
 								<ctl:fail/>
 							</xsl:if>
