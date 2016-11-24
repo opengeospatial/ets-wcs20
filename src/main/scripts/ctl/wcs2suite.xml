@@ -16,7 +16,7 @@
 		</p>
 		<p>
 			<label>
-				<input name="core" type="checkbox" value="core" disabled="disabled" checked="checked" />WCS Core</label>
+				<input name="core" type="checkbox" value="core" checked="checked" onclick="return this.checked;" />WCS Core</label>
 			<label>
 				<input name="ext_post" type="checkbox" value="post"/>WCS POST</label>
 			<label>
