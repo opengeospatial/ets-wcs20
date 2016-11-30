@@ -16,21 +16,21 @@
 		</p>
 		<p>
 			<label>
-				<input name="core" type="checkbox" value="core"/>WCS Core</label>
+				<input name="core" type="checkbox" value="core" checked="checked" onclick="return this.checked;" />WCS Core</label>
 			<label>
 				<input name="ext_post" type="checkbox" value="post"/>WCS POST</label>
 			<label>
-				<input name="ext_proc" type="checkbox" value="processing"/>Processing</label>
+				<input name="ext_proc" type="checkbox" value="processing"/>WCS WCPS 2.0 (Processing)</label>
 			<label>
-				<input name="ext_scal" type="checkbox" value="scaling"/>Scaling</label>
+				<input name="ext_scal" type="checkbox" value="scaling"/>WCS Scaling 1.0</label>
 			<label>
-				<input name="ext_int" type="checkbox" value="interpolation"/>Interpolation</label>
+				<input name="ext_int" type="checkbox" value="interpolation"/>WCS Interpolation 1.0</label>
 			<label>
-				<input name="ext_rsub" type="checkbox" value="range subsetting"/>Range Subsetting</label>
+				<input name="ext_rsub" type="checkbox" value="range subsetting"/>WCS Range Subsetting 1.0</label>
 			<label>
-				<input name="ext_crs" type="checkbox" value="crs"/>CRS</label>
+				<input name="ext_crs" type="checkbox" value="crs"/>WCS-CRS-extension 1.0</label>
 			<label>
-				<input name="profile_eowcs" type="checkbox" value="eowcs"/>EOWCS</label>
+				<input name="profile_eowcs" type="checkbox" value="eowcs"/>WCS EO 1.0 (EOWCS)</label>
 		</p>
 		<xhtml:input type="submit" value="OK"/>
 	</ctl:form>
