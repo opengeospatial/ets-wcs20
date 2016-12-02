@@ -18,7 +18,7 @@
 			</xsl:variable>
 			<xsl:variable name="ReferenceableDatasetId">
 				<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']">
-					<xsl:if test="./*[local-name()='CoverageSubtype'][1]='RectifiedDataset'">
+					<xsl:if test="./*[local-name()='CoverageSubtype'][1]='ReferenceableDataset'">
 						<xsl:value-of select="./*[local-name()='CoverageId']"/>
 					</xsl:if>
 				</xsl:for-each>
