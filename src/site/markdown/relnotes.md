@@ -1,5 +1,16 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.11 (2016-11-30)
+  -  [#25](https://github.com/opengeospatial/ets-wcs20/issues/25) - Update user form to match correct names for conformance classes
+  -  [#26](https://github.com/opengeospatial/ets-wcs20/issues/26) - Error in calling extensions in WCS2 .0.1 (EOWCS) with Null Exception
+  -  [#19](https://github.com/opengeospatial/ets-wcs20/issues/19) - req:12 failed due to multiple serviceTypeVersion parameter in response
+  -  [#29](https://github.com/opengeospatial/ets-wcs20/issues/29) - WCS test can only run the first chosen test subset of test suite
+
+## 1.10 (2016-09-09)
+
+  - [#15](https://github.com/opengeospatial/ets-wcs20/issues/15) -  Req37 kvp test on coverage id
+
+
 ## 1.9 (2016-01-28)
 
   - [#10](https://github.com/opengeospatial/ets-wcs20/issues/10) - Test wcs2:get-kvp-core-req42 in GetCoverage.xml always fail
