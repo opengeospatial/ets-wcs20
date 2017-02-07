@@ -194,7 +194,7 @@
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:for-each select="$DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']">
-								<xsl:if test="not(index-of(('RectifiedDataset','RectifiedDataset','RectifiedStitchedMosaic','ReferenceableStitchedMosaic'),.//*[local-name()='CoverageSubtype'])>0)">
+								<xsl:if test="not(index-of(('RectifiedDataset','ReferenceableDataset','RectifiedStitchedMosaic','ReferenceableStitchedMosaic'),.//*[local-name()='CoverageSubtype'])>0)">
 									<ctl:message>[FAILURE] The CoverageSubtype of <xsl:value-of select="./@*[local-name()='id']"/> is unknown </ctl:message>
 									<ctl:fail/>
 								</xsl:if>
@@ -248,7 +248,7 @@
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:for-each select="$DescribeCoverage//*[local-name()='CoverageDescriptions']/*[local-name()='CoverageDescription']">
-								<xsl:if test="not(index-of(('RectifiedDataset','RectifiedDataset','RectifiedStitchedMosaic','ReferenceableStitchedMosaic'),.//*[local-name()='CoverageSubtype'])>0)">
+								<xsl:if test="not(index-of(('RectifiedDataset','ReferenceableDataset','RectifiedStitchedMosaic','ReferenceableStitchedMosaic'),.//*[local-name()='CoverageSubtype'])>0)">
 									<ctl:message>[FAILURE] The CoverageSubtype of <xsl:value-of select="./@*[local-name()='id']"/> is unknown </ctl:message>
 									<ctl:call-test name="wcseo:req39">
 										<ctl:with-param name="CoverageDescription" select="."/>

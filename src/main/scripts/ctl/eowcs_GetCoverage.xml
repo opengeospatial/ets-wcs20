@@ -5,7 +5,7 @@
 		<ctl:assertion>Test EO-WCS GetCoverage.</ctl:assertion>
 		<ctl:code>
 			<xsl:for-each select="$Capabilities//*[local-name()='Contents']/*[local-name()='CoverageSummary']">
-				<xsl:if test="not(index-of(('RectifiedDataset','RectifiedDataset','RectifiedStitchedMosaic','ReferenceableStitchedMosaic'),./*[local-name()='CoverageSubtype'])>0)">
+				<xsl:if test="not(index-of(('RectifiedDataset','ReferenceableDataset','RectifiedStitchedMosaic','ReferenceableStitchedMosaic'),./*[local-name()='CoverageSubtype'])>0)">
 					<ctl:fail/>
 				</xsl:if>
 			</xsl:for-each>
@@ -18,7 +18,7 @@
 			</xsl:variable>
 			<xsl:variable name="ReferenceableDatasetId">
 				<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']">
-					<xsl:if test="./*[local-name()='CoverageSubtype'][1]='RectifiedDataset'">
+					<xsl:if test="./*[local-name()='CoverageSubtype'][1]='ReferenceableDataset'">
 						<xsl:value-of select="./*[local-name()='CoverageId']"/>
 					</xsl:if>
 				</xsl:for-each>
