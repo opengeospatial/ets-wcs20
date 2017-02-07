@@ -64,7 +64,7 @@
 				<ctl:with-param name="url" select="$url"/>
 				<ctl:with-param name="Capabilities" select="$Capabilities"/>
 			</ctl:call-test>
-			<ctl:call-test name="wcseo:req63">
+			<ctl:call-test name="wcseo:req63-66">
 				<ctl:with-param name="url" select="$url"/>
 				<ctl:with-param name="Capabilities" select="$Capabilities"/>
 			</ctl:call-test>
