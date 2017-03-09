@@ -16,7 +16,6 @@ The OGC Web Coverage Service 2.0.1 Test-Suite provides the Executable Test Scrip
   * [WCS CRS] [OGC Web Coverage Service 2.0 Interface Standard - CRS Extension](https://portal.opengeospatial.org/files/11-053) (OGC 11-053)
   * [WCS EOWCS] [OGC Web Coverage Service 2.0 Interface Standard - Earth Observation Application](https://portal.opengeospatial.org/files/42722) (OGC 10-140r1)
 
-  * Compliance Test Language (CTL) 0.5
 
 
 Detailed information about this test suite is available [here](http://opengeospatial.github.io/ets-wcs20/).

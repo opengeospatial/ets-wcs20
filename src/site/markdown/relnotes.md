@@ -1,11 +1,21 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.12 (2017-03-09)
+ 
+   - [#36](https://github.com/opengeospatial/ets-wcs20/issues/36) - Updated the test name req63-66. #34 
+   - [#34](https://github.com/opengeospatial/ets-wcs20/issues/34) - Test wise:DescribeEOCoverageSet Failed req 63build_release.sh
+   -  [#31](https://github.com/opengeospatial/ets-wcs20/issues/31) - Update eowcs_DescribeCoverage.xml
+
 ## 1.11 (2016-11-30)
+
+  - [#29](https://github.com/opengeospatial/ets-wcs20/issues/29) - WCS test can only run the first chosen Test subset of test suite
   -  [#25](https://github.com/opengeospatial/ets-wcs20/issues/25) - Update user form to match correct names for conformance classes
   -  [#26](https://github.com/opengeospatial/ets-wcs20/issues/26) - Error in calling extensions in WCS2 .0.1 (EOWCS) with Null Exception
   -  [#19](https://github.com/opengeospatial/ets-wcs20/issues/19) - req:12 failed due to multiple serviceTypeVersion parameter in response
   -  [#29](https://github.com/opengeospatial/ets-wcs20/issues/29) - WCS test can only run the first chosen test subset of test suite
-
+  - [#27](https://github.com/opengeospatial/ets-wcs20/issues/27) - Fixed eowcs Namespace issue
+  - [#40](https://github.com/opengeospatial/ets-wcs20/issues/40) - Error in calling extensions in WCS2 .0.1 (EOWCS) with Null Exception
+  
 ## 1.10 (2016-09-09)
 
   - [#15](https://github.com/opengeospatial/ets-wcs20/issues/15) -  Req37 kvp test on coverage id
