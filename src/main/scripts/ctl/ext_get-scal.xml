@@ -2096,7 +2096,7 @@
 		<ctl:param name="DescribeCoverage"/>
 		<ctl:assertion>Req13:Test scale-axes-by-factor result.</ctl:assertion>
 		<ctl:code>
-			<xsl:if test="not(floor(number(tokenize(string($DescribeCoverage//*[local-name()='domainSet']//*[local-name()='GridEnvelope']/*[local-name()='high']),'\s+')[1]) div 2) = number(tokenize(string($GetCoverage//*[local-name()='domainSet']//*[local-name()='GridEnvelope']/*[local-name()='high']),'\s+')[1] ))">
+			<xsl:if test="not(floor(number(tokenize(string($DescribeCoverage//*[local-name()='domainSet']//*[local-name()='GridEnvelope']/*[local-name()='high']),'\s+')[1]) * 2) = number(tokenize(string($GetCoverage//*[local-name()='domainSet']//*[local-name()='GridEnvelope']/*[local-name()='high']),'\s+')[1] ))">
 				<ctl:message>[FAILURE] The scal result is not correct.</ctl:message>
 				<ctl:fail/>
 			</xsl:if>
@@ -2396,7 +2396,7 @@
 					<ctl:call-test name="wcs2:GetCoverage_not_exception">
 						<ctl:with-param name="GetCoverage" select="$GetCoverage"/>
 					</ctl:call-test>
-					<xsl:variable name="GetCoverage">
+					<xsl:variable name="GetCoverage1">
 						<ctl:request>
 							<ctl:url>
 								<xsl:value-of select="$url"/>
@@ -2434,9 +2434,9 @@
 						</ctl:request>
 					</xsl:variable>
 					<ctl:call-test name="wcs2:GetCoverage_not_exception">
-						<ctl:with-param name="GetCoverage1" select="$GetCoverage"/>
+						<ctl:with-param name="GetCoverage" select="$GetCoverage1"/>
 					</ctl:call-test>
-					<xsl:variable name="GetCoverage">
+					<xsl:variable name="GetCoverage2">
 						<ctl:request>
 							<ctl:url>
 								<xsl:value-of select="$url"/>
@@ -2474,9 +2474,9 @@
 						</ctl:request>
 					</xsl:variable>
 					<ctl:call-test name="wcs2:GetCoverage_not_exception">
-						<ctl:with-param name="GetCoverage2" select="$GetCoverage"/>
+						<ctl:with-param name="GetCoverage" select="$GetCoverage2"/>
 					</ctl:call-test>
-					<xsl:variable name="GetCoverage">
+					<xsl:variable name="GetCoverage3">
 						<ctl:request>
 							<ctl:url>
 								<xsl:value-of select="$url"/>
@@ -2516,7 +2516,7 @@
 						</ctl:request>
 					</xsl:variable>
 					<ctl:call-test name="wcs2:GetCoverage_not_exception">
-						<ctl:with-param name="GetCoverage3" select="$GetCoverage"/>
+						<ctl:with-param name="GetCoverage" select="$GetCoverage3"/>
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:get-scal-req12">
 						<ctl:with-param name="GetCoverage" select="$GetCoverage"/>
@@ -2525,7 +2525,6 @@
 					<ctl:call-test name="wcs2:get-scal-req13">
 						<ctl:with-param name="GetCoverage" select="$GetCoverage1"/>
 						<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
-	
 					</ctl:call-test>
 					<ctl:call-test name="wcs2:get-scal-req14">
 						<ctl:with-param name="GetCoverage" select="$GetCoverage2"/>
