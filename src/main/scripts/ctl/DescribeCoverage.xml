@@ -1660,10 +1660,10 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="not($DescribeCoverage//*[local-name()='status']/@*[local-name()='code']='404') ">
+					<xsl:if test="not($DescribeCoverage.documen//*[local-name()='status']/@*[local-name()='code']='404') ">
 						<ctl:fail/>
 					</xsl:if>				
-					<xsl:if test="not(not(empty($DescribeCoverage//*[local-name()='Exception'])) and $DescribeCoverage//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
+					<xsl:if test="not(not(empty($DescribeCoverage.document//*[local-name()='Exception'])) and $DescribeCoverage.documen//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -1700,10 +1700,10 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="not($DescribeCoverage//*[local-name()='status']/@*[local-name()='code']='404') ">
+					<xsl:if test="not($DescribeCoverage.documen//*[local-name()='status']/@*[local-name()='code']='404') ">
 						<ctl:fail/>
 					</xsl:if>				
-					<xsl:if test="not(not(empty($DescribeCoverage//*[local-name()='Exception'])) and $DescribeCoverage//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
+					<xsl:if test="not(not(empty($DescribeCoverage.documen//*[local-name()='Exception'])) and $DescribeCoverage.documen//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -1742,10 +1742,10 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="not($DescribeCoverage//*[local-name()='status']/@*[local-name()='code']='404') ">
+					<xsl:if test="not($DescribeCoverage.documen//*[local-name()='status']/@*[local-name()='code']='404') ">
 						<ctl:fail/>
 					</xsl:if>				
-					<xsl:if test="not(not(empty($DescribeCoverage//*[local-name()='Exception'])) and $DescribeCoverage//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
+					<xsl:if test="not(not(empty($DescribeCoverage.documen//*[local-name()='Exception'])) and $DescribeCoverage.documen//@*[local-name()='exceptionCode']='NoSuchCoverage') ">
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
