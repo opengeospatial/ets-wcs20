@@ -12,7 +12,7 @@
 		<p>For example: <pre>http://kahlua.eecs.jacobs-university.de:8080/wcs-conformance-testing</pre>
 		</p>
 		<p>
-			<xhtml:input type="text" name="url" size="100"/>
+			<xhtml:input type="url" name="url" size="100" pattern="[a-z]{3,}://.+" />
 		</p>
 		<p>
 			<label>
