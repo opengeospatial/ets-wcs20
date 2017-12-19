@@ -15,10 +15,33 @@
  
   <ctl:test name="wcs2:crs">
     <ctl:param name="url"/>
-    <ctl:param name="Capabilities"/>
-    <ctl:param name="SupportsGML" />
     <ctl:assertion>Test the WCS 2.0 crs</ctl:assertion>
     <ctl:code>
+		<xsl:variable name="Capabilities">
+			<ctl:request>
+				<ctl:url>
+					<xsl:value-of select="$url" />
+				</ctl:url>
+				<ctl:method>get</ctl:method>
+				<ctl:param name="SERVICE">WCS</ctl:param>
+				<ctl:param name="VERSION">2.0.1</ctl:param>
+				<ctl:param name="REQUEST">GetCapabilities</ctl:param>
+				<ctlp:XMLValidatingParser>
+					<ctlp:schemas>
+						<ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema>
+					</ctlp:schemas>
+				</ctlp:XMLValidatingParser>
+			</ctl:request>
+		</xsl:variable>
+		<xsl:variable name="SupportsGML">
+			<xsl:for-each
+				select="$Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']">
+				<xsl:if
+					test=". = 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml-coverage'">
+					<xsl:value-of select="'true'" />
+				</xsl:if>
+			</xsl:for-each>
+		</xsl:variable>
 					<xsl:variable name="DescribeCoverage">
 						<ctl:request>
 							<ctl:url>
