@@ -10,4 +10,8 @@
 			</xsl:if>
 		</ctl:code>
 	</ctl:test>
+	<ctl:function name="wcs2:encode">
+      <ctl:param name="s">String to encode</ctl:param>
+      <ctl:java class="java.net.URLEncoder" method="encode"/>
+   </ctl:function>
 </ctl:package>
