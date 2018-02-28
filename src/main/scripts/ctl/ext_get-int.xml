@@ -27,7 +27,6 @@
 					</xsl:if>
 				</xsl:for-each>
 			</xsl:variable>
-
 			<xsl:variable name="CoverageId">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][*[local-name()='BoundingBox']/@dimensions=2][1]/*[local-name()='CoverageId'][1]"/>
 			</xsl:variable>
@@ -56,9 +55,20 @@
 			<xsl:variable name="InterpolationSupported">
 				<xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='InterpolationMetadata']/*[local-name()='InterpolationSupported']"/>
 			</xsl:variable>
-			<!--xsl:code-->
-				<xsl:if test="not(empty($DescribeCoverage))">
-
+			<ctl:call-test name="wcs2:get-int-req1">
+				<ctl:with-param name="Capabilities" select="$Capabilities"/>
+			</ctl:call-test>
+			<ctl:call-test name="wcs2:get-int-req2">
+				<ctl:with-param name="Capabilities" select="$Capabilities"/>
+			</ctl:call-test>
+			<ctl:call-test name="wcs2:get-int-req3">
+				<ctl:with-param name="Capabilities" select="$Capabilities"/>
+			</ctl:call-test>
+			<ctl:call-test name="wcs2:get-int-req4">
+				<ctl:with-param name="Capabilities" select="$Capabilities"/>
+			</ctl:call-test>
+			<xsl:choose>
+				<xsl:when test="not(empty($DescribeCoverage))">
 					<ctl:call-test name="wcs2:get-int-req5-9">
 						<ctl:with-param name="url" select="$url"/>
 						<ctl:with-param name="CoverageId" select="$CoverageId"/>
@@ -68,89 +78,89 @@
 						<ctl:with-param name="axisLabels" select="$axisLabels"/>
 						<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
 					</ctl:call-test>
-				</xsl:if>
-				<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-per-axis')">
-					<ctl:call-test name="wcs2:get-int-req10-18">
-						<ctl:with-param name="url" select="$url"/>
-						<ctl:with-param name="CoverageId" select="$CoverageId"/>
-						<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
-						<ctl:with-param name="axisLabels" select="$axisLabels"/>
-						<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
-					</ctl:call-test>
-				</xsl:if>
-				<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-nearest-neighbor')">
-					<ctl:call-test name="wcs2:get-int-req19">
-						<ctl:with-param name="url" select="$url"/>
-						<ctl:with-param name="CoverageId" select="$CoverageId"/>
-						<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
-						<ctl:with-param name="axisLabels" select="$axisLabels"/>
-						<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
-					</ctl:call-test>
-				</xsl:if>
-				<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-linear')">
-					<ctl:call-test name="wcs2:get-int-req21">
-						<ctl:with-param name="url" select="$url"/>
-						<ctl:with-param name="CoverageId" select="$CoverageId"/>
-						<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
-						<ctl:with-param name="axisLabels" select="$axisLabels"/>
-						<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
-					</ctl:call-test>
-				</xsl:if>
-				<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-quadratic')">
-					<ctl:call-test name="wcs2:get-int-req23">
-						<ctl:with-param name="url" select="$url"/>
-						<ctl:with-param name="CoverageId" select="$CoverageId"/>
-						<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
-						<ctl:with-param name="axisLabels" select="$axisLabels"/>
-						<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
-					</ctl:call-test>
-				</xsl:if>
-				<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-cubic')">
-					<ctl:call-test name="wcs2:get-int-req25">
-						<ctl:with-param name="url" select="$url"/>
-						<ctl:with-param name="CoverageId" select="$CoverageId"/>
-						<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
-						<ctl:with-param name="axisLabels" select="$axisLabels"/>
-						<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
-					</ctl:call-test>
-				</xsl:if>
-				<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-lost-area')">
-					<ctl:call-test name="wcs2:get-int-req27">
-						<ctl:with-param name="url" select="$url"/>
-						<ctl:with-param name="CoverageId" select="$CoverageId"/>
-						<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
-						<ctl:with-param name="axisLabels" select="$axisLabels"/>
-						<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
-					</ctl:call-test>
-				</xsl:if>
-				<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-barycentric')">
-					<ctl:call-test name="wcs2:get-int-req29">
-						<ctl:with-param name="url" select="$url"/>
-						<ctl:with-param name="CoverageId" select="$CoverageId"/>
-						<ctl:with-param name="Capabilities" select="$Capabilities"/>
-						<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
-						<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
-						<ctl:with-param name="axisLabels" select="$axisLabels"/>
-						<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
-					</ctl:call-test>
-				</xsl:if>
-				<!--xsl:otherwise>
+					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-per-axis')">
+						<ctl:call-test name="wcs2:get-int-req10-18">
+							<ctl:with-param name="url" select="$url"/>
+							<ctl:with-param name="CoverageId" select="$CoverageId"/>
+							<ctl:with-param name="Capabilities" select="$Capabilities"/>
+							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+							<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
+							<ctl:with-param name="axisLabels" select="$axisLabels"/>
+							<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-nearest-neighbor')">
+						<ctl:call-test name="wcs2:get-int-req19">
+							<ctl:with-param name="url" select="$url"/>
+							<ctl:with-param name="CoverageId" select="$CoverageId"/>
+							<ctl:with-param name="Capabilities" select="$Capabilities"/>
+							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+							<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
+							<ctl:with-param name="axisLabels" select="$axisLabels"/>
+							<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-linear')">
+						<ctl:call-test name="wcs2:get-int-req21">
+							<ctl:with-param name="url" select="$url"/>
+							<ctl:with-param name="CoverageId" select="$CoverageId"/>
+							<ctl:with-param name="Capabilities" select="$Capabilities"/>
+							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+							<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
+							<ctl:with-param name="axisLabels" select="$axisLabels"/>
+							<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-quadratic')">
+						<ctl:call-test name="wcs2:get-int-req23">
+							<ctl:with-param name="url" select="$url"/>
+							<ctl:with-param name="CoverageId" select="$CoverageId"/>
+							<ctl:with-param name="Capabilities" select="$Capabilities"/>
+							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+							<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
+							<ctl:with-param name="axisLabels" select="$axisLabels"/>
+							<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-cubic')">
+						<ctl:call-test name="wcs2:get-int-req25">
+							<ctl:with-param name="url" select="$url"/>
+							<ctl:with-param name="CoverageId" select="$CoverageId"/>
+							<ctl:with-param name="Capabilities" select="$Capabilities"/>
+							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+							<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
+							<ctl:with-param name="axisLabels" select="$axisLabels"/>
+							<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-lost-area')">
+						<ctl:call-test name="wcs2:get-int-req27">
+							<ctl:with-param name="url" select="$url"/>
+							<ctl:with-param name="CoverageId" select="$CoverageId"/>
+							<ctl:with-param name="Capabilities" select="$Capabilities"/>
+							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+							<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
+							<ctl:with-param name="axisLabels" select="$axisLabels"/>
+							<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_service-extension_interpolation/1.0/conf/interpolation-barycentric')">
+						<ctl:call-test name="wcs2:get-int-req29">
+							<ctl:with-param name="url" select="$url"/>
+							<ctl:with-param name="CoverageId" select="$CoverageId"/>
+							<ctl:with-param name="Capabilities" select="$Capabilities"/>
+							<ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+							<ctl:with-param name="DescribeCoverage" select="$DescribeCoverage"/>
+							<ctl:with-param name="axisLabels" select="$axisLabels"/>
+							<ctl:with-param name="InterpolationSupported" select="$InterpolationSupported"/>
+						</ctl:call-test>
+					</xsl:if>
+				</xsl:when>
+				<xsl:otherwise>
 					<ctl:message>[FAILURE] CoverageDescription Parsing or validation errors.</ctl:message>
 					<ctl:fail/>
 				</xsl:otherwise>
-			</xsl:choose-->
+			</xsl:choose>
 		</ctl:code>
 	</ctl:test>
 	<ctl:test name="wcs2:GetCoverage_not_exception">
