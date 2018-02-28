@@ -721,6 +721,8 @@
 		<ctl:param name="url"/>
 		<ctl:assertion>req50:If a DescribeEOCoverageSet request contains a containment parameter then this parameter shall have one of the values contains or overlaps.</ctl:assertion>
 		<ctl:code>
+			<xsl:variable name="subsetLatParam">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</xsl:variable>
+			<xsl:variable name="subsetLongParam">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -733,8 +735,8 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</ctl:param>
-					<ctl:param name="subset">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLatParam)"/></ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLongParam)"/></ctl:param>
 					<ctl:param name="containment">contains</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -755,6 +757,8 @@
 					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
+			<xsl:variable name="subsetPhenomenonTimeParam">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")
+			</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -767,7 +771,7 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetPhenomenonTimeParam)"/></ctl:param>
 					<ctl:param name="containment">overlaps</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -788,6 +792,7 @@
 					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
+			<xsl:variable name="subsetPhenomenonTimeParam">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -800,7 +805,7 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetPhenomenonTimeParam)"/></ctl:param>
 					<ctl:param name="containment">InvalidContainment</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -1010,6 +1015,8 @@
 		<ctl:param name="url"/>
 		<ctl:assertion>req51:If a DescribeEOCoverageSet request contains dimensionTrim elements with dimension parameters then each such dimension parameter shall have one of the values Lat, Long or "phenomenonTime", Each of these values shall appear at most once in a given request.</ctl:assertion>
 		<ctl:code>
+			<xsl:variable name="subsetLatParam">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</xsl:variable>
+			<xsl:variable name="subsetLongParam">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -1022,9 +1029,8 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</ctl:param>
-					<ctl:param name="subset">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</ctl:param>
-
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLatParam)"/></ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLongParam)"/></ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
@@ -1044,6 +1050,7 @@
 					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
+			<xsl:variable name="subsetLatParam">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -1056,8 +1063,7 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</ctl:param>
-			
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLatParam)"/></ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
@@ -1077,6 +1083,8 @@
 					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
+			<xsl:variable name="subsetLatParam">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</xsl:variable>
+			<xsl:variable name="subsetLongParam">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -1089,8 +1097,8 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</ctl:param>
-					<ctl:param name="subset">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLatParam)"/></ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLongParam)"/></ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
@@ -1314,6 +1322,9 @@
 		<ctl:param name="url"/>
 		<ctl:assertion>req52:A DescribeEOCoverageSet request shall use WGS84 [4] as spatial and ISO 8601 [2] as temporal CRS for the coordinates in trim requests.</ctl:assertion>
 		<ctl:code>
+			<xsl:variable name="subsetLatParam">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</xsl:variable>
+			<xsl:variable name="subsetLongParam">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</xsl:variable>
+			<xsl:variable name="subsetPhenomenonTimeParam">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -1326,9 +1337,9 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</ctl:param>
-					<ctl:param name="subset">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</ctl:param>
-					<ctl:param name="subset">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLatParam)"/></ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLongParam)"/></ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetPhenomenonTimeParam)"/></ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
@@ -2234,6 +2245,8 @@
 		<ctl:param name="url"/>
 		<ctl:assertion>req59:/req/eowcs/describeEOCoverageSet response containment:The response to a successful DescribeEOCoverageSet request containing a wcs:CoverageDescription section shall contain only descriptions of those EO Coverages whose spatial footprint defined by its eop:EarthObservation/om:featureOfInterest/eop:Foot-print overlaps with the spatial request extent, in case request parameter containment is of value overlaps or is omitted, is completely contained within the spatial request extent, in case request parameter containment is of value contains where by all spatial coordinates are expressed in WGS84 [2].</ctl:assertion>
 		<ctl:code>
+			<xsl:variable name="subsetLatParam">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</xsl:variable>
+			<xsl:variable name="subsetLongParam">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -2246,8 +2259,8 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</ctl:param>
-					<ctl:param name="subset">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLatParam)"/></ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLongParam)"/></ctl:param>
 					<ctl:param name="Sections">CoverageDescriptions</ctl:param>
 					<ctl:param name="containment">CONTAINS</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -2377,6 +2390,7 @@
 		<ctl:param name="url"/>
 		<ctl:assertion>req60:The response to a successful DescribeEOCoverageSet request containing a wcs:CoverageDescription section shall contain only descriptions of EO Coverages whose time interval defined by its eop:Earth-Observation/om:phenomenon-Time/gml:TimePeriod/gml:beginPosition and eop:EarthObservation/om:phenomenonTime/gml:TimePeriod/gml:endPosition elements in wcseo:EOMetadata overlaps with the request time extent, in case request parameter containment is of value overlaps or is omitted, is completely contained within the request time extent, in case request parameter containment is of value contains,whereby all temporal coordinates are expressed in ISO 8601 [2].</ctl:assertion>
 		<ctl:code>
+			<xsl:variable name="subsetPhenomenonTimeParam">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -2389,7 +2403,7 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetPhenomenonTimeParam)"/></ctl:param>
 					<ctl:param name="Sections">CoverageDescriptions</ctl:param>
 					<ctl:param name="containment">CONTAINS</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -2502,6 +2516,9 @@
 		<ctl:param name="url"/>
 		<ctl:assertion>req61:In a DescribeEOCoverageSet request, a trim specification omitted shall be interpreted as the actual boundary of the objects requested in the axis omitted.</ctl:assertion>
 		<ctl:code>
+			<xsl:variable name="subsetLatParam">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</xsl:variable>
+			<xsl:variable name="subsetLongParam">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</xsl:variable>
+			<xsl:variable name="subsetPhenomenonTimeParam">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</xsl:variable>
 			<xsl:variable name="DescribeEOCoverageSet">
 				<ctl:request>
 					<ctl:url>
@@ -2514,9 +2531,9 @@
 					<ctl:param name="EOID">
 						<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='DatasetSeriesId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">Lat(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[1])"/>)</ctl:param>
-					<ctl:param name="subset">Long(<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='LowerCorner']),' ')[2])"/>,<xsl:value-of select="number(tokenize(normalize-space($Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='WGS84BoundingBox']/*[local-name()='UpperCorner']),' ')[2])"/>)</ctl:param>
-					<ctl:param name="subset">phenomenonTime("<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='beginPosition']"/>","<xsl:value-of select="$Capabilities//*[local-name()='Contents'][1]//*[local-name()='DatasetSeriesSummary'][1]/*[local-name()='TimePeriod']/*[local-name()='endPosition']"/>")</ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLatParam)"/></ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetLongParam)"/></ctl:param>
+					<ctl:param name="subset"><xsl:value-of select="wcs2:encode($subsetPhenomenonTimeParam)"/></ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
@@ -2839,7 +2856,7 @@
 							<ctl:param name="VERSION">2.0.1</ctl:param>
 							<ctl:param name="request">DescribeEOCoverageSet</ctl:param>
 							<ctl:param name="eoId">
-								<xsl:value-of select="string-join($Capabilities//*[local-name()='Contents']/*[local-name()='CoverageSummary']/*[local-name()='CoverageId'], ', ')"/>
+								<xsl:value-of select="string-join($Capabilities//*[local-name()='Contents']/*[local-name()='CoverageSummary']/*[local-name()='CoverageId'], ',')"/>
 							</ctl:param>
 							<ctl:param name="count">100</ctl:param>
 							<ctlp:XMLValidatingParser>

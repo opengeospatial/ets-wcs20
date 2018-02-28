@@ -713,7 +713,7 @@
 										<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
 									</ctl:param>
 									<ctl:param name="format">
-										<xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='formatSupported'][1]"/>
+										<xsl:value-of select="wcs2:encode($Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='formatSupported'][1])"/>
 									</ctl:param>
 									<ctl:method>get</ctl:method>
 									<parsers:HTTPParser>
