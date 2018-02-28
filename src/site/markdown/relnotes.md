@@ -1,5 +1,20 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.13 (2018-02-28)
+
+   - [#56](https://github.com/opengeospatial/ets-wcs20/issues/56) - wcseo:get-kvp-req63-66 fails with InvocationTargetException (eowcs)
+   - [#57](https://github.com/opengeospatial/ets-wcs20/issues/57) - wcseo:get-kvp-req50 fails with InvocationTargetException (eowcs)
+   - [#43](https://github.com/opengeospatial/ets-wcs20/issues/43) - Scale extension is wrong for scaleByFactor in test script
+   - [#45](https://github.com/opengeospatial/ets-wcs20/issues/45) - escape special char from get parameters
+   - [#58](https://github.com/opengeospatial/ets-wcs20/issues/58) - wcseo:get-kvp-req63-66 because of missing attribute number-Returned attribute
+   - [#62](https://github.com/opengeospatial/ets-wcs20/issues/62) - Clean up extension 'Interpolation'
+   - [#60](https://github.com/opengeospatial/ets-wcs20/issues/60) - Test of extension Interpolation fails with NPE
+   - [#49](https://github.com/opengeospatial/ets-wcs20/issues/49) - Validate the service endpoint URL before running test
+   - [#24](https://github.com/opengeospatial/ets-wcs20/issues/24) - CRS Extension Req18 error in TeamEngine with SOAP version 1.2
+   - [#22](https://github.com/opengeospatial/ets-wcs20/issues/22) - [Critical]ext_crs wrong input parameters (Capabilities,SupportsGML) from calling in wcs2main.xml
+   - [#48](https://github.com/opengeospatial/ets-wcs20/pull/48) - Fix execution of extension 'Interpolation' (wrong use of choose-when)
+   - [#46](https://github.com/opengeospatial/ets-wcs20/pull/46) - Integrated local GML 3.2 schema dependencies
+
 ## 1.12 (2017-03-09)
  
    - [#36](https://github.com/opengeospatial/ets-wcs20/issues/36) - Updated the test name req63-66. #34 
