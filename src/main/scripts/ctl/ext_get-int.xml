@@ -331,7 +331,7 @@
 		</ctl:code>
 	</ctl:test>
 	<!--req8-->
-	<ctl:test name="wcs2:get-int-req8">
+	<ctl:test name="wcs2:get-int-req8-post">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="DescribeCoverage"/>
@@ -386,7 +386,7 @@
 		</ctl:code>
 	</ctl:test>
 	<!--req9-->
-	<ctl:test name="wcs2:get-int-req9">
+	<ctl:test name="wcs2:get-int-req9-soap">
 		<ctl:param name="url"/>
 		<ctl:param name="Capabilities"/>
 		<ctl:param name="DescribeCoverage"/>
