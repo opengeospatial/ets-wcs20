@@ -2863,12 +2863,12 @@
 							</xsl:for-each>
 						</xsl:otherwise>
 					</xsl:choose>
-					<xsl:if test="not(count($DescribeEOCoverageSet//*[local-name()='CoverageDescriptions'])+count($DescribeEOCoverageSet//*[local-name()='DatasetSeriesDescription'])=$DescribeEOCoverageSet//@*[local-name()='number-Returned'])">
-						<ctl:message>[FAILURE] The response to a successful DescribeEOCoverageSet request shall report in its number-Returned attribute the sum of all CoverageDescription and DatasetSeriesDescription elements included in the response</ctl:message>
+					<xsl:if test="not(count($DescribeEOCoverageSet//*[local-name()='CoverageDescription'])+count($DescribeEOCoverageSet//*[local-name()='DatasetSeriesDescription'])=$DescribeEOCoverageSet//@*[local-name()='numberReturned'])">
+						<ctl:message>[FAILURE] The response to a successful DescribeEOCoverageSet request shall report in its numberReturned attribute the sum of all CoverageDescription and DatasetSeriesDescription elements included in the response</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
-					<xsl:if test="$DescribeEOCoverageSet//@*[local-name()='number-Matched'] &lt; $DescribeEOCoverageSet//@*[local-name()='number-Returned']">
-						<ctl:message>[FAILURE] The number-Returned shall be less than the number-matched</ctl:message>
+					<xsl:if test="$DescribeEOCoverageSet//@*[local-name()='numberMatched'] &lt; $DescribeEOCoverageSet//@*[local-name()='numberReturned']">
+						<ctl:message>[FAILURE] The numberReturned shall be less than the numberMatched</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
@@ -2920,12 +2920,12 @@
 							</xsl:for-each>
 						</xsl:otherwise>
 					</xsl:choose>
-					<xsl:if test="not(count($DescribeEOCoverageSet//*[local-name()='CoverageDescriptions'])+count($DescribeEOCoverageSet//*[local-name()='DatasetSeriesDescription'])=$DescribeEOCoverageSet//@*[local-name()='number-Returned'])">
-						<ctl:message>[FAILURE] The response to a successful DescribeEOCoverageSet request shall report in its number-Returned attribute the sum of all CoverageDescription and DatasetSeriesDescription elements included in the response</ctl:message>
+					<xsl:if test="not(count($DescribeEOCoverageSet//*[local-name()='CoverageDescription'])+count($DescribeEOCoverageSet//*[local-name()='DatasetSeriesDescription'])=$DescribeEOCoverageSet//@*[local-name()='numberReturned'])">
+						<ctl:message>[FAILURE] The response to a successful DescribeEOCoverageSet request shall report in its numberReturned attribute the sum of all CoverageDescription and DatasetSeriesDescription elements included in the response</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
-					<xsl:if test="$DescribeEOCoverageSet//@*[local-name()='number-Matched'] &lt; $DescribeEOCoverageSet//@*[local-name()='number-Returned']">
-						<ctl:message>[FAILURE] The number-Returned shall be less than the number-matched</ctl:message>
+					<xsl:if test="$DescribeEOCoverageSet//@*[local-name()='numberMatched'] &lt; $DescribeEOCoverageSet//@*[local-name()='numberReturned']">
+						<ctl:message>[FAILURE] The numberReturned shall be less than the numberMatched</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
 				</xsl:otherwise>
