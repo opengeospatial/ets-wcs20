@@ -55,6 +55,18 @@
 			<xsl:variable name="InterpolationSupported">
 				<xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='InterpolationMetadata']/*[local-name()='InterpolationSupported']"/>
 			</xsl:variable>
+			<ctl:call-test name="wcs2:get-int-req1">
+				<ctl:with-param name="Capabilities" select="$Capabilities"/>
+			</ctl:call-test>
+			<ctl:call-test name="wcs2:get-int-req2">
+				<ctl:with-param name="Capabilities" select="$Capabilities"/>
+			</ctl:call-test>
+			<ctl:call-test name="wcs2:get-int-req3">
+				<ctl:with-param name="Capabilities" select="$Capabilities"/>
+			</ctl:call-test>
+			<ctl:call-test name="wcs2:get-int-req4">
+				<ctl:with-param name="Capabilities" select="$Capabilities"/>
+			</ctl:call-test>
 			<xsl:choose>
 				<xsl:when test="not(empty($DescribeCoverage))">
 					<ctl:call-test name="wcs2:get-int-req5-9">
