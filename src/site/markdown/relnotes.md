@@ -1,5 +1,9 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.13.1 (2018-03-01)
+
+   - [#64](https://github.com/opengeospatial/ets-wcs20/issues/64) - DescribeCoverage test fails with validation failure
+
 ## 1.13 (2018-02-28)
 
    - [#56](https://github.com/opengeospatial/ets-wcs20/issues/56) - wcseo:get-kvp-req63-66 fails with InvocationTargetException (eowcs)
