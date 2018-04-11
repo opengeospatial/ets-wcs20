@@ -13,7 +13,7 @@
  xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
  
-  <ctl:test name="wcs2:crs">
+  <ctl:test name="wcs2:crs" isConformanceClass="true" isBasic="false">
     <ctl:param name="url"/>
     <ctl:assertion>Test the WCS 2.0 crs</ctl:assertion>
     <ctl:code>
