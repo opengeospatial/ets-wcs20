@@ -1084,8 +1084,8 @@
     								xmlns:wcs='http://www.opengis.net/wcs/2.0'
     								xmlns:gml='http://www.opengis.net/gml/3.2'
     								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
-    								service="WCS" version="2.0.1">
-    								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId><wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
+    								service="WCS" version="2.0.1">]]>
+    								<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -1124,7 +1124,7 @@
 					<ctl:param name="CoverageId">
 						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 							<xsl:value-of select="."/>
-							<xsl:if test="not(position() = last())">,</xsl:if>
+							<xsl:if test="position() != last()">,</xsl:if>
 						</xsl:for-each>
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -1156,8 +1156,10 @@
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
-						<xsl:value-of select="concat($Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1],',')"/>
-						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/>
+						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
+							<xsl:value-of select="."/>
+							<xsl:if test="position() != last()">,</xsl:if>
+						</xsl:for-each>
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
@@ -1227,12 +1229,11 @@
 					</ctl:url>
 					<ctl:body>
 						<wcs:DescribeCoverage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd" service="WCS" version="2.0.1">
-							<wcs:CoverageId>
-								<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
-							</wcs:CoverageId>
-							<wcs:CoverageId>
-								<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/>
-							</wcs:CoverageId>
+							<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
+								<wcs:CoverageId>
+									<xsl:value-of select="."/>
+								</wcs:CoverageId>
+							</xsl:for-each>
 						</wcs:DescribeCoverage>
 					</ctl:body>
 					<ctlp:SOAPParser return="content">
@@ -1310,8 +1311,8 @@
      								xmlns:wcs='http://www.opengis.net/wcs/2.0'
      								xmlns:gml='http://www.opengis.net/gml/3.2'
      								xsi:schemaLocation='http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsAll.xsd'
-     								service="WCS" version="2.0.1">
-     								<wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId><wcs:CoverageId>]]><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/><![CDATA[</wcs:CoverageId></wcs:DescribeCoverage>]]></ctl:body>
+     								service="WCS" version="2.0.1">]]>
+     								<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']"><![CDATA[<wcs:CoverageId>]]><xsl:value-of select="."/><![CDATA[</wcs:CoverageId>]]></xsl:for-each><![CDATA[</wcs:DescribeCoverage>]]></ctl:body>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
 							<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
@@ -1385,8 +1386,10 @@
 					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
-						<xsl:value-of select="concat($Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1],',')"/>
-						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][last()]/*[local-name()='CoverageId']"/>
+						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
+							<xsl:value-of select="."/>
+							<xsl:if test="not(position() = last())">,</xsl:if>
+						</xsl:for-each>
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
 						<ctlp:schemas>
