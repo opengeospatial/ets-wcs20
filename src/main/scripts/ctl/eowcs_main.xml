@@ -13,7 +13,7 @@
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
-	<ctl:test name="wcseo:main">
+	<ctl:test name="wcseo:main" isConformanceClass="true" isBasic="false">
 		<ctl:param name="url"/>
 		<ctl:assertion>Test the EO-WCS.</ctl:assertion>
 		<ctl:code>
