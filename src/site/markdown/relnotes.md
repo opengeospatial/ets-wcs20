@@ -1,5 +1,9 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.14 (2018-05-16)
+
+   - [#42](https://github.com/opengeospatial/ets-wcs20/issues/42) - Update CTL with better information about conformance classes
+
 ## 1.13.1 (2018-03-01)
 
    - [#64](https://github.com/opengeospatial/ets-wcs20/issues/64) - DescribeCoverage test fails with validation failure
