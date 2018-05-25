@@ -4,6 +4,7 @@
   <artifactId>ets-wcs20</artifactId>
   <groupId>org.opengis.cite</groupId>
   <version>1.15-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
   <name>OGC Web Coverage Service 2.0.1 - Executable Test Suite</name>
   <description>
@@ -31,6 +32,29 @@
     <system>GitHub Issue Tracker</system>
     <url>https://github.com/opengeospatial/ets-wcs20/issues</url>
   </issueManagement>
+  <developers>
+    <developer>
+      <name>Coim</name>
+      <url>https://github.com/coim32</url>
+    </developer>
+    <developer>
+      <name>L. Bermudez</name>
+      <url>https://github.com/bermud</url>
+    </developer>
+    <developer>
+      <name>D. Stenger</name>
+      <url>https://github.com/dstenger</url>
+    </developer>
+    <developer>
+      <name>L. Goltz</name>
+      <url>https://github.com/lgoltz</url>
+    </developer>
+    <developer>
+      <name>K. Nangare</name>
+      <url>https://github.com/keshav-nangare</url>
+    </developer>
+  </developers>
+
   <properties>
     <ets-code>wcs</ets-code>
     <spec-version>2.0.1</spec-version>
