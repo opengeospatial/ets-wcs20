@@ -1,0 +1,6 @@
+<ctl:suite xmlns:ctl="http://www.occamlab.com/ctl" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:wcs2="http://www.opengis.net/wcs/2.0" name="wcs2:suite">
+	<ctl:title>WCS 2.0 Test Suite</ctl:title>
+	<ctl:description>Validates WCS 2.0 Implementations</ctl:description>
+	<ctl:link>docs/wcs/2.0/</ctl:link>
+	<ctl:starting-test>wcs2:main</ctl:starting-test>
+</ctl:suite>
