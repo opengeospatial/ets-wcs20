@@ -39,7 +39,11 @@ public class TestRunArguments {
         } catch (NullPointerException e2) {
             throw new IllegalArgumentException(String.format("Missing required argument: %s", WCS20.URL));
         }
-        if (null == args.getProperty(WCS20.CORE)) {
+        if (null == args.getProperty(WCS20.CORE) && null == args.getProperty(WCS20.EXT_CRS) 
+        		&& null == args.getProperty(WCS20.EXT_INTERPOLATION) && null == args.getProperty(WCS20.EXT_POST) 
+        		&& null == args.getProperty(WCS20.EXT_PROCESSING) && null == args.getProperty(WCS20.EXT_RSUBSETTING)
+        		&& null == args.getProperty(WCS20.EXT_SCALING) && null == args.getProperty(WCS20.PROFILE_EOWCS)) {
+        	
             args.setProperty(WCS20.CORE, "core");
         }
         return args;
