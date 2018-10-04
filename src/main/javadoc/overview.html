@@ -79,11 +79,60 @@
           <td>An absolute URI that refers to an XML representation of the service capabilities document.</td>
         </tr>
         <tr>
+          <td>core</td>
+          <td>core</td>
+          <td>O, default</td>
+          <td>The WCS Core profile.</td>
+        </tr>
+        <tr>
+          <td>ext_post</td>
+          <td>post</td>
+          <td>O</td>
+          <td>The WCS POST profile</td>
+        </tr>
+        <tr>
+          <td>ext_proc</td>
+          <td>processing</td>
+          <td>O</td>
+          <td>The WCS WCPS 2.0 (Processing) profile</td>
+        </tr>
+        <tr>
+          <td>ext_scal</td>
+          <td>scaling</td>
+          <td>O</td>
+          <td>The WCS Scaling 1.0 profile</td>
+        </tr>
+        <tr>
+          <td>ext_int</td>
+          <td>interpolation</td>
+          <td>O</td>
+          <td>The WCS Interpolation 1.0 profile</td>
+        </tr>
+        <tr>
+          <td>ext_rsub</td>
+          <td>range subsetting</td>
+          <td>O</td>
+          <td>The WCS Range Subsetting 1.0 profile</td>
+        </tr>
+        <tr>
+          <td>ext_crs</td>
+          <td>crs</td>
+          <td>O</td>
+          <td>The WCS-CRS-extension 1.0 profile</td>
+        </tr>
+        <tr>
+          <td>profile_eowcs</td>
+          <td>eowcs</td>
+          <td>O</td>
+          <td>The WCS EO 1.0 (EOWCS) profile</td>
+        </tr>
+        <tr>
           <td colspan="4">
             <strong>Notes</strong>
             <ol>
+              <li>If the profile has not provided in query parameter then default WCS Core profile will be executed. </li>
               <li>Ampersand ('&amp;') characters appearing within query parameter values must be
-                percent-encoded as %26.</li>
+                percent-encoded as %26.</li>  
             </ol>
           </td>
         </tr>
