@@ -58,9 +58,36 @@
   <properties>
     <ets-code>wcs</ets-code>
     <spec-version>2.0.1</spec-version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <teamengine.version>4.0.5</teamengine.version>
-  </properties>  
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><teamengine.version>5.3</teamengine.version>
+    <soapui.teamengine.endpoint>http://cite.opengeospatial.org/te2</soapui.teamengine.endpoint>
+    <soapui.ets.version>1.15-SNAPSHOT</soapui.ets.version>
+    <soapui.iut>http://ows.eox.at/cite/mapserver?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</soapui.iut>
+    <soapui.tests.passed>88</soapui.tests.passed>
+    <soapui.tests.skipped>0</soapui.tests.skipped>
+    <soapui.tests.failed>4</soapui.tests.failed>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.opengis.cite.teamengine</groupId>
+      <artifactId>teamengine-spi-ctl</artifactId>
+      <version>${teamengine.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  <pluginRepositories>
+    <pluginRepository>
+      <id>smartbear-sweden-plugin-repository</id>
+      <url>http://www.soapui.org/repository/maven2/</url>
+    </pluginRepository>
+  </pluginRepositories>
+    
   <reporting>
     <plugins>
       <plugin>
@@ -155,6 +182,31 @@
         <version>1.1</version>
         <configuration>
           <scmBranch>gh-pages</scmBranch>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.smartbear.soapui</groupId>
+        <artifactId>soapui-maven-plugin</artifactId>
+        <version>4.5.0</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.jgoodies</groupId>
+            <artifactId>forms</artifactId>
+            <version>1.0.7</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <projectFile>src/test/resources/soapui/ets-wcs20-soapui-project.xml</projectFile>
+          <junitReport>true</junitReport>
+          <testFailIgnore>true</testFailIgnore>
+          <projectProperties>
+            <value>teamengine.endpoint=${soapui.teamengine.endpoint}</value>
+            <value>ets.version=${soapui.ets.version}</value>
+            <value>iut=${soapui.iut}</value>
+            <value>tests.passed=${soapui.tests.passed}</value>
+            <value>tests.skipped=${soapui.tests.skipped}</value>
+            <value>tests.failed=${soapui.tests.failed}</value>
+          </projectProperties>
         </configuration>
       </plugin>
     </plugins>
