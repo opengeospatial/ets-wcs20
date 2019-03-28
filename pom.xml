@@ -214,8 +214,12 @@
         <configuration>
           <scmBranch>gh-pages</scmBranch>
         </configuration>
-      </plugin>
-      <plugin>
+      </plugin>      
+    </plugins>
+    
+    <pluginManagement>
+      <plugins>
+         <plugin>
           <groupId>io.fabric8</groupId>
           <artifactId>docker-maven-plugin</artifactId>
           <version>0.28.0</version>
@@ -287,7 +291,8 @@
             </artifactItems>
           </configuration>
         </plugin>
-    </plugins>
+      </plugins>
+    </pluginManagement>  
     
     <resources>
       <resource>
