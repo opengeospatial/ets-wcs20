@@ -1091,7 +1091,7 @@
 					<ctl:param name="CoverageId">
 						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
 							<xsl:value-of select="."/>
-							<xsl:if test="not(position() = last())">,</xsl:if>
+							<xsl:if test="position() != last()">,</xsl:if>
 						</xsl:for-each>
 					</ctl:param>
 					<ctlp:XMLValidatingParser>
