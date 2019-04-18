@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+    <comment>Test run arguments for ets-wcs20</comment>
+    <entry key="url"></entry>
+    <entry key="core">core</entry>
+    <entry key="ext_post"></entry>
+    <entry key="ext_proc"></entry>
+    <entry key="ext_scal"></entry>
+    <entry key="ext_int"></entry>
+    <entry key="ext_rsub"></entry>
+    <entry key="ext_crs"></entry>
+    <entry key="profile_eowcs"></entry>
+</properties>
