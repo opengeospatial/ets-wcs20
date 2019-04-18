@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ctl:package xmlns:ctl="http://www.occamlab.com/ctl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ctlp="http://www.occamlab.com/te/parsers" xmlns:wcs2="http://www.opengis.net/wcs/2.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:wcseo="http://www.opengis.net/wcseo/1.0">
+<ctl:package xmlns:ctl="http://www.occamlab.com/ctl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ctlp="http://www.occamlab.com/te/parsers" xmlns:wcs2="http://www.opengis.net/wcs/2.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:wcseo="http://www.opengis.net/wcseo/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
 	<!-- NOTE: As there is no canonical practice among and within communities dealing with coverages to use one particular protocol none of the protocols specified in WCS extensions is mandatory. In practice, this may lead to a lack of interoperability between client and server implementations. In future, user communities might agree eventually to make a particular protocol binding mandatory. We use the GetCapabilities in HTTP Get KVP as an initially starting point-->
+	<xi:include href="core2main.xml"/>
+	<xi:include href="DataModel.xml"/>
+	<xi:include href="DescribeCoverage.xml"/>
+	<xi:include href="eowcs_Capabilities.xml" />
+	<xi:include href="eowcs_DescribeCoverage.xml" />
+	<xi:include href="eowcs_DescribeEOCoverageSet.xml"/>
+	<xi:include href="eowcs_EO-data-model.xml"/>
+	<xi:include href="eowcs_functions.xml"/>
+	<xi:include href="eowcs_get-kvp.xml"/>
+	<xi:include href="eowcs_GetCoverage.xml"/>
+	<xi:include href="eowcs_main.xml"/>
+	<xi:include href="eowcs_service-model.xml"/>
+	<xi:include href="eowcs_soap.xml"/>
+	<xi:include href="eowcs_wcs_extensions.xml"/>
+	<xi:include href="ext_crs.xml"/>
+	<xi:include href="ext_get-int.xml"/>
+	<xi:include href="ext_get-proc.xml"/>
+	<xi:include href="ext_get-rsub.xml"/>
+	<xi:include href="ext_get-scal.xml"/>
+	<xi:include href="ext_post-xml.xml"/>
+	<xi:include href="extension.xml"/>
+	<xi:include href="GetCapabilities.xml"/>
+	<xi:include href="GetCoverage.xml"/>
+	<xi:include href="OWSCommon.xml"/>
+	<xi:include href="RequestBase.xml"/>
+	<xi:include href="wcps.xml"/>
+	
+	<ctl:suite xmlns:ctl="http://www.occamlab.com/ctl" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:wcs2="http://www.opengis.net/wcs/2.0" name="wcs2:ets-wcs20-auto">
+		<ctl:title>WCS 2.0 Test Suite</ctl:title>
+		<ctl:description>Validates WCS 2.0 Implementations</ctl:description>
+		<ctl:link>docs/wcs/2.0/</ctl:link>
+		<ctl:starting-test>wcs2:main</ctl:starting-test>
+	</ctl:suite>
 	<ctl:test name="wcs2:main">
 		<ctl:param name="url"/>
 		<ctl:param name="core"/>

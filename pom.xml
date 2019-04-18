@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ets-wcs20</artifactId>
   <groupId>org.opengis.cite</groupId>
-  <version>1.14-SNAPSHOT</version>
+  <version>1.15-SNAPSHOT</version>
 
   <name>OGC Web Coverage Service 2.0.1 - Executable Test Suite</name>
   <description>
@@ -31,12 +31,51 @@
     <system>GitHub Issue Tracker</system>
     <url>https://github.com/opengeospatial/ets-wcs20/issues</url>
   </issueManagement>
+  <developers>
+    <developer>
+      <name>Coim</name>
+      <url>https://github.com/coim32</url>
+    </developer>
+    <developer>
+      <name>L. Bermudez</name>
+      <url>https://github.com/bermud</url>
+    </developer>
+    <developer>
+      <name>D. Stenger</name>
+      <url>https://github.com/dstenger</url>
+    </developer>
+    <developer>
+      <name>L. Goltz</name>
+      <url>https://github.com/lgoltz</url>
+    </developer>
+    <developer>
+      <name>K. Nangare</name>
+      <url>https://github.com/keshav-nangare</url>
+    </developer>
+  </developers>
+
   <properties>
     <ets-code>wcs</ets-code>
     <spec-version>2.0.1</spec-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <teamengine.version>4.0.5</teamengine.version>
-  </properties>  
+    <teamengine.version>5.3</teamengine.version>
+    <docker.teamengine.version>5.3</docker.teamengine.version>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.opengis.cite.teamengine</groupId>
+      <artifactId>teamengine-spi-ctl</artifactId>
+      <version>${teamengine.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+    
   <reporting>
     <plugins>
       <plugin>
@@ -58,14 +97,49 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <debug>false</debug>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.5</version>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+            <manifestEntries>
+              <Build-Host>${hostname}</Build-Host>
+              <Build-Time>${maven.build.timestamp}</Build-Time>
+              <Build-Revision>${buildNumber}</Build-Revision>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.4</version>
         <executions>
           <execution>
-            <id>default-jar</id>
-            <phase>never</phase>
+            <phase>validate</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
           </execution>
         </executions>
+        <configuration>
+          <doCheck>false</doCheck>
+          <doUpdate>false</doUpdate>
+          <shortRevisionLength>10</shortRevisionLength>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -76,10 +150,17 @@
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.5</version>
+        <version>2.6</version>
         <configuration>
+          <archive>
+            <manifest>
+              <mainClass>org.opengis.cite.wcs20.CtlController</mainClass>
+            </manifest>
+          </archive>
           <descriptors>
             <descriptor>${basedir}/src/assembly/ctl.xml</descriptor>
+            <descriptor>${basedir}/src/assembly/aio.xml</descriptor>
+            <descriptor>${basedir}/src/assembly/deps.xml</descriptor>
           </descriptors>
         </configuration>
         <executions>
@@ -98,13 +179,16 @@
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <tagNameFormat>@{project.version}</tagNameFormat>
+          <releaseProfiles>release</releaseProfiles>
         </configuration>
       </plugin>
       <plugin>     
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>3.4</version>
         <configuration>
-          <relativizeDecorationLinks>false</relativizeDecorationLinks>      
+          <relativizeDecorationLinks>false</relativizeDecorationLinks>
+          <skipDeploy>true</skipDeploy>
         </configuration>
         <executions>
           <execution>
@@ -130,11 +214,175 @@
         <configuration>
           <scmBranch>gh-pages</scmBranch>
         </configuration>
-      </plugin>
+      </plugin>      
     </plugins>
+    
+    <pluginManagement>
+      <plugins>
+         <plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <version>0.28.0</version>
+          <configuration>
+            <images>
+              <image>
+                <name>ogccite/${project.artifactId}</name>
+                <build>
+                  <dockerFileDir>${project.basedir}/src/docker</dockerFileDir>
+                  <tags>
+                    <tag>${project.version}-teamengine-${docker.teamengine.version}</tag>
+                  </tags>
+                  <assembly>
+                    <inline>
+                      <fileSets>
+                        <fileSet>
+                          <directory>${project.build.directory}</directory>
+                          <outputDirectory>.</outputDirectory>
+                          <includes>
+                            <include>dependency/*teamengine-*.war</include>
+                            <include>dependency/*teamengine-*.zip</include>
+                            <include>*ets-*.zip</include>
+                          </includes>
+                        </fileSet>
+                      </fileSets>
+                    </inline>
+                  </assembly>
+                </build>
+                <run>
+                  <ports>
+                    <port>8081:8080</port>
+                  </ports>
+                  <wait>
+                    <http>
+                      <url>http://localhost:8081/teamengine</url>
+                    </http>
+                    <time>120000</time>
+                  </wait>
+                </run>
+              </image>
+            </images>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>3.0.0</version>
+          <configuration>
+            <artifactItems>
+              <artifactItem>
+                <groupId>org.opengis.cite.teamengine</groupId>
+                <artifactId>teamengine-web</artifactId>
+                <version>${docker.teamengine.version}</version>
+                <type>war</type>
+              </artifactItem>
+              <artifactItem>
+                <groupId>org.opengis.cite.teamengine</groupId>
+                <artifactId>teamengine-web</artifactId>
+                <version>${docker.teamengine.version}</version>
+                <classifier>common-libs</classifier>
+                <type>zip</type>
+              </artifactItem>
+              <artifactItem>
+                <groupId>org.opengis.cite.teamengine</groupId>
+                <artifactId>teamengine-console</artifactId>
+                <version>${docker.teamengine.version}</version>
+                <classifier>base</classifier>
+                <type>zip</type>
+              </artifactItem>
+            </artifactItems>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>  
+    
+    <resources>
+      <resource>
+        <directory>${basedir}/src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <directory>${basedir}/src/main/scripts</directory>
+        <targetPath>${ets-code}/${spec-version}</targetPath>
+      </resource>
+      <resource>
+        <directory>src/main/javadoc</directory>
+        <filtering>true</filtering>
+        <targetPath>doc/${ets-code}/${project.version}</targetPath>
+      </resource>
+    </resources>
+    
   </build>
 
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <configuration>
+                  <!-- Enable if GPG 2.1+ is used -->
+                  <!--<gpgArguments>
+                    <arg>&#45;&#45;pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>-->
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>docker</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>build</id>
+                <goals>
+                  <goal>build</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>push</id>
+                <goals>
+                  <goal>push</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile> 
+  </profiles>
+
   <distributionManagement>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
     <site>
       <id>site</id>
       <url>scm:git:git@github.com:opengeospatial/ets-wcs20.git</url>
