@@ -21,11 +21,11 @@
     <!-- =========================================================== -->
     <!-- includes and imports                                        -->
     <!-- =========================================================== -->
-    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../../../gml/3.2.1/gml.xsd"/>
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../../../gml/3.2/gml.xsd"/>
     <import namespace="http://www.opengis.net/ows/2.0" schemaLocation="../../../ows/2.0/owsAll.xsd"/>
     <import namespace="http://www.opengis.net/gmlcov/1.0" schemaLocation="../../../gmlcov/1.0/gmlcovAll.xsd"/>
     <import namespace="http://www.opengis.net/wcs/2.0" schemaLocation="../../../wcs/2.0/wcsAll.xsd"/>
-    <import namespace="http://www.opengis.net/eop/2.0" schemaLocation="../../../omeo/1.0/eop.xsd"/>
+    <import namespace="http://www.opengis.net/eop/2.0" schemaLocation="../../../omeo/1.0.0/eop.xsd"/>
     <include schemaLocation="wcsEOAll.xsd"/>
 
     <!-- =========================================================== -->
