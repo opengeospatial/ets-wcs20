@@ -2,7 +2,7 @@
 
 ## 1.15 (2019-07-30)
 
-   - [#77](https://github.com/opengeospatial/ets-wcs20/issues/77) - wcs2:req21 & wcs2:req22 are failed with validation error if it has the <nilValues> element
+   - [#77](https://github.com/opengeospatial/ets-wcs20/issues/77) - wcs2:req21 & wcs2:req22 are failed with validation error if it has the \<nilValues\> element
    - [#35](https://github.com/opengeospatial/ets-wcs20/issues/35) - EO WCS Test takes too long to execute
    - [#85](https://github.com/opengeospatial/ets-wcs20/issues/85) - Update to TEAM Engine 5.4 API
    - [#23](https://github.com/opengeospatial/ets-wcs20/issues/23) - CRS_Extension srsName attribute is not valid WCS.2.0.1 schema
