@@ -1,5 +1,15 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.15 (2019-07-30)
+
+   - [#77](https://github.com/opengeospatial/ets-wcs20/issues/77) - wcs2:req21 & wcs2:req22 are failed with validation error if it has the <nilValues> element
+   - [#35](https://github.com/opengeospatial/ets-wcs20/issues/35) - EO WCS Test takes too long to execute
+   - [#85](https://github.com/opengeospatial/ets-wcs20/issues/85) - Update to TEAM Engine 5.4 API
+   - [#23](https://github.com/opengeospatial/ets-wcs20/issues/23) - CRS_Extension srsName attribute is not valid WCS.2.0.1 schema
+   - [#38](https://github.com/opengeospatial/ets-wcs20/issues/38) - The req21 and req22 are failed with the OSGeo(MapServer) Server
+   - [#75](https://github.com/opengeospatial/ets-wcs20/issues/75) - Enable Docker support
+   - [#72](https://github.com/opengeospatial/ets-wcs20/issues/72) - Enable test execution using a RESTful API
+
 ## 1.14 (2018-05-16)
 
    - [#42](https://github.com/opengeospatial/ets-wcs20/issues/42) - Update CTL with better information about conformance classes
