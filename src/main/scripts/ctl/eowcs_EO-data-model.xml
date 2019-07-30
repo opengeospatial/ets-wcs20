@@ -19,7 +19,7 @@
 						<ctl:method>get</ctl:method>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -51,7 +51,7 @@
 						<ctl:method>get</ctl:method>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -104,7 +104,7 @@
 						<ctl:method>get</ctl:method>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -144,7 +144,7 @@
 						<ctl:method>get</ctl:method>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -176,7 +176,7 @@
 						<ctl:method>get</ctl:method>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -216,7 +216,7 @@
 						</ctl:param>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEODescribeEOCoverageSet.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEODescribeEOCoverageSet.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -411,7 +411,7 @@
 						<ctl:method>get</ctl:method>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -443,7 +443,7 @@
 						<ctl:method>get</ctl:method>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
@@ -500,7 +500,7 @@
 						<ctl:method>get</ctl:method>
 						<ctlp:XMLValidatingParser>
 							<ctlp:schemas>
-								<ctlp:schema type="url">http://schemas.opengis.net/wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
+								<ctlp:schema type="resource">wcs/wcseo/1.0/wcsEOAll.xsd</ctlp:schema>
 							</ctlp:schemas>
 						</ctlp:XMLValidatingParser>
 					</ctl:request>
