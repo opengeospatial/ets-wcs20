@@ -61,11 +61,10 @@
     <teamengine.version>5.4</teamengine.version>
     <docker.teamengine.version>5.4</docker.teamengine.version>
     <soapui.teamengine.endpoint>http://cite.opengeospatial.org/te2</soapui.teamengine.endpoint>
-    <soapui.ets.version>1.15-SNAPSHOT</soapui.ets.version>
     <soapui.iut>http://ows.eox.at/cite/mapserver?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</soapui.iut>
-    <soapui.tests.passed>88</soapui.tests.passed>
+    <soapui.tests.passed>95</soapui.tests.passed>
     <soapui.tests.skipped>0</soapui.tests.skipped>
-    <soapui.tests.failed>4</soapui.tests.failed>
+    <soapui.tests.failed>0</soapui.tests.failed>
   </properties>
 
   <dependencies>
@@ -231,7 +230,7 @@
       <plugin>
         <groupId>com.smartbear.soapui</groupId>
         <artifactId>soapui-maven-plugin</artifactId>
-        <version>5.4.0</version>
+        <version>5.5.0</version>
         <dependencies>
           <dependency>
             <groupId>com.jgoodies</groupId>
@@ -245,7 +244,6 @@
           <testFailIgnore>true</testFailIgnore>
           <projectProperties>
             <value>teamengine.endpoint=${soapui.teamengine.endpoint}</value>
-            <value>ets.version=${soapui.ets.version}</value>
             <value>iut=${soapui.iut}</value>
             <value>tests.passed=${soapui.tests.passed}</value>
             <value>tests.skipped=${soapui.tests.skipped}</value>
