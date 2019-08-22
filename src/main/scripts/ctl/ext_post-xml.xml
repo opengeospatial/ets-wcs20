@@ -1,29 +1,10 @@
 <ctl:package xmlns:ctl="http://www.occamlab.com/ctl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ctlp="http://www.occamlab.com/te/parsers" xmlns:wcs2="http://www.opengis.net/wcs/2.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<ctl:test name="wcs2:post-xml-main" isConformanceClass="true" isBasic="false">
-		<ctl:param name="url"/>
+		<ctl:param name="Capabilities"/>
 		<ctl:assertion>Test WCS 2.0 Post XML Extension.</ctl:assertion>
 		<ctl:code>
-			<xsl:variable name="Capabilities">
-				<ctl:request>
-					<ctl:url>
-						<xsl:value-of select="$url"/>
-					</ctl:url>
-					<ctl:method>post</ctl:method>
-					<ctl:header name="Content-type">text/xml</ctl:header>
-					<ctl:body>								<wcs:GetCapabilities  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-											xmlns:ows="http://www.opengis.net/ows/2.0"
-											xmlns:wcs="http://www.opengis.net/wcs/2.0"
-											service="WCS">
-									<ows:AcceptVersions>
-										<ows:Version>2.0.1</ows:Version>
-									</ows:AcceptVersions>
-								</wcs:GetCapabilities></ctl:body>
-					<ctlp:XMLValidatingParser>
-						<ctlp:schemas>
-							<ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema>
-						</ctlp:schemas>
-					</ctlp:XMLValidatingParser>
-				</ctl:request>
+			<xsl:variable name="url">
+			   <xsl:value-of select="$Capabilities//ows:OperationsMetadata/ows:Operation[@name='GetCapabilities']/ows:DCP/ows:HTTP/ows:Get/@xlink:href"/>
 			</xsl:variable>
 		
 			<xsl:choose>

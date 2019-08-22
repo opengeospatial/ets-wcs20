@@ -14,11 +14,13 @@
  xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
 	<ctl:test name="wcseo:main" isConformanceClass="true" isBasic="false">
-		<ctl:param name="url"/>
+		<ctl:param name="Capabilities"/>
 		<ctl:assertion>Test the EO-WCS.</ctl:assertion>
 		<ctl:code>
-      
-      			<xsl:variable name="Capabilities">
+               <xsl:variable name="url">
+                  <xsl:value-of select="$Capabilities//ows:OperationsMetadata/ows:Operation[@name='GetCapabilities']/ows:DCP/ows:HTTP/ows:Get/@xlink:href"/>
+               </xsl:variable>
+      			<xsl:variable name="EO_Capabilities">
        				<ctl:request>
           				<ctl:url>
             					<xsl:value-of select="$url"/>
@@ -35,23 +37,23 @@
         			</ctl:request>
       			</xsl:variable>      
       			<xsl:choose>
-        			<xsl:when test="string-length($Capabilities)!=0">
+        			<xsl:when test="string-length($EO_Capabilities)!=0">
 					<xsl:choose>
-						<xsl:when test="contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_application-profile_earth-observation/1.0/conf/eowcs_get-kvp') or contains(string-join(($Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_application-profile_earth-observation/1.0/conf/eowcs_soap')">
+						<xsl:when test="contains(string-join(($EO_Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_application-profile_earth-observation/1.0/conf/eowcs_get-kvp') or contains(string-join(($EO_Capabilities//*[local-name()='ServiceIdentification']/*[local-name()='Profile']),' '), 'http://www.opengis.net/spec/WCS_application-profile_earth-observation/1.0/conf/eowcs_soap')">
 							<ctl:message>[MESSAGE] Test the extensions when they are available</ctl:message>
 							<ctl:call-test name="wcseo:wcs-extensions">
 								<ctl:with-param name="url" select="$url"/>     
-								<ctl:with-param name="Capabilities" select="$Capabilities"/>						
+								<ctl:with-param name="Capabilities" select="$EO_Capabilities"/>						
 							</ctl:call-test>   
 							<ctl:message>[MESSAGE] Test the EO data model</ctl:message>
 							<ctl:call-test name="wcseo:EO-Data-model">
 								<ctl:with-param name="url" select="$url"/>     
-								<ctl:with-param name="Capabilities" select="$Capabilities"/>						
+								<ctl:with-param name="Capabilities" select="$EO_Capabilities"/>						
 							</ctl:call-test>   
 							<ctl:message>[MESSAGE] Test the service model</ctl:message>
 							<ctl:call-test name="wcseo:service-model">
 								<ctl:with-param name="url" select="$url"/>     
-								<ctl:with-param name="Capabilities" select="$Capabilities"/>						
+								<ctl:with-param name="Capabilities" select="$EO_Capabilities"/>						
 							</ctl:call-test>  					
 						</xsl:when> 	
 						<xsl:otherwise>

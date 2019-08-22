@@ -14,24 +14,11 @@
 >
  
   <ctl:test name="wcs2:crs" isConformanceClass="true" isBasic="false">
-    <ctl:param name="url"/>
+    <ctl:param name="Capabilities"/>
     <ctl:assertion>Test the WCS 2.0 crs</ctl:assertion>
     <ctl:code>
-		<xsl:variable name="Capabilities">
-			<ctl:request>
-				<ctl:url>
-					<xsl:value-of select="$url" />
-				</ctl:url>
-				<ctl:method>get</ctl:method>
-				<ctl:param name="SERVICE">WCS</ctl:param>
-				<ctl:param name="VERSION">2.0.1</ctl:param>
-				<ctl:param name="REQUEST">GetCapabilities</ctl:param>
-				<ctlp:XMLValidatingParser>
-					<ctlp:schemas>
-						<ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema>
-					</ctlp:schemas>
-				</ctlp:XMLValidatingParser>
-			</ctl:request>
+		<xsl:variable name="url">
+		    <xsl:value-of select="$Capabilities//ows:OperationsMetadata/ows:Operation[@name='GetCapabilities']/ows:DCP/ows:HTTP/ows:Get/@xlink:href"/>
 		</xsl:variable>
 		<xsl:variable name="SupportsGML">
 			<xsl:for-each
