@@ -294,20 +294,35 @@
 		<ctl:assertion>Req6:In WCSEO::ReferenceableEOCoverage and WCSEO::RectifiedEOCoverage instances, all polygons listed in eop:EarthObservation/om:featureOfInterest/eop:Footprint element shall be contained in the bounding box of the gml:boundedBy element of the gml:Envelope.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
-				<xsl:when test="empty($response//*[local-name()='boundedBy']/*[local-name()='Envelope']) or empty($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList'])">
+				<xsl:when test="empty($response//*[local-name()='boundedBy']/*[local-name()='Envelope']) or empty($response//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']) or empty($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList'])">
 					<ctl:message>[FAILURE] either gml:Envelope or the gml:posList in eop:EarthObservation/om:featureOfInterest/eop:Footprint is not valid</ctl:message>
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<ctl:call-test name="wcseo:contain">
-						<ctl:with-param name="index" select="number('1')"/>
-						<ctl:with-param name="low1" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='Envelope']/*[local-name()='lowerCorner']),' ')[1]"/>
-						<ctl:with-param name="low2" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='Envelope']/*[local-name()='lowerCorner']),' ')[2]"/>
-						<ctl:with-param name="high1" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='Envelope']/*[local-name()='upperCorner']),' ')[1]"/>
-						<ctl:with-param name="high2" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='Envelope']/*[local-name()='upperCorner']),' ')[2]"/>
-						<ctl:with-param name="pos" select="tokenize(normalize-space($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList']),' ')[1]"/>
-						<ctl:with-param name="posList" select="tokenize(normalize-space($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList']),' ')"/>
-					</ctl:call-test>
+                     <xsl:choose>
+                        <xsl:when test="not(empty($response//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+                           <ctl:call-test name="wcseo:contain">
+                              <ctl:with-param name="index" select="number('1')"/>
+                              <ctl:with-param name="low1" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']/*[local-name()='lowerCorner']),' ')[1]"/>
+                              <ctl:with-param name="low2" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']/*[local-name()='lowerCorner']),' ')[2]"/>
+                              <ctl:with-param name="high1" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']/*[local-name()='upperCorner']),' ')[1]"/>
+                              <ctl:with-param name="high2" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']/*[local-name()='upperCorner']),' ')[2]"/>
+                              <ctl:with-param name="pos" select="tokenize(normalize-space($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList']),' ')[1]"/>
+                              <ctl:with-param name="posList" select="tokenize(normalize-space($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList']),' ')"/>
+                           </ctl:call-test>
+                        </xsl:when>
+                        <xsl:otherwise>
+                           <ctl:call-test name="wcseo:contain">
+                              <ctl:with-param name="index" select="number('1')"/>
+                              <ctl:with-param name="low1" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='Envelope']/*[local-name()='lowerCorner']),' ')[1]"/>
+                              <ctl:with-param name="low2" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='Envelope']/*[local-name()='lowerCorner']),' ')[2]"/>
+                              <ctl:with-param name="high1" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='Envelope']/*[local-name()='upperCorner']),' ')[1]"/>
+                              <ctl:with-param name="high2" select="tokenize(normalize-space($response//*[local-name()='boundedBy']/*[local-name()='Envelope']/*[local-name()='upperCorner']),' ')[2]"/>
+                              <ctl:with-param name="pos" select="tokenize(normalize-space($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList']),' ')[1]"/>
+                              <ctl:with-param name="posList" select="tokenize(normalize-space($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList']),' ')"/>
+                           </ctl:call-test>
+                        </xsl:otherwise>
+                     </xsl:choose>					
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
