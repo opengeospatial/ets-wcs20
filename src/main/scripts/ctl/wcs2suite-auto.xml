@@ -46,90 +46,68 @@
 		<ctl:param name="profile_eowcs"/>
 		<ctl:assertion>Prune query parameters if present.</ctl:assertion>
 		<ctl:code>
+			<xsl:variable name="Capabilities">
+				<ctl:request>
+					<ctl:url>
+						<xsl:value-of select="$url" />
+					</ctl:url>
+					<ctl:method>get</ctl:method>
+					<ctlp:XMLValidatingParser>
+						<ctlp:schemas>
+							<ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema>
+						</ctlp:schemas>
+					</ctlp:XMLValidatingParser>
+				</ctl:request>
+			</xsl:variable>
+			<xsl:variable name="url2">
+				<xsl:value-of select="$Capabilities//ows:OperationsMetadata/ows:Operation[@name='GetCapabilities']/ows:DCP/ows:HTTP/ows:Get/@xlink:href" />
+			</xsl:variable>
 			<xsl:choose>
-				<xsl:when test="contains($url,'?')">
-						<xsl:if test="contains($core,'core')">
-							<ctl:call-test name="wcs2:main_test">
-								<ctl:with-param name="url" select="substring-before($url,'?')"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_post,'post')">
-							<ctl:call-test name="wcs2:post-xml-main">
-								<ctl:with-param name="url" select="substring-before($url,'?')"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_proc,'processing')">
-							<ctl:call-test name="wcs2:get-proc-main">
-								<ctl:with-param name="url" select="substring-before($url,'?')"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_scal,'scaling')">
-							<ctl:call-test name="wcs2:get-scal-main">
-								<ctl:with-param name="url" select="substring-before($url,'?')"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_int,'interpolation')">
-							<ctl:call-test name="wcs2:get-int-main">
-								<ctl:with-param name="url" select="substring-before($url,'?')"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_rsub,'range subsetting')">
-							<ctl:call-test name="wcs2:get-rsub-main">
-								<ctl:with-param name="url" select="substring-before($url,'?')"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_crs,'crs')">
-							<ctl:call-test name="wcs2:crs">
-								<ctl:with-param name="url" select="substring-before($url,'?')"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($profile_eowcs,'eowcs')">
-							<ctl:call-test name="wcseo:main">
-								<ctl:with-param name="url" select="substring-before($url,'?')"/>
-							</ctl:call-test>
-						</xsl:if>
+				<xsl:when test="not(empty($url2))">
+					<xsl:if test="contains($core,'core')">
+						<ctl:call-test name="wcs2:main_test">
+							<ctl:with-param name="url" select="$url2"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains($ext_post,'post')">
+						<ctl:call-test name="wcs2:post-xml-main">
+							<ctl:with-param name="url" select="$url2"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains($ext_proc,'processing')">
+						<ctl:call-test name="wcs2:get-proc-main">
+							<ctl:with-param name="url" select="$url2"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains($ext_scal,'scaling')">
+						<ctl:call-test name="wcs2:get-scal-main">
+							<ctl:with-param name="url" select="$url2"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains($ext_int,'interpolation')">
+						<ctl:call-test name="wcs2:get-int-main">
+							<ctl:with-param name="url" select="$url2"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains($ext_rsub,'range subsetting')">
+						<ctl:call-test name="wcs2:get-rsub-main">
+							<ctl:with-param name="url" select="$url2"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains($ext_crs,'crs')">
+						<ctl:call-test name="wcs2:crs">
+							<ctl:with-param name="url" select="$url2"/>
+						</ctl:call-test>
+					</xsl:if>
+					<xsl:if test="contains($profile_eowcs,'eowcs')">
+						<ctl:call-test name="wcseo:main">
+							<ctl:with-param name="url" select="$url2"/>
+						</ctl:call-test>
+					</xsl:if>
 				</xsl:when>
 				<xsl:otherwise>
-						<xsl:if test="contains($core,'core')">
-							<ctl:call-test name="wcs2:main_test">
-								<ctl:with-param name="url" select="$url"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_post,'post')">
-							<ctl:call-test name="wcs2:post-xml-main">
-								<ctl:with-param name="url" select="$url"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_proc,'processing')">
-							<ctl:call-test name="wcs2:get-proc-main">
-								<ctl:with-param name="url" select="$url"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_scal,'scaling')">
-							<ctl:call-test name="wcs2:get-scal-main">
-								<ctl:with-param name="url" select="$url"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_int,'interpolation')">
-							<ctl:call-test name="wcs2:get-int-main">
-								<ctl:with-param name="url" select="$url"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_rsub,'range subsetting')">
-							<ctl:call-test name="wcs2:get-rsub-main">
-								<ctl:with-param name="url" select="$url"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($ext_crs,'crs')">
-							<ctl:call-test name="wcs2:crs">
-								<ctl:with-param name="url" select="$url"/>
-							</ctl:call-test>
-						</xsl:if>
-						<xsl:if test="contains($profile_eowcs,'eowcs')">
-							<ctl:call-test name="wcseo:main">
-								<ctl:with-param name="url" select="$url"/>
-							</ctl:call-test>
-						</xsl:if>
+					<ctl:message>[FAILURE] Service is not provided</ctl:message>
+					<ctl:fail/>	
 				</xsl:otherwise>
 			</xsl:choose>
 		</ctl:code>
