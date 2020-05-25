@@ -210,7 +210,7 @@
 		<ctl:param name="Capabilities"/>
 		<ctl:assertion>Req3:Test wcsServiceMetadata.</ctl:assertion>
 		<ctl:code>
-			<xsl:if test="empty($Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='InterpolationMetadata'/*[local-name()='InterpolationSupported'])">
+			<xsl:if test="empty($Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='InterpolationMetadata']/*[local-name()='InterpolationSupported'])">
 				<ctl:message>[FAILURE] Capabilities document does not contain InterpolationSupported element.</ctl:message>
 				<ctl:fail/>
 			</xsl:if>
