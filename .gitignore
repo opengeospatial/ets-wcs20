@@ -9,4 +9,5 @@ release.properties
 # IntelliJ IDEA
 .idea/
 *.iml
-
+.classpath
+.settings
