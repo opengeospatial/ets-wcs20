@@ -153,7 +153,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">ProcessCoverages</ctl:param>
 		
 					<ctl:param name="query">for</ctl:param>

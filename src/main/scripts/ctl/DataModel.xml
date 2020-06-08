@@ -285,7 +285,7 @@
 						</ctl:url>
 						<ctl:method>get</ctl:method>
 						<ctl:param name="service">WCS</ctl:param>
-						<ctl:param name="version">2.0.1</ctl:param>
+						<ctl:param name="VERSION">2.0.1</ctl:param>
 						<ctl:param name="request">DescribeCoverage</ctl:param>
 						<ctl:param name="CoverageId">
 							<xsl:value-of select="./*[local-name()='CoverageId']"/>
@@ -318,7 +318,7 @@
 								</ctl:url>
 								<ctl:method>get</ctl:method>
 								<ctl:param name="service">WCS</ctl:param>
-								<ctl:param name="version">2.0.1</ctl:param>
+								<ctl:param name="VERSION">2.0.1</ctl:param>
 								<ctl:param name="request">GetCoverage</ctl:param>
 								<ctl:param name="CoverageId">
 									<xsl:value-of select="./*[local-name()='CoverageId']"/>
@@ -405,7 +405,7 @@
 								</ctl:url>
 								<ctl:method>get</ctl:method>
 								<ctl:param name="service">WCS</ctl:param>
-								<ctl:param name="version">2.0.1</ctl:param>
+								<ctl:param name="VERSION">2.0.1</ctl:param>
 								<ctl:param name="request">DescribeCoverage</ctl:param>
 								<ctl:param name="CoverageId">
 									<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>
@@ -440,7 +440,7 @@
 										</ctl:url>
 										<ctl:method>get</ctl:method>
 										<ctl:param name="service">WCS</ctl:param>
-										<ctl:param name="version">2.0.1</ctl:param>
+										<ctl:param name="VERSION">2.0.1</ctl:param>
 										<ctl:param name="request">GetCoverage</ctl:param>
 										<ctl:param name="CoverageId">
 											<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/>

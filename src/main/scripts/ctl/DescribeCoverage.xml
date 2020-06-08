@@ -315,7 +315,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
@@ -466,7 +466,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
@@ -497,7 +497,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="Coverage">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
@@ -713,7 +713,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
 						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
@@ -747,7 +747,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>,CoverageId_Bogus
@@ -778,7 +778,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">CoverageId_Bogus</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -965,7 +965,7 @@
 						</ctl:url>
 						<ctl:method>get</ctl:method>
 						<ctl:param name="service">WCS</ctl:param>
-						<ctl:param name="version">2.0.1</ctl:param>
+						<ctl:param name="VERSION">2.0.1</ctl:param>
 						<ctl:param name="request">DescribeCoverage</ctl:param>
 						<ctl:param name="CoverageId">
 							<xsl:value-of select="."/>
@@ -1086,7 +1086,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
 						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
@@ -1211,7 +1211,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
 						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
@@ -1344,7 +1344,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">
 						<xsl:for-each select="$Capabilities//*[local-name()='CoverageSummary']/*[local-name()='CoverageId']">
@@ -1480,7 +1480,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="service">WCS</ctl:param>
-					<ctl:param name="version">2.0.1</ctl:param>
+					<ctl:param name="VERSION">2.0.1</ctl:param>
 					<ctl:param name="request">DescribeCoverage</ctl:param>
 					<ctl:param name="CoverageId">CoverageId_Bogus</ctl:param>
 					<ctlp:HTTPParser>
