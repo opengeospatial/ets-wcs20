@@ -75,7 +75,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="ACCEPTVERSIONS">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctl:param name="Sections">DatasetSeriesSummary,CoverageSummary</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -450,7 +450,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="ACCEPTVERSIONS">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctl:param name="Sections">CoverageSummary</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -479,7 +479,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="ACCEPTVERSIONS">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctl:param name="Sections">Contents</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -508,7 +508,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="ACCEPTVERSIONS">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctl:param name="Sections">All</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -676,7 +676,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="ACCEPTVERSIONS">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctl:param name="Sections">DatasetSeriesSummary</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -705,7 +705,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="ACCEPTVERSIONS">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctl:param name="Sections">Contents</ctl:param>
 					<ctlp:XMLValidatingParser>
@@ -734,7 +734,7 @@
 					</ctl:url>
 					<ctl:method>get</ctl:method>
 					<ctl:param name="SERVICE">WCS</ctl:param>
-					<ctl:param name="VERSION">2.0.1</ctl:param>
+					<ctl:param name="ACCEPTVERSIONS">2.0.1</ctl:param>
 					<ctl:param name="REQUEST">GetCapabilities</ctl:param>
 					<ctl:param name="Sections">All</ctl:param>
 					<ctlp:XMLValidatingParser>
