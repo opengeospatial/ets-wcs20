@@ -1,5 +1,14 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.16 (2020-07-01)
+
+   - [#33](https://github.com/opengeospatial/ets-wcs20/issues/33) - Test wcs2:main_test makes invalid GetCapabilities request
+   - [#71](https://github.com/opengeospatial/ets-wcs20/issues/71) - Create SoapUI tests and integrate them into Maven and Jenkinsfile
+   - [#88](https://github.com/opengeospatial/ets-wcs20/issues/88) - problems in checking gml support
+   - [#32](https://github.com/opengeospatial/ets-wcs20/issues/32) - query parameters in service endpoint are ignored
+   - [#93](https://github.com/opengeospatial/ets-wcs20/issues/93) - several test of interpolatin extension does not appears in test result
+   - [#78](https://github.com/opengeospatial/ets-wcs20/issues/78) - Test wcseo:req6 does not accept gml:EnvelopeWithTimePeriod
+
 ## 1.15 (2019-07-30)
 
    - [#77](https://github.com/opengeospatial/ets-wcs20/issues/77) - wcs2:req21 & wcs2:req22 are failed with validation error if it has the \<nilValues\> element
