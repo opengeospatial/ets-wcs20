@@ -273,25 +273,20 @@
 									xsi:schemaLocation="http://www.opengis.net/wcs/2.0 ../../wcsAll.xsd"
 									service="WCS" version="2.0.1">
 									<wcs:CoverageId><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId']"/></wcs:CoverageId></wcs:GetCoverage></ctl:body>
-							<ctlp:XMLValidatingParser>
-								<ctlp:schemas>
-									<ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema>
-								</ctlp:schemas>
-							</ctlp:XMLValidatingParser>
+							<ctlp:HTTPParser>
+							    <ctlp:parse>
+							        <ctlp:NullParser />
+							    </ctlp:parse>
+							</ctlp:HTTPParser>
 						</ctl:request>
 					</xsl:variable>
-					<xsl:choose>
-						<xsl:when test="empty($GetCoverage)">
-							<ctl:message>[FAILURE] Parsing or validation errors.</ctl:message>
-							<ctl:fail/>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:if test="not(empty($GetCoverage//*[local-name()='Exception']))">
-								<ctl:message>[FAILURE] The result should not be an ows:ExceptionReport.</ctl:message>
-								<ctl:fail/>
-							</xsl:if>
-						</xsl:otherwise>
-					</xsl:choose>
+					<xsl:variable name="type">
+					    <xsl:value-of select="$GetCoverage/response/content/response/headers/header[@name='Content-Type']" />
+					</xsl:variable>
+					<xsl:if test="not(contains('image/', $type)) and $type != 'application/x-hdf5'">
+					    <ctl:message>[FAILURE] The result should be an image/* or application/x-hdf5</ctl:message>
+					    <ctl:fail />
+					</xsl:if>
 					<xsl:variable name="GetCoverage">
 						<ctl:request>
 							<ctl:url>
