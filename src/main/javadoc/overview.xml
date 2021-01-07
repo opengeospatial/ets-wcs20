@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite>
+	<title>WCS 2.0 Conformance Test Suite</title>
+	<description>
+	    This Executable Test Suite (ETS) verifies the conformance of WCS 2.0 services. The services should 
+		be accessed through WCS GetCapabilities and DescribeCoverage using the HTTP KVP, POST, and/or SOAP 
+		protocol bindings, and GetCoverage using the HTTP KVP binding. The GetCoverage response should be 
+		provided as a GML coveage instance document. The test run arguments are summarized in the following 
+		table. The obligation descriptor can have the following values: M (mandatory), O (optional), or C
+		(conditional).
+	</description>
+	<testrunarguments>
+		<testrunargument>
+			<name>url</name>
+			<valuedomain>URI</valuedomain>
+			<obligation>M</obligation>
+			<description>An absolute URI that refers to an XML representation of
+				the service capabilities document.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>core</name>
+			<valuedomain>core</valuedomain>
+			<obligation>O, default</obligation>
+			<description>The WCS Core profile.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>ext_post</name>
+			<valuedomain>post</valuedomain>
+			<obligation>O</obligation>
+			<description>The WCS POST profile</description>
+		</testrunargument>
+		<testrunargument>
+			<name>ext_proc</name>
+			<valuedomain>processing</valuedomain>
+			<obligation>O</obligation>
+			<description>The WCS WCPS 2.0 (Processing) profile</description>
+		</testrunargument>
+		<testrunargument>
+			<name>ext_scal</name>
+			<valuedomain>scaling</valuedomain>
+			<obligation>O</obligation>
+			<description>The WCS Scaling 1.0 profile</description>
+		</testrunargument>
+		<testrunargument>
+			<name>ext_int</name>
+			<valuedomain>interpolation</valuedomain>
+			<obligation>O</obligation>
+			<description>The WCS Interpolation 1.0 profile</description>
+		</testrunargument>
+		<testrunargument>
+			<name>ext_rsub</name>
+			<valuedomain>range subsetting</valuedomain>
+			<obligation>O</obligation>
+			<description>The WCS Range Subsetting 1.0 profile</description>
+		</testrunargument>
+		<testrunargument>
+			<name>ext_crs</name>
+			<valuedomain>crs</valuedomain>
+			<obligation>O</obligation>
+			<description>The WCS-CRS-extension 1.0 profile</description>
+		</testrunargument>
+		<testrunargument>
+			<name>profile_eowcs</name>
+			<valuedomain>eowcs</valuedomain>
+			<obligation>O</obligation>
+			<description>The WCS EO 1.0 (EOWCS) profile</description>
+		</testrunargument>
+	</testrunarguments>
+	<notes>
+		<note>If the profile has not provided in query parameter then default WCS Core profile will be executed.</note>
+		<note>Ampersand ('&amp;') characters appearing within query parameter values must be percent-encoded as %26.</note>
+	</notes>
+</testsuite>
