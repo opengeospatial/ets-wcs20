@@ -59,7 +59,7 @@
     <spec-version>2.0.1</spec-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <teamengine.version>5.4</teamengine.version>
-    <docker.teamengine.version>5.4</docker.teamengine.version>
+    <docker.teamengine.version>5.4.1</docker.teamengine.version>
     <soapui.teamengine.endpoint>http://cite.opengeospatial.org/te2</soapui.teamengine.endpoint>
     <soapui.iut>http://ows.eox.at/cite/mapserver?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</soapui.iut>
     <soapui.tests.passed>95</soapui.tests.passed>
