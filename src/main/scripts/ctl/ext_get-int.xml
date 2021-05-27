@@ -53,7 +53,7 @@
 				<xsl:value-of select="tokenize(string($DescribeCoverage//*[local-name()='domainSet']//*[local-name()='axisLabels']),'\s+')"/>
 			</xsl:variable>
 			<xsl:variable name="InterpolationSupported">
-				<xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='InterpolationMetadata']/*[local-name()='InterpolationSupported']"/>
+				<xsl:value-of select="($Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='InterpolationMetadata']/*[local-name()='InterpolationSupported'])[1]"/>
 			</xsl:variable>
 			<ctl:call-test name="wcs2:get-int-req1">
 				<ctl:with-param name="Capabilities" select="$Capabilities"/>
@@ -587,7 +587,7 @@
 							</ctl:param>
 							<ctl:param name="SCALEFACTOR">2.0</ctl:param>
 							<ctl:param name="interpolation">
-								<xsl:value-of select="concat($axisLabels[1],':',$InterpolationSupported[1],','$axisLabels[1],':',$InterpolationSupported[1])"/>
+								<xsl:value-of select="concat((tokenize($axisLabels, ' '))[1],':',$InterpolationSupported[1],',',(tokenize($axisLabels, ' '))[1],':',$InterpolationSupported[1])"/>
 							</ctl:param>
 							<ctl:param name="FORMAT">application/gml%2Bxml</ctl:param>
 							<ctlp:XMLValidatingParser>
@@ -640,11 +640,11 @@
 											<int:InterpolationAxes>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[1]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[1]"/></xsl:attribute>
 												</int:InterpolationAxis>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[1]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[1]"/></xsl:attribute>
 												</int:InterpolationAxis>
 											</int:InterpolationAxes>
 										</int:Interpolation>
@@ -700,11 +700,11 @@
 											<int:InterpolationAxes>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[1]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[1]"/></xsl:attribute>
 												</int:InterpolationAxis>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[1]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[1]"/></xsl:attribute>
 												</int:InterpolationAxis>
 											</int:InterpolationAxes>
 										</int:Interpolation>
@@ -907,7 +907,7 @@
 							</ctl:param>
 							<ctl:param name="SCALEFACTOR">2.0</ctl:param>
 							<ctl:param name="interpolation">
-								<xsl:value-of select="concat(axis_not_exist,':',$InterpolationSupported[1],','$axisLabels[1],':',$InterpolationSupported[1])"/>
+								<xsl:value-of select="concat(axis_not_exist,':',$InterpolationSupported[1],',',(tokenize($axisLabels, ' '))[1],':',$InterpolationSupported[1])"/>
 							</ctl:param>
 							<ctl:param name="FORMAT">application/gml%2Bxml</ctl:param>
 							<ctlp:XMLValidatingParser>
@@ -964,7 +964,7 @@
 												</int:InterpolationAxis>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[1]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[1]"/></xsl:attribute>
 												</int:InterpolationAxis>
 											</int:InterpolationAxes>
 										</int:Interpolation>
@@ -1024,7 +1024,7 @@
 												</int:InterpolationAxis>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[1]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[1]"/></xsl:attribute>
 												</int:InterpolationAxis>
 											</int:InterpolationAxes>
 										</int:Interpolation>
@@ -1076,7 +1076,7 @@
 							</ctl:param>
 							<ctl:param name="SCALEFACTOR">2.0</ctl:param>
 							<ctl:param name="interpolation">
-								<xsl:value-of select="concat($axisLabels[1],':',$InterpolationSupported[1],','$axisLabels[2],':',$InterpolationSupported[1])"/>
+								<xsl:value-of select="concat((tokenize($axisLabels, ' '))[1],':',$InterpolationSupported[1],',',(tokenize($axisLabels, ' '))[2],':',$InterpolationSupported[1])"/>
 							</ctl:param>
 							<ctl:param name="FORMAT">application/gml%2Bxml</ctl:param>
 							<ctlp:XMLValidatingParser>
@@ -1129,11 +1129,11 @@
 											<int:InterpolationAxes>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[1]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[1]"/></xsl:attribute>
 												</int:InterpolationAxis>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[2]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[2]"/></xsl:attribute>
 												</int:InterpolationAxis>
 											</int:InterpolationAxes>
 										</int:Interpolation>
@@ -1189,11 +1189,11 @@
 											<int:InterpolationAxes>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[1]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[1]"/></xsl:attribute>
 												</int:InterpolationAxis>
 												<int:InterpolationAxis>
 													<xsl:attribute name="interpolationMethod"><xsl:value-of select="$InterpolationSupported[1]"/></xsl:attribute>
-													<xsl:attribute name="axis"><xsl:value-of select="$axisLabels[2]"/></xsl:attribute>
+													<xsl:attribute name="axis"><xsl:value-of select="(tokenize($axisLabels, ' '))[2]"/></xsl:attribute>
 												</int:InterpolationAxis>
 											</int:InterpolationAxes>
 										</int:Interpolation>
