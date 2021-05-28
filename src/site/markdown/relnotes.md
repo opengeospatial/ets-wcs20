@@ -1,5 +1,15 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.17 (2021-05-28)
+
+   - [#94](https://github.com/opengeospatial/ets-wcs20/issues/94) - wcs2:get-int-req17 and wcs2:get-int-req18 have wrong content in interpolationMethod parameter
+   - [#55](https://github.com/opengeospatial/ets-wcs20/issues/55) - wcs2:post-xml-req5 fails with InvocationTargetException (post/xml)
+   - [#100](https://github.com/opengeospatial/ets-wcs20/issues/100) - Add template to get an XML/JSON response via rest endpoint
+   - [#106](https://github.com/opengeospatial/ets-wcs20/pull/106) - Set Docker TEAM Engine version to 5.4.1
+   - [#99](https://github.com/opengeospatial/ets-wcs20/pull/99) - Bump junit from 4.12 to 4.13.1
+   - [#104](https://github.com/opengeospatial/ets-wcs20/pull/104) - Added header for soapui test.
+   - [#103](https://github.com/opengeospatial/ets-wcs20/pull/103) - Update ext_get-int.xml
+
 ## 1.16 (2020-07-01)
 
    - [#33](https://github.com/opengeospatial/ets-wcs20/issues/33) - Test wcs2:main_test makes invalid GetCapabilities request
