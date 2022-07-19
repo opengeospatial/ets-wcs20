@@ -61,6 +61,8 @@
     <teamengine.version>5.4</teamengine.version>
     <docker.teamengine.version>5.4.1</docker.teamengine.version>
     <soapui.teamengine.endpoint>http://cite.opengeospatial.org/te2</soapui.teamengine.endpoint>
+    <soapui.teamengine.user>ogctest</soapui.teamengine.user>
+    <soapui.teamengine.password>ogctest</soapui.teamengine.password>
     <soapui.iut>http://ows.eox.at/cite/mapserver?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</soapui.iut>
     <soapui.tests.passed>95</soapui.tests.passed>
     <soapui.tests.skipped>0</soapui.tests.skipped>
@@ -247,6 +249,8 @@
           <testFailIgnore>${soapui.test.fail.ignore}</testFailIgnore>
           <projectProperties>
             <value>teamengine.endpoint=${soapui.teamengine.endpoint}</value>
+            <value>teamengine.user=${soapui.teamengine.user}</value>
+            <value>teamengine.password=${soapui.teamengine.password}</value>
             <value>iut=${soapui.iut}</value>
             <value>tests.passed=${soapui.tests.passed}</value>
             <value>tests.skipped=${soapui.tests.skipped}</value>
