@@ -9,6 +9,23 @@
 				<ctl:fail/>
 			</xsl:if>
 		</ctl:code>
+	</ctl:test>	
+	<ctl:test name="wcs2:OWSCommon_exception_with_exception_text">
+		<ctl:param name="exception"/>
+		<ctl:param name="statusCode"/>
+		<ctl:param name="exceptionText"/>
+		<ctl:assertion>OWS common: test HTTP status codes and excepion text for OGC Exceptions.</ctl:assertion>
+		<ctl:code>
+		<ctl:message>[FAILURE] the result should contain an $exceptionText Exception.</ctl:message>
+<!-- 			<xsl:if test="not(codepoint-equal($statusCode, $exception//status/@code))"> -->
+<!-- 				<ctl:message>[FAILURE] Standard exception codes should be returned.</ctl:message> -->
+<!-- 				<ctl:fail/> -->
+<!-- 			</xsl:if> -->
+			<xsl:if test="not(not(empty($exception///*[local-name()='Exception'])) and $exception///@*[local-name()='exceptionCode']=$exceptionText) ">
+				<ctl:message>[FAILURE] the result should contain an $exceptionText Exception.</ctl:message>
+				<ctl:fail/>
+			</xsl:if>
+		</ctl:code>
 	</ctl:test>
 	<ctl:function name="wcs2:encode">
       <ctl:param name="s">String to encode</ctl:param>
