@@ -1,5 +1,12 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.18 (2022-11-29)
+
+   - [#113](https://github.com/opengeospatial/ets-wcs20/issues/113) - Test get-kvp-core-req41 is failing on Beta environment
+   - [#115](https://github.com/opengeospatial/ets-wcs20/pull/115) - Update url to license and integration into reporting and replace ogc logo
+   - [#116](https://github.com/opengeospatial/ets-wcs20/pull/116) - Fix SoapUI integration tests
+   - [#112](https://github.com/opengeospatial/ets-wcs20/pull/112) - Add credentials to SoapUI project
+
 ## 1.17 (2021-05-28)
 
    - [#94](https://github.com/opengeospatial/ets-wcs20/issues/94) - wcs2:get-int-req17 and wcs2:get-int-req18 have wrong content in interpolationMethod parameter
