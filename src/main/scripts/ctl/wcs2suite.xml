@@ -8,8 +8,8 @@
 		<p>This validation service checks a server implementation for conformance to the Web Coverage Service (WCS) 2.0 specification.</p>
 		<p>Complete information about the test suite and requirements for the server implementation can be found <a href="." target="_blank">here</a>.</p>
 		<p>
-			<b>Enter a URL of a WCS 2.0 Service endpoint.</b> The URL should be specified without any query parameters.</p>
-		<p>For example: <pre>http://kahlua.eecs.jacobs-university.de:8080/wcs-conformance-testing</pre>
+			<b>Enter a URL of a WCS 2.0 Service endpoint.</b></p>
+		<p>For example: <pre>http://kahlua.eecs.jacobs-university.de:8080/wcs-conformance-testing?request=GetCapabilities&amp;service=WCS</pre>
 		</p>
 		<p>
 			<xhtml:input type="url" name="url" size="100" pattern="[a-z]{3,}://.+" />
