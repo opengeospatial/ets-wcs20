@@ -1,5 +1,10 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.19 (2023-05-31)
+
+   - [#111](https://github.com/opengeospatial/ets-wcs20/issues/111) - My WCS 2.0.1 service fails at the very beginning when run against compliance test
+   - [#118](https://github.com/opengeospatial/ets-wcs20/pull/118) - Upgrade TEAM Engine dependencies to v5.6.1
+
 ## 1.18 (2022-11-29)
 
    - [#113](https://github.com/opengeospatial/ets-wcs20/issues/113) - Test get-kvp-core-req41 is failing on Beta environment
