@@ -63,8 +63,8 @@
     <soapui.teamengine.endpoint>http://localhost:8081/teamengine</soapui.teamengine.endpoint>
     <soapui.teamengine.user>ogctest</soapui.teamengine.user>
     <soapui.teamengine.password>ogctest</soapui.teamengine.password>
-    <soapui.iut>http://ows.eox.at/cite/mapserver?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</soapui.iut>
-    <soapui.tests.passed>91</soapui.tests.passed>
+    <soapui.iut>http://conformance.rasdaman.com/rasdaman/ows?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</soapui.iut>
+    <soapui.tests.passed>126</soapui.tests.passed>
     <soapui.tests.skipped>0</soapui.tests.skipped>
     <soapui.tests.failed>1</soapui.tests.failed>
     <soapui.test.fail.ignore>false</soapui.test.fail.ignore>
