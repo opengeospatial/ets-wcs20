@@ -1,10 +1,8 @@
 package org.opengis.cite.wcs20;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.CoordinateSequence;
@@ -12,6 +10,7 @@ import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.impl.CoordinateArraySequence;
 
 import net.sf.saxon.om.NodeInfo;
+import net.sf.saxon.value.TextFragmentValue;
 
 public class Utils {
 
@@ -35,7 +34,7 @@ public class Utils {
         String srcCrsString = getStringvalue(srcCrs);
         String targetCrsString = getStringvalue(targetCrs);
 
-        geometryTransformer = new GeometryTransformer(srcCrsString, targetCrsString);
+        geometryTransformer = new GeometryTransformer(targetCrsString, srcCrsString);
 
         List<Double> xyList = createXyList(posListString);
 
@@ -86,6 +85,8 @@ public class Utils {
                     return value;
                 }
             }
+        }else if(o instanceof TextFragmentValue) {
+            return ((TextFragmentValue)o).getStringValue();
         }
         return null;
     }
