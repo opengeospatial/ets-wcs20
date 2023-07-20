@@ -296,7 +296,6 @@
 			<xsl:choose>
 				<xsl:when test="(empty($response//*[local-name()='boundedBy']/*[local-name()='Envelope']) and empty($response//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'])) or empty($response//*[local-name()='EarthObservation']/*[local-name()='featureOfInterest']/*[local-name()='Footprint']//*[local-name()='posList'])">
 					<ctl:message>[FAILURE] either gml:Envelope or the gml:posList in eop:EarthObservation/om:featureOfInterest/eop:Footprint is not valid</ctl:message>
-					<ctl:message select="$response"></ctl:message>
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
