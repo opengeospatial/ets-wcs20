@@ -22,6 +22,8 @@ import org.locationtech.proj4j.ProjCoordinate;
 import org.opengis.cite.wcs20.exception.UnknownCrsException;
 
 /**
+ * Modified from ets-ogcapi-features10 GeometryTransformer
+ * 
  * @author <a href="mailto:goltz@lat-lon.de">Lyn Goltz </a>
  */
 public class GeometryTransformer {

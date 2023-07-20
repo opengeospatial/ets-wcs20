@@ -12,13 +12,33 @@ import org.locationtech.jts.geom.impl.CoordinateArraySequence;
 import net.sf.saxon.om.NodeInfo;
 import net.sf.saxon.value.TextFragmentValue;
 
+/**
+ * This class is used to check if coordinates are in a posList including a coordinate transformation.
+ * See https://github.com/opengeospatial/ets-wcs20/issues/120
+ * @author Benjamin Pross 
+ *
+ */
 public class Utils {
 
     private static GeometryTransformer geometryTransformer;
 
+    //Limit digits to cope with small CRS transformation deviations
     private static DecimalFormat df = new DecimalFormat("#.############");
 
-    public static boolean transformCoordinates(Object low1,
+    /**
+     * Static method to check if coordinates are in a posList including a coordinate transformation.
+     * The parameters come from XPath expressions and can be <code>ArrayList</code> or <code>TextFragmentValue</code>.
+     * 
+     * @param low1 Value of lower corner x
+     * @param low2 Value of lower corner y
+     * @param high1 Value of upper corner x
+     * @param high2 Value of upper corner y
+     * @param posList List of coordinates that low1, low2, high1 and high2 are checked against
+     * @param srcCrs Source CRS
+     * @param targetCrs Target CRS
+     * @return true if the transformed low1, low2, high1 and high2 coordinates are in the posList
+     */
+    public static boolean checkCoordinatesWithCrsTransformation(Object low1,
             Object low2,
             Object high1,
             Object high2,

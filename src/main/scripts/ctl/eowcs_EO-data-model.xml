@@ -317,7 +317,6 @@
                                  </xsl:variable>
                               	<xsl:if test="$result != 'true'">
                               		<ctl:message>[FAILURE] the coordinate is not contained in the bounding box of the gml:boundedBy element of the gml:Envelope</ctl:message>
-                              		<ctl:message select="$result"/>
                               		<ctl:fail/>
                               	</xsl:if>		
                               </ctl:code>
@@ -338,7 +337,6 @@
                                  </xsl:variable>
                               	<xsl:if test="$result != 'true'">
                               		<ctl:message>[FAILURE] the coordinate is not contained in the bounding box of the gml:boundedBy element of the gml:Envelope</ctl:message>
-                              		<ctl:message select="$result"/>
                               		<ctl:fail/>
                               	</xsl:if>		
                               </ctl:code>
