@@ -336,18 +336,43 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-            <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req6">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="format"><xsl:value-of select="encode-for-uri($Capabilities//*[local-name()='ServiceMetadata']/*[local-name()='formatSupported'][1])"/></ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<ctl:param name="SUBSETTINGCRS">
+            			<xsl:value-of select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsName"/>
+            		</ctl:param>
+            		<ctl:param name="OUTPUTCRS">
+            			<xsl:value-of select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsName"/>
+            		</ctl:param>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req6">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<ctl:param name="SUBSETTINGCRS">
+            			<xsl:value-of select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsName"/>
+            		</ctl:param>
+            		<ctl:param name="OUTPUTCRS">
+            			<xsl:value-of select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsName"/>
+            		</ctl:param>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req6">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req6">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -371,18 +396,28 @@
                     </xsl:call-template>
                   </xsl:if>
                 </xsl:template>
-
-          <ctlp:HTTPParser>
-            <ctlp:parse>
-
-              <ctlp:XMLValidatingParser>
-                <ctlp:schemas>
-                  <ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema>
-                </ctlp:schemas>
-              </ctlp:XMLValidatingParser>
-            </ctlp:parse>
-          </ctlp:HTTPParser>
-
+          <xsl:choose>
+              <xsl:when test="contains($Capabilities//*[local-name()='ServiceMetadata']/*[local-name()='formatSupported'][1], 'image')">
+              <ctlp:HTTPParser>
+                <ctlp:parse>		      
+                  <parsers:ImageParser>
+ 				      <parsers:type/>
+                  </parsers:ImageParser>
+                </ctlp:parse>
+              </ctlp:HTTPParser>              
+              </xsl:when>
+              <xsl:otherwise>
+              <ctlp:HTTPParser>
+                <ctlp:parse>		      
+                  <ctlp:XMLValidatingParser>
+                    <ctlp:schemas>
+                      <ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema>
+                    </ctlp:schemas>
+                  </ctlp:XMLValidatingParser>
+                </ctlp:parse>
+              </ctlp:HTTPParser>
+              </xsl:otherwise>
+          </xsl:choose>
           </ctl:request>
         </xsl:variable>
     <ctl:call-test name="wcs:getcoverage_not_exception">
