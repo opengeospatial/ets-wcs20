@@ -905,7 +905,7 @@
 					<ctl:fail/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="empty($Capabilities//*[local-name()='OperationsMetadata']//*[local-name()='Constraint']//@*[local-name()='CountDefault'])">
+					<xsl:if test="empty($Capabilities//*[local-name()='OperationsMetadata']//*[local-name()='Constraint'][@name ='CountDefault'])">
 						<ctl:message>[FAILURE] CountDefault does not exist.</ctl:message>
 						<ctl:fail/>
 					</xsl:if>
