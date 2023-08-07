@@ -1973,7 +1973,7 @@
 						</ctl:request>
 					</xsl:variable>
 					<ctl:call-test name="wcs:getcoverage_not_exception">
-						<ctl:with-param name="GetCoverage1" select="$GetCoverage1"/>
+						<ctl:with-param name="GetCoverage" select="$GetCoverage1"/>
 					</ctl:call-test>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2049,7 +2049,14 @@
 					<ctl:param name="coverageid">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
 					</ctl:param>
-					<ctl:param name="subset">dimension_bogus(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+					<xsl:choose>
+					    <xsl:when test="empty($DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'])">
+					        <ctl:param name="subset">dimension_bogus(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+					    </xsl:when>
+					    <xsl:otherwise>
+						    <ctl:param name="subset">dimension_bogus(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>					        
+					    </xsl:otherwise>
+					</xsl:choose>
 					<parsers:HTTPParser>
 						<parsers:parse>
 							<parsers:XMLValidatingParser>
@@ -2077,11 +2084,21 @@
 					<ctl:param name="request">GetCoverage</ctl:param>
 					<ctl:param name="coverageid">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
-					</ctl:param>
-					<ctl:param name="subset">
-						<xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
-					<ctl:param name="subset">
-						<xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+					</ctl:param>					
+					<xsl:choose>
+					    <xsl:when test="empty($DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'])">
+					        <ctl:param name="subset">
+						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+					        <ctl:param name="subset">
+						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+					    </xsl:when>
+					    <xsl:otherwise>						    
+					        <ctl:param name="subset">
+						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+					        <ctl:param name="subset">
+						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+					    </xsl:otherwise>
+					</xsl:choose>
 					<parsers:HTTPParser>
 						<parsers:parse>
 							<parsers:XMLValidatingParser>
@@ -2109,9 +2126,17 @@
 					<ctl:param name="request">GetCoverage</ctl:param>
 					<ctl:param name="coverageid">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
-					</ctl:param>
-					<ctl:param name="subset">
-						<xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+					</ctl:param>					
+					<xsl:choose>
+					    <xsl:when test="empty($DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'])">
+					        <ctl:param name="subset">
+						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+						</xsl:when>
+					    <xsl:otherwise>
+						    <ctl:param name="subset">
+						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+						</xsl:otherwise>
+					</xsl:choose>
 					<parsers:HTTPParser>
 						<parsers:parse>
 							<parsers:XMLValidatingParser>
@@ -2139,9 +2164,17 @@
 					<ctl:param name="request">GetCoverage</ctl:param>
 					<ctl:param name="coverageid">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
-					</ctl:param>
-					<ctl:param name="subset">
-						<xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1]) -1"/>)</ctl:param>
+					</ctl:param>					
+					<xsl:choose>
+					    <xsl:when test="empty($DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'])">
+					        <ctl:param name="subset">
+						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1]) -1"/>)</ctl:param>
+					    </xsl:when>
+					    <xsl:otherwise>
+					        <ctl:param name="subset">
+						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1]) -1"/>)</ctl:param>
+					</xsl:otherwise>
+					</xsl:choose>
 					<parsers:HTTPParser>
 						<parsers:parse>
 							<parsers:XMLValidatingParser>
