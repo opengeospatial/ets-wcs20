@@ -124,6 +124,7 @@
 								<ctl:message>[MESSAGE] The server does not allow to extract the coverage type.</ctl:message>
 							</xsl:otherwise>
 						</xsl:choose>
+						<!-- remove ReferenceableGridCoverage, see https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 						<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and  count(index-of(('MultiPointCoverage','MultiCurveCoverage','MultiSurfaceCoverage','MultiSolidCoverage','GridCoverage','RectifiedGridCoverage'),./*[local-name()='CoverageSubtype']))=1)">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req5 test.')"/>
 							<ctl:fail/>
@@ -354,6 +355,7 @@
 								<ctl:message>[MESSAGE] The server does not allow to extract the coverage type.</ctl:message>
 							</xsl:otherwise>
 						</xsl:choose>
+						<!-- remove ReferenceableGridCoverage, see https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 						<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and  count(index-of(('MultiPointCoverage','MultiCurveCoverage','MultiSurfaceCoverage','MultiSolidCoverage','GridCoverage','RectifiedGridCoverage'),./*[local-name()='CoverageSubtype']))=1)">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ', ./*[local-name()='CoverageId'],' fails in req5 test.')"/>
 							<ctl:fail/>
@@ -575,6 +577,7 @@
 								<ctl:message>[MESSAGE] The server does not allow to extract the coverage type.</ctl:message>
 							</xsl:otherwise>
 						</xsl:choose>
+						<!-- remove ReferenceableGridCoverage, see https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 						<xsl:if test="not(count(./*[local-name()='CoverageSubtype'])=1 and  count(index-of(('MultiPointCoverage','MultiCurveCoverage','MultiSurfaceCoverage','MultiSolidCoverage','GridCoverage','RectifiedGridCoverage'),./*[local-name()='CoverageSubtype']))=1)">
 							<ctl:message xmlns:ctl="http://www.occamlab.com/ctl" select="concat('[FAILURE] Coverage ',./*[local-name()='CoverageId'],' fails in req5 test.')"/>
 							<ctl:fail/>

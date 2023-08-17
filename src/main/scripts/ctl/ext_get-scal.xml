@@ -38,7 +38,7 @@
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][string(wcs:CoverageSubtype)='RectifiedGridCoverage'][1]/*[local-name()='CoverageId'][1]"/>
 			</xsl:variable>
 
-
+<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 			<xsl:variable name="ReferenceableGridCoverageId"> -->
 <!-- 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][string(wcs:CoverageSubtype)='ReferenceableGridCoverage'][1]/*[local-name()='CoverageId'][1]"/> -->
 <!-- 			</xsl:variable> -->
@@ -84,6 +84,7 @@
 								<ctl:with-param name="url" select="$url"/>
 								<ctl:with-param name="GridCoverageId" select="$GridCoverageId"/>
 								<ctl:with-param name="RectifiedGridCoverageId" select="$RectifiedGridCoverageId"/>
+								<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/> -->
                                 <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 							</ctl:call-test>
@@ -147,6 +148,7 @@
 								<ctl:with-param name="url" select="$url"/>
 								<ctl:with-param name="GridCoverageId" select="$GridCoverageId"/>
 								<ctl:with-param name="RectifiedGridCoverageId" select="$RectifiedGridCoverageId"/>
+								<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/> -->
                                 <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 							</ctl:call-test>
@@ -210,6 +212,7 @@
 								<ctl:with-param name="url" select="$url"/>
 								<ctl:with-param name="GridCoverageId" select="$GridCoverageId"/>
 								<ctl:with-param name="RectifiedGridCoverageId" select="$RectifiedGridCoverageId"/>
+								<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/> -->
                                  <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 							</ctl:call-test>
@@ -312,6 +315,7 @@
 		<ctl:param name="url"/>
 		<ctl:param name="GridCoverageId"/>
 		<ctl:param name="RectifiedGridCoverageId"/>
+		<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 		<ctl:param name="ReferenceableGridCoverageId"/> -->
 		<ctl:param name="SupportsGML"/>
 		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage.</ctl:assertion>
@@ -392,6 +396,7 @@
 					<ctl:fail/>
 				</xsl:otherwise>
 			</xsl:choose>
+			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 			<xsl:choose> -->
 <!-- 				<xsl:when test="not(empty($ReferenceableGridCoverageId))"> -->
 <!-- 					<xsl:choose> -->
@@ -436,6 +441,7 @@
                 <ctl:param name="url"/>	
 		<ctl:param name="GridCoverageId"/>
 		<ctl:param name="RectifiedGridCoverageId"/>
+		<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 		<ctl:param name="ReferenceableGridCoverageId"/> -->
                 <ctl:param name="SupportsGML"/>
 		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage.</ctl:assertion>
@@ -528,6 +534,7 @@
 					<ctl:fail/>
 				</xsl:otherwise>
 			</xsl:choose>
+			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 			<xsl:choose> -->
 <!-- 				<xsl:when test="not(empty($ReferenceableGridCoverageId))"> -->
 <!-- 					<xsl:choose> -->
@@ -578,6 +585,7 @@
                 <ctl:param name="url"/>
 		<ctl:param name="GridCoverageId"/>
 		<ctl:param name="RectifiedGridCoverageId"/>
+		<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 		<ctl:param name="ReferenceableGridCoverageId"/> -->
         <ctl:param name="SupportsGML"/>
 		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage.</ctl:assertion>
@@ -666,6 +674,7 @@
 					<ctl:fail/>
 				</xsl:otherwise>
 			</xsl:choose>
+			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 			<xsl:choose> -->
 <!-- 				<xsl:when test="not(empty($ReferenceableGridCoverageId))"> -->
 <!-- 					<xsl:choose> -->
