@@ -2084,13 +2084,35 @@
 					<ctl:param name="request">GetCoverage</ctl:param>
 					<ctl:param name="coverageid">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
-					</ctl:param>					
+					</ctl:param>
+					<!-- https://github.com/opengeospatial/ets-wcs20/issues/124 create valid subsetting request plus additional duplicate axis label -->
+					<!-- By using correct subsets, the test suite can exclude InvalidSubsetting exceptions from happening, which would lead to a failure -->
 					<xsl:choose>
 					    <xsl:when test="empty($DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'])">
+					        <xsl:variable name="axisLabel1">
+					            <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels),' ')[1]"/>
+					        </xsl:variable>
+					        <xsl:variable name="axisLabel2">
+					            <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels),' ')[2]"/>					        
+					        </xsl:variable>
+					        <xsl:variable name="low1">
+					            <xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>
+					        </xsl:variable>
+					        <xsl:variable name="low2">
+					            <xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[2])"/>
+					        </xsl:variable>
+					        <xsl:variable name="high1">
+					            <xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]),' ')[1])"/>
+					        </xsl:variable>
+					        <xsl:variable name="high2">
+					            <xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]),' ')[2])"/>
+					        </xsl:variable>
+                            <ctl:param name="subset">
+						        <xsl:value-of select="$axisLabel1"/>(<xsl:value-of select="$low1"/>,<xsl:value-of select="$high1"/>)</ctl:param>
 					        <ctl:param name="subset">
-						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+						        <xsl:value-of select="$axisLabel2"/>(<xsl:value-of select="$low2"/>,<xsl:value-of select="$high2"/>)</ctl:param>
 					        <ctl:param name="subset">
-						        <xsl:value-of select="tokenize(normalize-space($DescribeCoverage //*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels),' ')[1]"/>(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>)</ctl:param>
+						        <xsl:value-of select="$axisLabel1"/>(<xsl:value-of select="$low1"/>,<xsl:value-of select="$high1"/>)</ctl:param>
 					    </xsl:when>
 					    <xsl:otherwise>						    
 					        <ctl:param name="subset">
