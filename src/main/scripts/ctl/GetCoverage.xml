@@ -489,6 +489,10 @@
 				<ctl:message>[FAILURE] The result should not contain an ows:Exception.</ctl:message>
 				<ctl:fail/>
 			</xsl:if>
+			<xsl:if test="$GetCoverage//*[local-name()='status']/@code > 400">
+				<ctl:message>[FAILURE] The result should not contain an HTTP exception code.</ctl:message>
+				<ctl:fail/>
+			</xsl:if>
 		</ctl:code>
 	</ctl:test>
 	<ctl:test name="wcs:getcoverage_exception">
