@@ -38,10 +38,10 @@
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][string(wcs:CoverageSubtype)='RectifiedGridCoverage'][1]/*[local-name()='CoverageId'][1]"/>
 			</xsl:variable>
 
-
-			<xsl:variable name="ReferenceableGridCoverageId">
-						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][string(wcs:CoverageSubtype)='ReferenceableGridCoverage'][1]/*[local-name()='CoverageId'][1]"/>
-			</xsl:variable>
+<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 			<xsl:variable name="ReferenceableGridCoverageId"> -->
+<!-- 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][string(wcs:CoverageSubtype)='ReferenceableGridCoverage'][1]/*[local-name()='CoverageId'][1]"/> -->
+<!-- 			</xsl:variable> -->
 
 			<xsl:variable name="GridCoverageId">
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][string(wcs:CoverageSubtype)='GridCoverage'][1]/*[local-name()='CoverageId'][1]"/>
@@ -84,8 +84,9 @@
 								<ctl:with-param name="url" select="$url"/>
 								<ctl:with-param name="GridCoverageId" select="$GridCoverageId"/>
 								<ctl:with-param name="RectifiedGridCoverageId" select="$RectifiedGridCoverageId"/>
-								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/>
-                                                                <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+								<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/> -->
+                                <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 							</ctl:call-test>
 							<ctl:call-test name="wcs2:get-scal-req4-kvp">
 								<ctl:with-param name="url" select="$url"/>
@@ -147,8 +148,9 @@
 								<ctl:with-param name="url" select="$url"/>
 								<ctl:with-param name="GridCoverageId" select="$GridCoverageId"/>
 								<ctl:with-param name="RectifiedGridCoverageId" select="$RectifiedGridCoverageId"/>
-								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/>
-                                                                <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+								<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/> -->
+                                <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 							</ctl:call-test>
 							<ctl:call-test name="wcs2:get-scal-req4-post">
 								<ctl:with-param name="url" select="$url"/>
@@ -210,8 +212,9 @@
 								<ctl:with-param name="url" select="$url"/>
 								<ctl:with-param name="GridCoverageId" select="$GridCoverageId"/>
 								<ctl:with-param name="RectifiedGridCoverageId" select="$RectifiedGridCoverageId"/>
-								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/>
-                                                                <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
+								<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 								<ctl:with-param name="ReferenceableGridCoverageId" select="$ReferenceableGridCoverageId"/> -->
+                                 <ctl:with-param name="SupportsGML" select="$SupportsGML"/>
 							</ctl:call-test>
 							<ctl:call-test name="wcs2:get-scal-req4-soap">
 								<ctl:with-param name="url" select="$url"/>
@@ -312,9 +315,10 @@
 		<ctl:param name="url"/>
 		<ctl:param name="GridCoverageId"/>
 		<ctl:param name="RectifiedGridCoverageId"/>
-		<ctl:param name="ReferenceableGridCoverageId"/>
+		<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 		<ctl:param name="ReferenceableGridCoverageId"/> -->
 		<ctl:param name="SupportsGML"/>
-		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage,ReferenceableGridCoverage.</ctl:assertion>
+		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="not(empty($GridCoverageId))">
@@ -392,53 +396,55 @@
 					<ctl:fail/>
 				</xsl:otherwise>
 			</xsl:choose>
-			<xsl:choose>
-				<xsl:when test="not(empty($ReferenceableGridCoverageId))">
-					<xsl:choose>
-						<xsl:when test="$SupportsGML = 'true'">
-							<xsl:variable name="GetCoverage2">
-								<ctl:request>
-									<ctl:url>
-										<xsl:value-of select="$url"/>
-									</ctl:url>
-									<ctl:method>get</ctl:method>
-									<ctl:param name="SERVICE">WCS</ctl:param>
-									<ctl:param name="VERSION">2.0.1</ctl:param>
-									<ctl:param name="REQUEST">GetCoverage</ctl:param>
-									<ctl:param name="CoverageId">
-										<xsl:value-of select="$ReferenceableGridCoverageId"/>
-									</ctl:param>
-									<ctl:param name="SCALEFACTOR">2.0</ctl:param>
-									<ctlp:XMLValidatingParser>
-										<ctlp:schemas>
-											<ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema>
-										</ctlp:schemas>
-									</ctlp:XMLValidatingParser>
-								</ctl:request>
-							</xsl:variable>
-							<ctl:call-test name="wcs2:GetCoverage_not_exception">
-								<ctl:with-param name="GetCoverage" select="$GetCoverage2"/>
-							</ctl:call-test>
-						</xsl:when>
-						<xsl:otherwise>
-							<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one ReferenceableGridCoverage.</ctl:message>
-					<ctl:fail/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 			<xsl:choose> -->
+<!-- 				<xsl:when test="not(empty($ReferenceableGridCoverageId))"> -->
+<!-- 					<xsl:choose> -->
+<!-- 						<xsl:when test="$SupportsGML = 'true'"> -->
+<!-- 							<xsl:variable name="GetCoverage2"> -->
+<!-- 								<ctl:request> -->
+<!-- 									<ctl:url> -->
+<!-- 										<xsl:value-of select="$url"/> -->
+<!-- 									</ctl:url> -->
+<!-- 									<ctl:method>get</ctl:method> -->
+<!-- 									<ctl:param name="SERVICE">WCS</ctl:param> -->
+<!-- 									<ctl:param name="VERSION">2.0.1</ctl:param> -->
+<!-- 									<ctl:param name="REQUEST">GetCoverage</ctl:param> -->
+<!-- 									<ctl:param name="CoverageId"> -->
+<!-- 										<xsl:value-of select="$ReferenceableGridCoverageId"/> -->
+<!-- 									</ctl:param> -->
+<!-- 									<ctl:param name="SCALEFACTOR">2.0</ctl:param> -->
+<!-- 									<ctlp:XMLValidatingParser> -->
+<!-- 										<ctlp:schemas> -->
+<!-- 											<ctlp:schema type="url">http://schemas.opengis.net/wcs/2.0/wcsAll.xsd</ctlp:schema> -->
+<!-- 										</ctlp:schemas> -->
+<!-- 									</ctlp:XMLValidatingParser> -->
+<!-- 								</ctl:request> -->
+<!-- 							</xsl:variable> -->
+<!-- 							<ctl:call-test name="wcs2:GetCoverage_not_exception"> -->
+<!-- 								<ctl:with-param name="GetCoverage" select="$GetCoverage2"/> -->
+<!-- 							</ctl:call-test> -->
+<!-- 						</xsl:when> -->
+<!-- 						<xsl:otherwise> -->
+<!-- 							<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message> -->
+<!-- 						</xsl:otherwise> -->
+<!-- 					</xsl:choose> -->
+<!-- 				</xsl:when> -->
+<!-- 				<xsl:otherwise> -->
+<!-- 					<ctl:message>[FAILURE] The service should offer at least one ReferenceableGridCoverage.</ctl:message> -->
+<!-- 					<ctl:fail/> -->
+<!-- 				</xsl:otherwise> -->
+<!-- 			</xsl:choose> -->
 		</ctl:code>
 	</ctl:test>
 	<ctl:test name="wcs2:get-scal-req3-post">	
                 <ctl:param name="url"/>	
 		<ctl:param name="GridCoverageId"/>
 		<ctl:param name="RectifiedGridCoverageId"/>
-		<ctl:param name="ReferenceableGridCoverageId"/>
+		<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 		<ctl:param name="ReferenceableGridCoverageId"/> -->
                 <ctl:param name="SupportsGML"/>
-		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage,ReferenceableGridCoverage.</ctl:assertion>
+		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="not(empty($GridCoverageId))">
@@ -528,59 +534,61 @@
 					<ctl:fail/>
 				</xsl:otherwise>
 			</xsl:choose>
-			<xsl:choose>
-				<xsl:when test="not(empty($ReferenceableGridCoverageId))">
-					<xsl:choose>
-						<xsl:when test="$SupportsGML = 'true'">
-							<xsl:variable name="GetCoverage2">
-								<ctl:request>
-									<ctl:url>
-										<xsl:value-of select="$url"/>
-									</ctl:url>
-									<ctl:method>post</ctl:method>
-									<ctl:header name="Content-type">text/xml</ctl:header>
-									<ctl:body>
-										<wcs:GetCoverage xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsub="http://www.opengis.net/wcs/range-subsetting/1.0" xmlns:scal="http://www.opengis.net/wcs/scaling/1.0" service="WCS" version="2.0.1">
-											<wcs:CoverageId>
-												<xsl:value-of select="$ReferenceableGridCoverageId"/>
-											</wcs:CoverageId>
-											<wcs:Extension>
-												<scal:ScaleByFactor>
-													<scal:scaleFactor>2.0</scal:scaleFactor>
-												</scal:ScaleByFactor>
-											</wcs:Extension>
-										</wcs:GetCoverage>
-									</ctl:body>
-									<ctlp:XMLValidatingParser>
-										<ctlp:schemas>
-											<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
-										</ctlp:schemas>
-									</ctlp:XMLValidatingParser>
-								</ctl:request>
-							</xsl:variable>
-							<ctl:call-test name="wcs2:GetCoverage_not_exception">
-								<ctl:with-param name="GetCoverage" select="$GetCoverage2"/>
-							</ctl:call-test>
-						</xsl:when>
-						<xsl:otherwise>
-							<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one ReferenceableGridCoverageId.</ctl:message>
-					<ctl:fail/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 			<xsl:choose> -->
+<!-- 				<xsl:when test="not(empty($ReferenceableGridCoverageId))"> -->
+<!-- 					<xsl:choose> -->
+<!-- 						<xsl:when test="$SupportsGML = 'true'"> -->
+<!-- 							<xsl:variable name="GetCoverage2"> -->
+<!-- 								<ctl:request> -->
+<!-- 									<ctl:url> -->
+<!-- 										<xsl:value-of select="$url"/> -->
+<!-- 									</ctl:url> -->
+<!-- 									<ctl:method>post</ctl:method> -->
+<!-- 									<ctl:header name="Content-type">text/xml</ctl:header> -->
+<!-- 									<ctl:body> -->
+<!-- 										<wcs:GetCoverage xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsub="http://www.opengis.net/wcs/range-subsetting/1.0" xmlns:scal="http://www.opengis.net/wcs/scaling/1.0" service="WCS" version="2.0.1"> -->
+<!-- 											<wcs:CoverageId> -->
+<!-- 												<xsl:value-of select="$ReferenceableGridCoverageId"/> -->
+<!-- 											</wcs:CoverageId> -->
+<!-- 											<wcs:Extension> -->
+<!-- 												<scal:ScaleByFactor> -->
+<!-- 													<scal:scaleFactor>2.0</scal:scaleFactor> -->
+<!-- 												</scal:ScaleByFactor> -->
+<!-- 											</wcs:Extension> -->
+<!-- 										</wcs:GetCoverage> -->
+<!-- 									</ctl:body> -->
+<!-- 									<ctlp:XMLValidatingParser> -->
+<!-- 										<ctlp:schemas> -->
+<!-- 											<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema> -->
+<!-- 										</ctlp:schemas> -->
+<!-- 									</ctlp:XMLValidatingParser> -->
+<!-- 								</ctl:request> -->
+<!-- 							</xsl:variable> -->
+<!-- 							<ctl:call-test name="wcs2:GetCoverage_not_exception"> -->
+<!-- 								<ctl:with-param name="GetCoverage" select="$GetCoverage2"/> -->
+<!-- 							</ctl:call-test> -->
+<!-- 						</xsl:when> -->
+<!-- 						<xsl:otherwise> -->
+<!-- 							<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message> -->
+<!-- 						</xsl:otherwise> -->
+<!-- 					</xsl:choose> -->
+<!-- 				</xsl:when> -->
+<!-- 				<xsl:otherwise> -->
+<!-- 					<ctl:message>[FAILURE] The service should offer at least one ReferenceableGridCoverageId.</ctl:message> -->
+<!-- 					<ctl:fail/> -->
+<!-- 				</xsl:otherwise> -->
+<!-- 			</xsl:choose> -->
 		</ctl:code>
 	</ctl:test>
 	<ctl:test name="wcs2:get-scal-req3-soap">
                 <ctl:param name="url"/>
 		<ctl:param name="GridCoverageId"/>
 		<ctl:param name="RectifiedGridCoverageId"/>
-		<ctl:param name="ReferenceableGridCoverageId"/>
-                <ctl:param name="SupportsGML"/>
-		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage,ReferenceableGridCoverage.</ctl:assertion>
+		<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 		<ctl:param name="ReferenceableGridCoverageId"/> -->
+        <ctl:param name="SupportsGML"/>
+		<ctl:assertion>Req3:Test GridCoverage,RectifiedGridCoverage.</ctl:assertion>
 		<ctl:code>
 			<xsl:choose>
 				<xsl:when test="not(empty($GridCoverageId))">
@@ -666,48 +674,49 @@
 					<ctl:fail/>
 				</xsl:otherwise>
 			</xsl:choose>
-			<xsl:choose>
-				<xsl:when test="not(empty($ReferenceableGridCoverageId))">
-					<xsl:choose>
-						<xsl:when test="$SupportsGML = 'true'">
-							<xsl:variable name="GetCoverage2">
-								<ctl:soap-request version="1.2" charset="UTF-8">
-									<ctl:url>
-										<xsl:value-of select="$url"/>
-									</ctl:url>
-									<ctl:body>
-										<wcs:GetCoverage xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsub="http://www.opengis.net/wcs/range-subsetting/1.0"  xmlns:scal="http://www.opengis.net/wcs/scaling/1.0" service="WCS" version="2.0.1">
-											<wcs:CoverageId>
-												<xsl:value-of select="$ReferenceableGridCoverageId"/>
-											</wcs:CoverageId>
-											<wcs:Extension>
-												<scal:ScaleByFactor>
-													<scal:scaleFactor>2.0</scal:scaleFactor>
-												</scal:ScaleByFactor>
-											</wcs:Extension>
-										</wcs:GetCoverage>
-									</ctl:body>
-									<ctlp:XMLValidatingParser>
-										<ctlp:schemas>
-											<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema>
-										</ctlp:schemas>
-									</ctlp:XMLValidatingParser>
-								</ctl:soap-request>
-							</xsl:variable>
-							<ctl:call-test name="wcs2:GetCoverage_not_exception">
-								<ctl:with-param name="GetCoverage" select="$GetCoverage2"/>
-							</ctl:call-test>
-						</xsl:when>
-						<xsl:otherwise>
-							<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one ReferenceableGridCoverage.</ctl:message>
-					<ctl:fail/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
+<!-- 			<xsl:choose> -->
+<!-- 				<xsl:when test="not(empty($ReferenceableGridCoverageId))"> -->
+<!-- 					<xsl:choose> -->
+<!-- 						<xsl:when test="$SupportsGML = 'true'"> -->
+<!-- 							<xsl:variable name="GetCoverage2"> -->
+<!-- 								<ctl:soap-request version="1.2" charset="UTF-8"> -->
+<!-- 									<ctl:url> -->
+<!-- 										<xsl:value-of select="$url"/> -->
+<!-- 									</ctl:url> -->
+<!-- 									<ctl:body> -->
+<!-- 										<wcs:GetCoverage xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsub="http://www.opengis.net/wcs/range-subsetting/1.0"  xmlns:scal="http://www.opengis.net/wcs/scaling/1.0" service="WCS" version="2.0.1"> -->
+<!-- 											<wcs:CoverageId> -->
+<!-- 												<xsl:value-of select="$ReferenceableGridCoverageId"/> -->
+<!-- 											</wcs:CoverageId> -->
+<!-- 											<wcs:Extension> -->
+<!-- 												<scal:ScaleByFactor> -->
+<!-- 													<scal:scaleFactor>2.0</scal:scaleFactor> -->
+<!-- 												</scal:ScaleByFactor> -->
+<!-- 											</wcs:Extension> -->
+<!-- 										</wcs:GetCoverage> -->
+<!-- 									</ctl:body> -->
+<!-- 									<ctlp:XMLValidatingParser> -->
+<!-- 										<ctlp:schemas> -->
+<!-- 											<ctlp:schema type="resource">wcs/2.0/wcsAll.xsd</ctlp:schema> -->
+<!-- 										</ctlp:schemas> -->
+<!-- 									</ctlp:XMLValidatingParser> -->
+<!-- 								</ctl:soap-request> -->
+<!-- 							</xsl:variable> -->
+<!-- 							<ctl:call-test name="wcs2:GetCoverage_not_exception"> -->
+<!-- 								<ctl:with-param name="GetCoverage" select="$GetCoverage2"/> -->
+<!-- 							</ctl:call-test> -->
+<!-- 						</xsl:when> -->
+<!-- 						<xsl:otherwise> -->
+<!-- 							<ctl:message>[MESSAGE] The server does not support the gml coverage.</ctl:message> -->
+<!-- 						</xsl:otherwise> -->
+<!-- 					</xsl:choose> -->
+<!-- 				</xsl:when> -->
+<!-- 				<xsl:otherwise> -->
+<!-- 					<ctl:message>[FAILURE] The service should offer at least one ReferenceableGridCoverage.</ctl:message> -->
+<!-- 					<ctl:fail/> -->
+<!-- 				</xsl:otherwise> -->
+<!-- 			</xsl:choose> -->
 		</ctl:code>
 	</ctl:test>
 	<!--req4-->
