@@ -56,7 +56,18 @@
 			</xsl:otherwise>
 		</xsl:choose>    
     	</ctl:code>
-  </ctl:test> 
+  </ctl:test>
+  
+	<ctl:function name="wcs2:transformCoordinates">
+    	<ctl:param name="low1"/>
+    	<ctl:param name="low2"/>
+    	<ctl:param name="high1"/>
+    	<ctl:param name="high2"/>
+    	<ctl:param name="posList"/>	
+    	<ctl:param name="srcCrs"/>	
+    	<ctl:param name="targetCrs"/>
+      <ctl:java class="org.opengis.cite.wcs20.Utils" method="checkCoordinatesWithCrsTransformation"/>
+   </ctl:function>
   
   <ctl:test name="wcseo:minimal_time_interval">
      	<ctl:param name="url"/>	
