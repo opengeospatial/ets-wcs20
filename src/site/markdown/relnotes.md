@@ -1,5 +1,13 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.20 (2023-08-29)
+
+   - [#120](https://github.com/opengeospatial/ets-wcs20/issues/120) - WCS 2.0.1 test on earth observation application profile has problem in Test wcseo:req6
+   - [#37](https://github.com/opengeospatial/ets-wcs20/issues/37) - WCS 2.0.1 - Inconsistence between WCS Core and WCS Scaling Extension requirement
+   - [#121](https://github.com/opengeospatial/ets-wcs20/issues/121) - WCS 2.0.1 test on earth observation application profile has problem in Test wcseo:req38
+   - [#97](https://github.com/opengeospatial/ets-wcs20/issues/97) - Test wcs2:get-kvp-crs-req6 first listed crsSupported incompatible with coverage
+   - [#124](https://github.com/opengeospatial/ets-wcs20/issues/124) - wcs 2.0.1 te2 Test wcs2:req41 has problem
+
 ## 1.19 (2023-05-31)
 
    - [#111](https://github.com/opengeospatial/ets-wcs20/issues/111) - My WCS 2.0.1 service fails at the very beginning when run against compliance test
