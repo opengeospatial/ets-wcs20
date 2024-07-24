@@ -972,7 +972,7 @@
 						<xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/>
 					</ctl:param>
 					<ctl:param name="format">
-						<xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='formatSupported'][1]"/>
+						<xsl:value-of select="wcs2:encode($Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='formatSupported'][1])"/>
 					</ctl:param>
 					<ctl:param name="mediatype">multipart/related</ctl:param>
 					<ctl:param name="subset">dimension_bogus(<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]),' ')[1])"/>,<xsl:value-of select="number(tokenize(normalize-space($DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]),' ')[1])"/>)</ctl:param>
