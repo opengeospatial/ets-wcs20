@@ -22,7 +22,8 @@
 			</xsl:variable>
 			<xsl:variable name="SupportsGML">
 				<xsl:for-each select="$response//*[local-name()='ServiceIdentification']/*[local-name()='Profile']">
-					<xsl:if test="contains(., 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml')">
+					<xsl:if test="contains(., 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml') and 
+					       not(contains(., 'http://www.opengis.net/spec/GMLCOV/1.0/conf/gml-coverage'))">
 						<xsl:value-of select="'true'"/>
 					</xsl:if>
 				</xsl:for-each>
