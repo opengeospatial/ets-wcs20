@@ -1,5 +1,11 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.21 (2024-08-30)
+
+   - [#137](https://github.com/opengeospatial/ets-wcs20/issues/137) - Advice requested for a failing WCS 2.0.1 test
+   - [#125](https://github.com/opengeospatial/ets-wcs20/issues/125) - Improve check for Coverage GML Profile
+   - [#140](https://github.com/opengeospatial/ets-wcs20/pull/140) - Set version of TEAM Engine dependency to 5.7
+
 ## 1.20 (2023-08-29)
 
    - [#120](https://github.com/opengeospatial/ets-wcs20/issues/120) - WCS 2.0.1 test on earth observation application profile has problem in Test wcseo:req6
