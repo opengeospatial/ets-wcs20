@@ -64,9 +64,9 @@
     <soapui.teamengine.user>ogctest</soapui.teamengine.user>
     <soapui.teamengine.password>ogctest</soapui.teamengine.password>
     <soapui.iut>http://conformance.rasdaman.com/cite?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</soapui.iut>
-    <soapui.tests.passed>126</soapui.tests.passed>
+    <soapui.tests.passed>129</soapui.tests.passed>
     <soapui.tests.skipped>0</soapui.tests.skipped>
-    <soapui.tests.failed>1</soapui.tests.failed>
+    <soapui.tests.failed>0</soapui.tests.failed>
     <soapui.test.fail.ignore>false</soapui.test.fail.ignore>
   </properties>
 
