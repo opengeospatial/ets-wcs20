@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ets-wcs20</artifactId>
   <groupId>org.opengis.cite</groupId>
-  <version>1.21-SNAPSHOT</version>
+  <version>1.21</version>
 
   <name>OGC Web Coverage Service 2.0.1 - Executable Test Suite</name>
   <description>
@@ -25,7 +25,7 @@
     <url>https://github.com/opengeospatial/ets-wcs20</url>    
     <connection>scm:git:https://github.com/opengeospatial/ets-wcs20.git</connection>    
     <developerConnection>scm:git:git@github.com:opengeospatial/ets-wcs20.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>1.21</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issue Tracker</system>
