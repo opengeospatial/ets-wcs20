@@ -586,8 +586,11 @@
 								<xsl:value-of select="$CoverageId"/>
 							</ctl:param>
 							<ctl:param name="SCALEFACTOR">2.0</ctl:param>
-							<ctl:param name="interpolation">
-								<xsl:value-of select="concat((tokenize($axisLabels, ' '))[1],':',$InterpolationSupported[1],',',(tokenize($axisLabels, ' '))[1],':',$InterpolationSupported[1])"/>
+							<ctl:param name="INTERPOLATIONPERAXIS">
+								<xsl:value-of select="concat((tokenize($axisLabels, ' '))[1],',',$InterpolationSupported[1])"/>
+							</ctl:param>
+							<ctl:param name="INTERPOLATIONPERAXIS">
+								<xsl:value-of select="concat((tokenize($axisLabels, ' '))[1],',',$InterpolationSupported[1])"/>
 							</ctl:param>
 							<ctl:param name="FORMAT">application/gml%2Bxml</ctl:param>
 							<ctlp:XMLValidatingParser>
@@ -1075,8 +1078,11 @@
 								<xsl:value-of select="$CoverageId"/>
 							</ctl:param>
 							<ctl:param name="SCALEFACTOR">2.0</ctl:param>
-							<ctl:param name="interpolation">
-								<xsl:value-of select="concat((tokenize($axisLabels, ' '))[1],':',$InterpolationSupported[1],',',(tokenize($axisLabels, ' '))[2],':',$InterpolationSupported[1])"/>
+							<ctl:param name="INTERPOLATIONPERAXIS">
+								<xsl:value-of select="concat((tokenize($axisLabels, ' '))[1],',',$InterpolationSupported[1])"/>
+							</ctl:param>
+							<ctl:param name="INTERPOLATIONPERAXIS">
+								<xsl:value-of select="concat((tokenize($axisLabels, ' '))[2],',',$InterpolationSupported[1])"/>
 							</ctl:param>
 							<ctl:param name="FORMAT">application/gml%2Bxml</ctl:param>
 							<ctlp:XMLValidatingParser>
