@@ -371,6 +371,10 @@
       <resource>
         <directory>${basedir}/src/main/resources</directory>
         <filtering>true</filtering>
+        <excludes>
+          <exclude>**/*.dat</exclude>
+          <exclude>**/*.tif</exclude>
+        </excludes>
       </resource>
       <resource>
         <directory>${basedir}/src/main/scripts</directory>
