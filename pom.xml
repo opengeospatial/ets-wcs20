@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <parent>
     <groupId>org.opengis.cite</groupId>
     <artifactId>ets-common</artifactId>
     <version>15-SNAPSHOT</version>
   </parent>
-  
+
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ets-wcs20</artifactId>
   <version>1.22-SNAPSHOT</version>
 
   <name>OGC Web Coverage Service 2.0.1 - Executable Test Suite</name>
   <description>
-  Verifies conformance of implementations to OGC Web Coverage Service 2.0.1.
+    Verifies conformance of implementations to OGC Web Coverage Service 2.0.1.
   </description>
   <url>https://github.com/opengeospatial/ets-wcs20</url>
   <licenses>
@@ -25,11 +26,11 @@
 
   <organization>
     <name>Open Geospatial Consortium</name>
-    <url>http://www.opengeospatial.org</url>
+    <url>https://www.ogc.org</url>
   </organization>
   <scm>
-    <url>https://github.com/opengeospatial/ets-wcs20</url>    
-    <connection>scm:git:https://github.com/opengeospatial/ets-wcs20.git</connection>    
+    <url>https://github.com/opengeospatial/ets-wcs20</url>
+    <connection>scm:git:https://github.com/opengeospatial/ets-wcs20.git</connection>
     <developerConnection>scm:git:git@github.com:opengeospatial/ets-wcs20.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
@@ -63,15 +64,14 @@
   <properties>
     <ets-code>wcs</ets-code>
     <spec-version>2.0.1</spec-version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <soapui.teamengine.endpoint>http://localhost:8081/teamengine</soapui.teamengine.endpoint>
     <soapui.teamengine.user>ogctest</soapui.teamengine.user>
     <soapui.teamengine.password>ogctest</soapui.teamengine.password>
-    <soapui.iut>https://conformance.rasdaman.com/cite?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</soapui.iut>
+    <soapui.iut>https://conformance.rasdaman.com/cite?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities
+    </soapui.iut>
     <soapui.tests.passed>129</soapui.tests.passed>
     <soapui.tests.skipped>0</soapui.tests.skipped>
     <soapui.tests.failed>0</soapui.tests.failed>
-    <soapui.test.fail.ignore>false</soapui.test.fail.ignore>
   </properties>
 
   <dependencies>
@@ -94,13 +94,6 @@
     </dependency>
   </dependencies>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>smartbear-sweden-plugin-repository</id>
-      <url>http://www.soapui.org/repository/maven2/</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <build>
     <plugins>
       <plugin>
@@ -111,20 +104,7 @@
               <mainClass>org.opengis.cite.wcs20.CtlController</mainClass>
             </manifest>
           </archive>
-          <descriptors>
-            <descriptor>${basedir}/src/assembly/ctl.xml</descriptor>
-            <descriptor>${basedir}/src/assembly/aio.xml</descriptor>
-            <descriptor>${basedir}/src/assembly/deps.xml</descriptor>
-          </descriptors>
         </configuration>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>com.smartbear.soapui</groupId>
@@ -147,34 +127,12 @@
 
     <pluginManagement>
       <plugins>
-         <plugin>
+        <plugin>
           <groupId>io.fabric8</groupId>
           <artifactId>docker-maven-plugin</artifactId>
           <configuration>
             <images>
               <image>
-                <name>ogccite/${project.artifactId}</name>
-                <build>
-                  <dockerFileDir>${project.basedir}/src/docker</dockerFileDir>
-                  <tags>
-                    <tag>${project.version}-teamengine-${teamengine.version}</tag>
-                  </tags>
-                  <assembly>
-                    <inline>
-                      <fileSets>
-                        <fileSet>
-                          <directory>${project.build.directory}</directory>
-                          <outputDirectory>.</outputDirectory>
-                          <includes>
-                            <include>dependency/*teamengine-*.war</include>
-                            <include>dependency/*teamengine-*.zip</include>
-                            <include>*ets-*.zip</include>
-                          </includes>
-                        </fileSet>
-                      </fileSets>
-                    </inline>
-                  </assembly>
-                </build>
                 <run>
                   <ports>
                     <port>8081:8080</port>
@@ -211,7 +169,6 @@
         <targetPath>doc/${ets-code}/${project.version}</targetPath>
       </resource>
     </resources>
-
   </build>
 
   <profiles>
@@ -251,6 +208,13 @@
       </build>
     </profile>
   </profiles>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>smartbear-sweden-plugin-repository</id>
+      <url>https://www.soapui.org/repository/maven2/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <distributionManagement>
     <site>
