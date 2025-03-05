@@ -1,5 +1,11 @@
 # WCS 2.0 Test Suite Release Notes
 
+## 1.22 (2025-03-05)
+
+Attention: Java 17 and Tomcat 10.1 are required.
+
+   - [#142](https://github.com/opengeospatial/ets-wcs20/issues/142) - Migrate test suite to TEAM Engine 6 (Java 17)
+
 ## 1.21 (2024-08-30)
 
    - [#137](https://github.com/opengeospatial/ets-wcs20/issues/137) - Advice requested for a failing WCS 2.0.1 test
