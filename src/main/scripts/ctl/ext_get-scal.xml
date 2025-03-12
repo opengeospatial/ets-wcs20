@@ -2105,7 +2105,7 @@
 		<ctl:param name="DescribeCoverage"/>
 		<ctl:assertion>Req13:Test scale-axes-by-factor result.</ctl:assertion>
 		<ctl:code>
-			<xsl:if test="not(floor(number(tokenize(string($DescribeCoverage//*[local-name()='domainSet']//*[local-name()='GridEnvelope']/*[local-name()='high']),'\s+')[1]) * 2) = number(tokenize(string($GetCoverage//*[local-name()='domainSet']//*[local-name()='GridEnvelope']/*[local-name()='high']),'\s+')[1] ))">
+			<xsl:if test="not(number(tokenize(string($DescribeCoverage//*[local-name()='domainSet']//*[local-name()='GridEnvelope']/*[local-name()='high']),'\s+')[1]) = floor(number(tokenize(string($GetCoverage//*[local-name()='domainSet']//*[local-name()='GridEnvelope']/*[local-name()='high']),'\s+')[1] ) div 2))">
 				<ctl:message>[FAILURE] The scal result is not correct.</ctl:message>
 				<ctl:fail/>
 			</xsl:if>
