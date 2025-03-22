@@ -353,10 +353,6 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one GridCoverage.</ctl:message>
-					<ctl:fail/>
-				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
 				<xsl:when test="not(empty($RectifiedGridCoverageId))">
@@ -391,10 +387,12 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one RectifiedGridCoverageId.</ctl:message>
+			</xsl:choose>
+			<xsl:choose>
+				<xsl:when test="empty($GridCoverageId) and empty($RectifiedGridCoverageId)">
+					<ctl:message>[FAILURE] The service should offer at least one GridCoverageId or one RectifiedGridCoverageId.</ctl:message>
 					<ctl:fail/>
-				</xsl:otherwise>
+				</xsl:when>
 			</xsl:choose>
 			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 			<xsl:choose> -->
@@ -485,10 +483,6 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one GridCoverage.</ctl:message>
-					<ctl:fail/>
-				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
 				<xsl:when test="not(empty($RectifiedGridCoverageId))">
@@ -529,10 +523,12 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one RectifiedGridCoverage.</ctl:message>
+			</xsl:choose>
+			<xsl:choose>
+				<xsl:when test="empty($GridCoverageId) and empty($RectifiedGridCoverageId)">
+					<ctl:message>[FAILURE] The service should offer at least one GridCoverageId or one RectifiedGridCoverageId.</ctl:message>
 					<ctl:fail/>
-				</xsl:otherwise>
+				</xsl:when>
 			</xsl:choose>
 			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 			<xsl:choose> -->
@@ -627,10 +623,6 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one GridCoverage.</ctl:message>
-					<ctl:fail/>
-				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
 				<xsl:when test="not(empty($RectifiedGridCoverageId))">
@@ -669,10 +661,12 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
-				<xsl:otherwise>
-					<ctl:message>[FAILURE] The service should offer at least one RectifiedGridCoverageId.</ctl:message>
+			</xsl:choose>
+			<xsl:choose>
+				<xsl:when test="empty($GridCoverageId) and empty($RectifiedGridCoverageId)">
+					<ctl:message>[FAILURE] The service should offer at least one $GridCoverageId or one RectifiedGridCoverageId.</ctl:message>
 					<ctl:fail/>
-				</xsl:otherwise>
+				</xsl:when>
 			</xsl:choose>
 			<!-- Commented out as of https://github.com/opengeospatial/ets-wcs20/issues/37 -->
 <!-- 			<xsl:choose> -->
@@ -2732,4 +2726,3 @@
 		</ctl:code>
 	</ctl:test>
 </ctl:package>
-
