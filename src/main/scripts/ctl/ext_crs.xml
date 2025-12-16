@@ -470,18 +470,36 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='boundedBy']/*[local-name()='Envelope']/@*[local-name()='srsName']"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req7">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<ctl:param name="SUBSETTINGCRS">
+            			<xsl:value-of select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsName"/>
+            		</ctl:param>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req7">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<ctl:param name="SUBSETTINGCRS">
+            			<xsl:value-of select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsName"/>
+            		</ctl:param>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req7">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req7">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -530,16 +548,30 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req7-1">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req7-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req7-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req7-1">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -629,9 +661,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
+            <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req8">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req8">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:call-template name="for-loop-get-kvp-crs-req8">
                   <xsl:with-param name="i">1</xsl:with-param>
                   <xsl:with-param name="count">
@@ -691,20 +745,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req8-1">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req8-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req8-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req8-1">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -791,17 +856,30 @@
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
              <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req9">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req9">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req9">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req9">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -853,17 +931,30 @@
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
              <ctl:param name="SUBSETTINGCRS">crsSupported_bogus</ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req9-1">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req9-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req9-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req9-1">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -950,18 +1041,32 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='boundedBy']/*[local-name()='Envelope']/@*[local-name()='srsName']"/></ctl:param>
-
-
-                  <xsl:call-template name="for-loop-get-kvp-crs-req10">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+                    <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']/@*[local-name()='srsName']"/></ctl:param>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req10">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+                    <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='boundedBy']/*[local-name()='Envelope']/@*[local-name()='srsName']"/></ctl:param>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req10">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req10">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1012,16 +1117,30 @@
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
             <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req10-1">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req10-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req10-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req10-1">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1112,17 +1231,30 @@
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
              <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req11">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req11">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req11">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req11">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1173,20 +1305,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
             <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req11-1">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req11-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req11-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req11-1">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1274,17 +1417,30 @@
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
              <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req12">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req12">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req12">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req12">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1335,19 +1491,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="OUTPUTCRS">outputCrs_bogus</ctl:param>
-
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req12-1">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="OUTPUTCRS">outputCrs_bogus</ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req12-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req12-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req12-1">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1434,18 +1602,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req13">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req13">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req13">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req13">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1534,18 +1715,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="SUBSETTINGCRS">subsettingCrs_bogus</ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req14">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="SUBSETTINGCRS">subsettingCrs_bogus</ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req14">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req14">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req14">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1598,19 +1792,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="OUTPUTCRS">outputCrs_bogus</ctl:param>
-
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req14-1">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="OUTPUTCRS">outputCrs_bogus</ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req14-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req14-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req14-1">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1700,18 +1906,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req15">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req15">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req15">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req15">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -1782,17 +2001,30 @@
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
             <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req16">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req16">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req16">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req16">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -2070,18 +2302,30 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req21_without_subsettingCrs">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req21_without_subsettingCrs">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req21_without_subsettingCrs">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req21_without_subsettingCrs">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -2131,17 +2375,30 @@
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
              <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req21_with_subsettingCrs">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req21_with_subsettingCrs">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req21_with_subsettingCrs">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req21_with_subsettingCrs">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -2190,18 +2447,30 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req21_without_OutputCrs">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req21_without_OutputCrs">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req21_without_OutputCrs">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req21_without_OutputCrs">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -2250,18 +2519,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req21_with_OutputCrs">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req21_with_OutputCrs">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req21_with_OutputCrs">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req21_with_OutputCrs">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -2384,18 +2666,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req24">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req24">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req24">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req24">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -2444,17 +2739,31 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-             <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req24-1">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req24-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req24-1">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req24-1">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -2504,16 +2813,30 @@
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
              <ctl:param name="SUBSETTINGCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
             <ctl:param name="OUTPUTCRS"><xsl:value-of select="$Capabilities//*[local-name()='ServiceMetadata']//*[local-name()='CrsMetadata']/*[local-name()='crsSupported'][1]"/></ctl:param>
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req24-2">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req24-2">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req24-2">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req24-2">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
@@ -2561,16 +2884,30 @@
             <ctl:param name="VERSION">2.0.1</ctl:param>
             <ctl:param name="request">GetCoverage</ctl:param>
             <ctl:param name="coverageid"><xsl:value-of select="$Capabilities//*[local-name()='CoverageSummary'][1]/*[local-name()='CoverageId'][1]"/></ctl:param>
-
-                <xsl:call-template name="for-loop-get-kvp-crs-req24-3">
-                  <xsl:with-param name="i">1</xsl:with-param>
-                  <xsl:with-param name="count">
-                    <xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)" />
-                  </xsl:with-param>
-                  <xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
-                  <xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
-                  <xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
-                </xsl:call-template>
+            <xsl:choose>
+            	<xsl:when test="not(empty($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod']))">
+            		<xsl:call-template name="for-loop-get-kvp-crs-req24-3">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='EnvelopeWithTimePeriod'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:when>
+            	<xsl:otherwise>
+            		<xsl:call-template name="for-loop-get-kvp-crs-req24-3">
+            			<xsl:with-param name="i">1</xsl:with-param>
+            			<xsl:with-param name="count">
+            				<xsl:value-of select="number($DescribeCoverage//*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/@srsDimension)"/>
+            			</xsl:with-param>
+            			<xsl:with-param name="axisLabels" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]//*[local-name()='boundedBy']/*[local-name()='Envelope'][1][@axisLabels]/@axisLabels"/>
+            			<xsl:with-param name="low" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='lowerCorner'][1]"/>
+            			<xsl:with-param name="high" select="$DescribeCoverage//*[local-name()='CoverageDescription'][1]/*[local-name()='boundedBy']/*[local-name()='Envelope'][1]/*[local-name()='upperCorner'][1]"/>
+            		</xsl:call-template>
+            	</xsl:otherwise>
+            </xsl:choose>
                 <xsl:template name="for-loop-get-kvp-crs-req24-3">
                   <xsl:param name="i" as="xs:integer"/>
                   <xsl:param name="count" as="xs:integer"/>
